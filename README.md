@@ -18,12 +18,17 @@ A simple PDF viewer that allows you to quickly access any page of the 2025 U.S. 
 2. Enter a page number (1-553)
 3. Press Enter or click "View" to display the PDF
 
+## Development next steps
+
+- change to search by guideline section or chapter, not pages the manual does not have standard pagination across editions
+
+
 ## Planned Features
 
 - Drug weight conversion calculator
 - Fraud guideline walk-through calculator
 - Drug guideline walk-through calculator
-- VOSR (Victim of State-Sponsored Removals) guideline table
+- VOSR (Violation of Supervised Release) guideline table calculator
 - Sentencing table generator
 - Gun guideline calculator
 
