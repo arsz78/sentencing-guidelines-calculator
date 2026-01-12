@@ -31,3 +31,14 @@ Temporary Items
 
 # Claude Code settings (keep local only)
 .claude/settings.local.json
+
+# Generated files (can be rebuilt)
+guideline-viewer-complete.html
+pdf-data.js
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
