@@ -1,0 +1,93 @@
+{
+  "adjustments": [
+    {
+      "id": "role",
+      "title": "Role in the Offense",
+      "section": "3B1.1 / 3B1.2",
+      "pdfReference": "Guidelines/GLMFull 333.pdf",
+      "type": "select",
+      "question": "What was the defendant's role in the offense?",
+      "options": [
+        {
+          "label": "Organizer or leader of criminal activity involving 5+ participants or otherwise extensive",
+          "adjustment": 4,
+          "reference": "\u00a73B1.1(a)"
+        },
+        {
+          "label": "Manager or supervisor (not organizer/leader) of activity involving 5+ participants or otherwise extensive",
+          "adjustment": 3,
+          "reference": "\u00a73B1.1(b)"
+        },
+        {
+          "label": "Organizer, leader, manager, or supervisor of smaller criminal activity",
+          "adjustment": 2,
+          "reference": "\u00a73B1.1(c)"
+        },
+        {
+          "label": "No aggravating or mitigating role adjustment",
+          "adjustment": 0
+        },
+        {
+          "label": "Minor participant (limited role, less culpable than average participant)",
+          "adjustment": -2,
+          "reference": "\u00a73B1.2(b)"
+        },
+        {
+          "label": "Between minor and minimal participant",
+          "adjustment": -3,
+          "reference": "\u00a73B1.2"
+        },
+        {
+          "label": "Minimal participant (least culpable, limited knowledge of scope)",
+          "adjustment": -4,
+          "reference": "\u00a73B1.2(a)"
+        }
+      ]
+    },
+    {
+      "id": "obstruction",
+      "title": "Obstruction of Justice",
+      "section": "3C1.1",
+      "pdfReference": "Guidelines/GLMFull 340.pdf",
+      "type": "yesno",
+      "question": "Did the defendant obstruct or impede the administration of justice during the investigation, prosecution, or sentencing of the instant offense?",
+      "description": "Examples include: threatening witnesses, destroying evidence, perjury, providing materially false information to officials, fleeing prosecution.",
+      "yesAdjustment": 2,
+      "noAdjustment": 0
+    },
+    {
+      "id": "acceptance",
+      "title": "Acceptance of Responsibility",
+      "section": "3E1.1",
+      "pdfReference": "Guidelines/GLMFull 357.pdf",
+      "type": "select",
+      "question": "Did the defendant accept responsibility for the offense?",
+      "options": [
+        {
+          "label": "No acceptance of responsibility",
+          "adjustment": 0
+        },
+        {
+          "label": "Yes - clearly demonstrated acceptance (2-level reduction)",
+          "adjustment": -2,
+          "reference": "\u00a73E1.1(a)",
+          "note": "Applies if defendant truthfully admits conduct, voluntary termination, etc."
+        },
+        {
+          "label": "Yes - acceptance with timely guilty plea (3-level reduction)",
+          "adjustment": -3,
+          "reference": "\u00a73E1.1(a) and (b)",
+          "note": "Additional 1-level requires: offense level 16+, government motion, timely notification of guilty plea"
+        }
+      ],
+      "incompatibleWith": ["obstruction"],
+      "incompatibilityNote": "A defendant who obstructs justice is generally not entitled to acceptance of responsibility reduction"
+    }
+  ],
+  "applicationOrder": ["role", "obstruction", "acceptance"],
+  "notes": {
+    "obstruction_acceptance": "Conduct resulting in an obstruction enhancement ordinarily indicates the defendant has not accepted responsibility. However, there may be extraordinary cases where adjustments for both apply.",
+    "acceptance_timing": "The 3-level reduction under \u00a73E1.1(a) and (b) requires the offense level prior to the reduction to be 16 or greater.",
+    "role_single_defendant": "Role adjustments generally only apply when there are multiple participants. A defendant acting alone typically receives no role adjustment."
+  }
+}

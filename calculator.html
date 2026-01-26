@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Federal Sentencing Guidelines Calculator</title>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --secondary: #718096;
+            --accent: #3182ce;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --bg: #f7fafc;
+            --card-bg: #ffffff;
+            --text: #2d3748;
+            --text-muted: #718096;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: var(--primary-light);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .offense-level-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .offense-level-display .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .offense-level-display .level {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar .fill {
+            height: 100%;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .question-section {
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .question-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #f0f4f8;
+            border-radius: 4px;
+        }
+
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .answer-btn {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .answer-btn:hover {
+            border-color: var(--accent);
+            background: #ebf8ff;
+        }
+
+        .answer-btn.selected {
+            border-color: var(--accent);
+            background: #ebf8ff;
+        }
+
+        .answer-btn .adjustment {
+            float: right;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .answer-btn .adjustment.positive {
+            color: var(--danger);
+        }
+
+        .answer-btn .adjustment.negative {
+            color: var(--success);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6778;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .breakdown {
+            margin-top: 20px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .breakdown-item .description {
+            flex: 1;
+        }
+
+        .breakdown-item .value {
+            font-weight: 600;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .breakdown-item .value.positive {
+            color: var(--danger);
+        }
+
+        .breakdown-item .value.negative {
+            color: var(--success);
+        }
+
+        .breakdown-item.total {
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding-top: 15px;
+            margin-top: 5px;
+            border-top: 2px solid var(--primary);
+        }
+
+        .section-reference {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .phase-indicator {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .phase-step {
+            flex: 1;
+            padding: 8px 12px;
+            background: var(--border);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .phase-step.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .phase-step.completed {
+            background: var(--success);
+            color: white;
+        }
+
+        .start-screen {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .start-screen h2 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .start-screen p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .offense-select {
+            margin-bottom: 30px;
+        }
+
+        .offense-select select {
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 15px;
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .results-screen {
+            text-align: center;
+        }
+
+        .results-screen .final-level {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+
+        .results-screen .final-label {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .offense-level-display .level {
+                font-size: 2rem;
+            }
+
+            .phase-step {
+                font-size: 0.7rem;
+                padding: 6px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Federal Sentencing Guidelines Calculator</h1>
+            <p>2025 Guidelines Manual - Offense Level Calculator</p>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="card">
+            <div class="card-body start-screen">
+                <h2>Calculate Offense Level</h2>
+                <p>This calculator helps determine the Total Offense Level for federal sentencing guidelines. Select an offense to begin.</p>
+
+                <div class="offense-select">
+                    <select id="offenseSelect">
+                        <option value="">-- Select an Offense --</option>
+                        <option value="2K2.1">2K2.1 - Unlawful Receipt, Possession, or Transportation of Firearms</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" id="startBtn" disabled>Begin Calculation</button>
+
+                <div class="disclaimer">
+                    <strong>Disclaimer:</strong> This calculator is for educational purposes only. It does not constitute legal advice. Consult a qualified attorney for actual sentencing matters. This version calculates offense level only - criminal history must be determined separately.
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Screen -->
+        <div id="calculatorScreen" class="hidden">
+            <!-- Progress -->
+            <div class="phase-indicator">
+                <div class="phase-step" id="phase-base">Base Level</div>
+                <div class="phase-step" id="phase-soc">Specific Characteristics</div>
+                <div class="phase-step" id="phase-ch3">Chapter 3 Adjustments</div>
+                <div class="phase-step" id="phase-result">Result</div>
+            </div>
+
+            <!-- Current Offense Level -->
+            <div class="offense-level-display">
+                <div>
+                    <div class="label">Current Offense Level</div>
+                    <div id="currentOffense" style="font-size: 0.9rem; opacity: 0.8;"></div>
+                </div>
+                <div class="level" id="currentLevel">--</div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="card" id="questionCard">
+                <div class="card-header" id="questionHeader">Question</div>
+                <div class="card-body">
+                    <div class="question-section">
+                        <div class="question-text" id="questionText"></div>
+                        <div class="question-note hidden" id="questionNote"></div>
+                        <div class="answer-options" id="answerOptions"></div>
+                    </div>
+
+                    <div class="nav-buttons">
+                        <button class="btn btn-outline" id="backBtn" disabled>Back</button>
+                        <button class="btn btn-secondary" id="restartBtn">Start Over</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="resultsScreen" class="hidden">
+            <div class="card">
+                <div class="card-header">Calculation Complete</div>
+                <div class="card-body results-screen">
+                    <div class="final-label">Total Offense Level</div>
+                    <div class="final-level" id="finalLevel"></div>
+                    <p style="color: var(--text-muted); margin-bottom: 20px;">
+                        Use this offense level with the defendant's Criminal History Category to find the sentencing range in the Sentencing Table (Chapter 5, Part A).
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">Calculation Breakdown</div>
+                <div class="card-body">
+                    <div class="breakdown" id="breakdown"></div>
+                </div>
+            </div>
+
+            <div class="nav-buttons" style="justify-content: center;">
+                <button class="btn btn-primary" id="newCalcBtn">New Calculation</button>
+            </div>
+
+            <div class="disclaimer" style="margin-top: 20px;">
+                <strong>Reference:</strong> See the 2025 U.S. Sentencing Guidelines Manual for complete guidelines and commentary. PDF files are available in the Guidelines folder.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data will be inlined by build script - placeholders for now
+        const OFFENSE_DATA = /*OFFENSE_DATA_PLACEHOLDER*/{
+  "2K2.1": {
+    "title": "Unlawful Receipt, Possession, or Transportation of Firearms or Ammunition",
+    "section": "2K2.1",
+    "pdfReference": "Guidelines/GLMFull 245.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve a semiautomatic firearm capable of accepting a large capacity magazine (>15 rounds) OR a firearm described in 26 U.S.C. \u00a7 5845(a) (short-barreled rifle/shotgun, machinegun, silencer, destructive device)?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Did the defendant commit the offense subsequent to sustaining at least TWO felony convictions of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "Semiauto/NFA firearm + 2+ prior COV/CSO felonies"
+        },
+        "noNext": "base_1b"
+      },
+      {
+        "id": "base_1b",
+        "text": "Did the defendant commit the offense subsequent to sustaining ONE felony conviction of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "Semiauto/NFA firearm + 1 prior COV/CSO felony"
+        },
+        "noNext": "base_1c"
+      },
+      {
+        "id": "base_1c",
+        "text": "Was the defendant a prohibited person under 18 U.S.C. \u00a7 922(g), OR convicted under \u00a7 922(d)/932/933, OR convicted under \u00a7 922(a)(6)/924(a)(1)(A) with intent to transfer to a prohibited person?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Semiauto/NFA firearm + prohibited person or straw purchase"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the defendant commit the offense subsequent to sustaining at least TWO felony convictions of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 24,
+          "description": "2+ prior COV/CSO felonies"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Did the defendant commit the offense subsequent to sustaining ONE felony conviction of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "1 prior COV/CSO felony"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_4",
+        "text": "Was the defendant a prohibited person under 18 U.S.C. \u00a7 922(g), OR convicted under \u00a7 922(d)/932/933, OR convicted under \u00a7 922(a)(6)/924(a)(1)(A) with knowledge/intent that the offense would result in transfer to a prohibited person?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Prohibited person or straw purchase"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_5",
+        "text": "Did the offense involve a firearm described in 26 U.S.C. \u00a7 5845(a) (short-barreled rifle/shotgun, machinegun, silencer, destructive device)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "NFA firearm (\u00a7 5845(a))"
+        },
+        "noNext": "base_6"
+      },
+      {
+        "id": "base_6",
+        "text": "Was the defendant convicted under 18 U.S.C. \u00a7 922(c), (e), (f), (m), (s), (t), or (x)(1), or 18 U.S.C. \u00a7 1715 (technical/regulatory violations)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Technical/regulatory violation"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Standard firearms offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_firearms_count",
+        "text": "How many firearms were involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(1)",
+        "options": [
+          {
+            "label": "Fewer than 3",
+            "adjustment": 0
+          },
+          {
+            "label": "3-7 firearms",
+            "adjustment": 2
+          },
+          {
+            "label": "8-24 firearms",
+            "adjustment": 4
+          },
+          {
+            "label": "25-99 firearms",
+            "adjustment": 6
+          },
+          {
+            "label": "100-199 firearms",
+            "adjustment": 8
+          },
+          {
+            "label": "200 or more firearms",
+            "adjustment": 10
+          }
+        ]
+      },
+      {
+        "id": "soc_sporting",
+        "text": "Did the defendant possess all ammunition and firearms solely for lawful sporting purposes or collection, without unlawful discharge or use?",
+        "type": "yesno",
+        "reference": "\u00a72K2.1(b)(2)",
+        "condition": "baseLevel <= 14",
+        "note": "Only applies if base level is from (a)(6), (a)(7), or (a)(8)",
+        "yesEffect": {
+          "setLevel": 6,
+          "description": "Sporting/collection reduction"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_destructive",
+        "text": "Did the offense involve a destructive device?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(3)",
+        "options": [
+          {
+            "label": "No destructive device",
+            "adjustment": 0
+          },
+          {
+            "label": "Portable rocket, missile, or launcher",
+            "adjustment": 15
+          },
+          {
+            "label": "Other destructive device",
+            "adjustment": 2
+          }
+        ]
+      },
+      {
+        "id": "soc_stolen_serial",
+        "text": "Was any firearm stolen or did any firearm have an altered/obliterated serial number?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(4)",
+        "options": [
+          {
+            "label": "No",
+            "adjustment": 0
+          },
+          {
+            "label": "Any firearm was stolen",
+            "adjustment": 2
+          },
+          {
+            "label": "Any firearm had altered/obliterated serial number or no serial number",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "soc_conversion",
+        "text": "Did the offense involve machinegun conversion devices (e.g., auto sears, Glock switches)?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(5)",
+        "options": [
+          {
+            "label": "No conversion devices",
+            "adjustment": 0
+          },
+          {
+            "label": "Possessed 4+ OR transferred/sold any conversion device",
+            "adjustment": 2
+          },
+          {
+            "label": "Possessed 30 or more conversion devices",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "soc_trafficking",
+        "text": "Did the offense involve trafficking firearms to prohibited persons or for unlawful purposes?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(6)",
+        "options": [
+          {
+            "label": "No trafficking",
+            "adjustment": 0
+          },
+          {
+            "label": "Convicted under \u00a7 933(a)(2) or (a)(3)",
+            "adjustment": 2
+          },
+          {
+            "label": "Transferred firearm knowing recipient was prohibited or intended unlawful use",
+            "adjustment": 2
+          },
+          {
+            "label": "Transferred 2+ firearms to person with prior COV/CSO, under criminal justice sentence, or for unlawful use",
+            "adjustment": 5
+          }
+        ]
+      },
+      {
+        "id": "soc_export_felony",
+        "text": "Did the defendant possess/transfer firearms with intent to export, or use/possess in connection with another felony?",
+        "type": "yesno",
+        "reference": "\u00a72K2.1(b)(7)",
+        "yesEffect": {
+          "adjustment": 4,
+          "minimumLevel": 18,
+          "description": "Export or connection with felony (+4, min level 18)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ],
+    "socCap": {
+      "maxLevel": 29,
+      "appliesTo": [
+        "soc_firearms_count",
+        "soc_destructive",
+        "soc_stolen_serial",
+        "soc_conversion"
+      ],
+      "exception": "Rocket/missile destructive device (b)(3)(A) has no cap"
+    }
+  }
+}/*END_OFFENSE_DATA*/;
+
+        const CHAPTER3_DATA = /*CHAPTER3_DATA_PLACEHOLDER*/{
+  "adjustments": [
+    {
+      "id": "role",
+      "title": "Role in the Offense",
+      "section": "3B1.1 / 3B1.2",
+      "pdfReference": "Guidelines/GLMFull 333.pdf",
+      "type": "select",
+      "question": "What was the defendant's role in the offense?",
+      "options": [
+        {
+          "label": "Organizer or leader of criminal activity involving 5+ participants or otherwise extensive",
+          "adjustment": 4,
+          "reference": "\u00a73B1.1(a)"
+        },
+        {
+          "label": "Manager or supervisor (not organizer/leader) of activity involving 5+ participants or otherwise extensive",
+          "adjustment": 3,
+          "reference": "\u00a73B1.1(b)"
+        },
+        {
+          "label": "Organizer, leader, manager, or supervisor of smaller criminal activity",
+          "adjustment": 2,
+          "reference": "\u00a73B1.1(c)"
+        },
+        {
+          "label": "No aggravating or mitigating role adjustment",
+          "adjustment": 0
+        },
+        {
+          "label": "Minor participant (limited role, less culpable than average participant)",
+          "adjustment": -2,
+          "reference": "\u00a73B1.2(b)"
+        },
+        {
+          "label": "Between minor and minimal participant",
+          "adjustment": -3,
+          "reference": "\u00a73B1.2"
+        },
+        {
+          "label": "Minimal participant (least culpable, limited knowledge of scope)",
+          "adjustment": -4,
+          "reference": "\u00a73B1.2(a)"
+        }
+      ]
+    },
+    {
+      "id": "obstruction",
+      "title": "Obstruction of Justice",
+      "section": "3C1.1",
+      "pdfReference": "Guidelines/GLMFull 340.pdf",
+      "type": "yesno",
+      "question": "Did the defendant obstruct or impede the administration of justice during the investigation, prosecution, or sentencing of the instant offense?",
+      "description": "Examples include: threatening witnesses, destroying evidence, perjury, providing materially false information to officials, fleeing prosecution.",
+      "yesAdjustment": 2,
+      "noAdjustment": 0
+    },
+    {
+      "id": "acceptance",
+      "title": "Acceptance of Responsibility",
+      "section": "3E1.1",
+      "pdfReference": "Guidelines/GLMFull 357.pdf",
+      "type": "select",
+      "question": "Did the defendant accept responsibility for the offense?",
+      "options": [
+        {
+          "label": "No acceptance of responsibility",
+          "adjustment": 0
+        },
+        {
+          "label": "Yes - clearly demonstrated acceptance (2-level reduction)",
+          "adjustment": -2,
+          "reference": "\u00a73E1.1(a)",
+          "note": "Applies if defendant truthfully admits conduct, voluntary termination, etc."
+        },
+        {
+          "label": "Yes - acceptance with timely guilty plea (3-level reduction)",
+          "adjustment": -3,
+          "reference": "\u00a73E1.1(a) and (b)",
+          "note": "Additional 1-level requires: offense level 16+, government motion, timely notification of guilty plea"
+        }
+      ],
+      "incompatibleWith": [
+        "obstruction"
+      ],
+      "incompatibilityNote": "A defendant who obstructs justice is generally not entitled to acceptance of responsibility reduction"
+    }
+  ],
+  "applicationOrder": [
+    "role",
+    "obstruction",
+    "acceptance"
+  ],
+  "notes": {
+    "obstruction_acceptance": "Conduct resulting in an obstruction enhancement ordinarily indicates the defendant has not accepted responsibility. However, there may be extraordinary cases where adjustments for both apply.",
+    "acceptance_timing": "The 3-level reduction under \u00a73E1.1(a) and (b) requires the offense level prior to the reduction to be 16 or greater.",
+    "role_single_defendant": "Role adjustments generally only apply when there are multiple participants. A defendant acting alone typically receives no role adjustment."
+  }
+}/*END_CHAPTER3_DATA*/;
+
+        // Calculator State
+        let state = {
+            offense: null,
+            phase: 'start', // start, base, soc, ch3, result
+            currentQuestionIndex: 0,
+            baseLevel: null,
+            baseDescription: '',
+            answers: [],
+            socAdjustments: [],
+            ch3Adjustments: [],
+            history: []
+        };
+
+        // DOM Elements
+        const startScreen = document.getElementById('startScreen');
+        const calculatorScreen = document.getElementById('calculatorScreen');
+        const resultsScreen = document.getElementById('resultsScreen');
+        const offenseSelect = document.getElementById('offenseSelect');
+        const startBtn = document.getElementById('startBtn');
+        const questionCard = document.getElementById('questionCard');
+        const questionHeader = document.getElementById('questionHeader');
+        const questionText = document.getElementById('questionText');
+        const questionNote = document.getElementById('questionNote');
+        const answerOptions = document.getElementById('answerOptions');
+        const backBtn = document.getElementById('backBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const newCalcBtn = document.getElementById('newCalcBtn');
+        const currentLevelEl = document.getElementById('currentLevel');
+        const currentOffenseEl = document.getElementById('currentOffense');
+
+        // Initialize
+        offenseSelect.addEventListener('change', () => {
+            startBtn.disabled = !offenseSelect.value;
+        });
+
+        startBtn.addEventListener('click', startCalculation);
+        backBtn.addEventListener('click', goBack);
+        restartBtn.addEventListener('click', restart);
+        newCalcBtn.addEventListener('click', restart);
+
+        function startCalculation() {
+            state.offense = offenseSelect.value;
+            state.phase = 'base';
+            state.currentQuestionIndex = 0;
+            state.baseLevel = null;
+            state.baseDescription = '';
+            state.answers = [];
+            state.socAdjustments = [];
+            state.ch3Adjustments = [];
+            state.history = [];
+
+            startScreen.classList.add('hidden');
+            calculatorScreen.classList.remove('hidden');
+            resultsScreen.classList.add('hidden');
+
+            currentOffenseEl.textContent = OFFENSE_DATA[state.offense].title;
+            showQuestion();
+        }
+
+        function restart() {
+            state = {
+                offense: null,
+                phase: 'start',
+                currentQuestionIndex: 0,
+                baseLevel: null,
+                baseDescription: '',
+                answers: [],
+                socAdjustments: [],
+                ch3Adjustments: [],
+                history: []
+            };
+
+            startScreen.classList.remove('hidden');
+            calculatorScreen.classList.add('hidden');
+            resultsScreen.classList.add('hidden');
+            offenseSelect.value = '';
+            startBtn.disabled = true;
+        }
+
+        function updatePhaseIndicator() {
+            const phases = ['base', 'soc', 'ch3', 'result'];
+            const currentIndex = phases.indexOf(state.phase);
+
+            phases.forEach((phase, index) => {
+                const el = document.getElementById(`phase-${phase}`);
+                el.classList.remove('active', 'completed');
+                if (index < currentIndex) {
+                    el.classList.add('completed');
+                } else if (index === currentIndex) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        function calculateCurrentLevel() {
+            let level = state.baseLevel || 0;
+
+            // Add SOC adjustments
+            state.socAdjustments.forEach(adj => {
+                level += adj.adjustment;
+            });
+
+            // Check for minimum level from SOCs
+            state.socAdjustments.forEach(adj => {
+                if (adj.minLevel && level < adj.minLevel) {
+                    level = adj.minLevel;
+                }
+            });
+
+            // Add Chapter 3 adjustments
+            state.ch3Adjustments.forEach(adj => {
+                level += adj.adjustment;
+            });
+
+            // Ensure level doesn't go below 0
+            return Math.max(0, level);
+        }
+
+        function updateLevelDisplay() {
+            const level = calculateCurrentLevel();
+            currentLevelEl.textContent = level > 0 ? level : '--';
+        }
+
+        function showQuestion() {
+            updatePhaseIndicator();
+            updateLevelDisplay();
+            backBtn.disabled = state.history.length === 0;
+
+            if (state.phase === 'base') {
+                showBaseQuestion();
+            } else if (state.phase === 'soc') {
+                showSOCQuestion();
+            } else if (state.phase === 'ch3') {
+                showCh3Question();
+            } else if (state.phase === 'result') {
+                showResults();
+            }
+        }
+
+        function showBaseQuestion() {
+            const offense = OFFENSE_DATA[state.offense];
+            const questions = offense.baseOffenseQuestions;
+
+            // Find current question by ID or index
+            let question;
+            if (state.currentQuestionIndex === 0) {
+                question = questions[0];
+            } else {
+                const questionId = state.currentQuestionIndex;
+                question = questions.find(q => q.id === questionId);
+            }
+
+            if (!question) {
+                // Move to SOC phase
+                state.phase = 'soc';
+                state.currentQuestionIndex = 0;
+                showQuestion();
+                return;
+            }
+
+            questionHeader.textContent = `Base Offense Level - ${offense.section}`;
+            questionText.textContent = question.text;
+            questionNote.classList.add('hidden');
+
+            answerOptions.innerHTML = '';
+
+            if (question.type === 'yesno') {
+                const yesBtn = createAnswerButton('Yes', () => handleBaseAnswer(question, 'yes'));
+                const noBtn = createAnswerButton('No', () => handleBaseAnswer(question, 'no'));
+                answerOptions.appendChild(yesBtn);
+                answerOptions.appendChild(noBtn);
+            }
+        }
+
+        function handleBaseAnswer(question, answer) {
+            // Save to history for back button
+            state.history.push({
+                phase: 'base',
+                questionId: question.id,
+                previousState: JSON.parse(JSON.stringify(state))
+            });
+
+            if (answer === 'yes' && question.yesResult) {
+                state.baseLevel = question.yesResult.baseLevel;
+                state.baseDescription = question.yesResult.description;
+                state.phase = 'soc';
+                state.currentQuestionIndex = 0;
+            } else if (answer === 'no' && question.noResult) {
+                state.baseLevel = question.noResult.baseLevel;
+                state.baseDescription = question.noResult.description;
+                state.phase = 'soc';
+                state.currentQuestionIndex = 0;
+            } else {
+                // Move to next question
+                const nextId = answer === 'yes' ? question.yesNext : question.noNext;
+                state.currentQuestionIndex = nextId;
+            }
+
+            showQuestion();
+        }
+
+        function showSOCQuestion() {
+            const offense = OFFENSE_DATA[state.offense];
+            const socs = offense.specificOffenseCharacteristics;
+
+            if (state.currentQuestionIndex >= socs.length) {
+                // Move to Chapter 3 phase
+                state.phase = 'ch3';
+                state.currentQuestionIndex = 0;
+                showQuestion();
+                return;
+            }
+
+            const soc = socs[state.currentQuestionIndex];
+
+            questionHeader.textContent = `Specific Offense Characteristics - ${soc.reference || ''}`;
+            questionText.textContent = soc.text;
+
+            if (soc.note) {
+                questionNote.textContent = soc.note;
+                questionNote.classList.remove('hidden');
+            } else {
+                questionNote.classList.add('hidden');
+            }
+
+            answerOptions.innerHTML = '';
+
+            if (soc.type === 'select') {
+                soc.options.forEach((option, index) => {
+                    const adj = option.adjustment;
+                    const adjText = adj === 0 ? '' : (adj > 0 ? `+${adj}` : adj);
+                    const btn = createAnswerButton(option.label, () => handleSOCAnswer(soc, option), adjText);
+                    answerOptions.appendChild(btn);
+                });
+            } else if (soc.type === 'yesno') {
+                const yesAdj = soc.yesAdjustment || 0;
+                const noAdj = soc.noAdjustment || 0;
+                const yesText = yesAdj === 0 ? '' : (yesAdj > 0 ? `+${yesAdj}` : yesAdj);
+                const noText = noAdj === 0 ? '' : (noAdj > 0 ? `+${noAdj}` : noAdj);
+
+                const yesBtn = createAnswerButton('Yes', () => handleSOCAnswer(soc, {
+                    label: 'Yes',
+                    adjustment: yesAdj,
+                    minLevel: soc.yesMinLevel
+                }), yesText);
+                const noBtn = createAnswerButton('No', () => handleSOCAnswer(soc, {
+                    label: 'No',
+                    adjustment: noAdj
+                }), noText);
+
+                answerOptions.appendChild(yesBtn);
+                answerOptions.appendChild(noBtn);
+            }
+        }
+
+        function handleSOCAnswer(soc, option) {
+            state.history.push({
+                phase: 'soc',
+                questionIndex: state.currentQuestionIndex,
+                previousAdjustments: [...state.socAdjustments]
+            });
+
+            if (option.adjustment !== 0 || option.minLevel) {
+                state.socAdjustments.push({
+                    id: soc.id,
+                    description: `${soc.reference || ''} ${option.label}`,
+                    adjustment: option.adjustment,
+                    minLevel: option.minLevel
+                });
+            }
+
+            state.currentQuestionIndex++;
+            showQuestion();
+        }
+
+        function showCh3Question() {
+            const adjustments = CHAPTER3_DATA.adjustments;
+
+            if (state.currentQuestionIndex >= adjustments.length) {
+                state.phase = 'result';
+                showQuestion();
+                return;
+            }
+
+            const adj = adjustments[state.currentQuestionIndex];
+
+            questionHeader.textContent = `Chapter 3: ${adj.title} - ${adj.section}`;
+            questionText.textContent = adj.question;
+            questionNote.classList.add('hidden');
+
+            answerOptions.innerHTML = '';
+
+            if (adj.type === 'select') {
+                adj.options.forEach((option, index) => {
+                    const adjVal = option.adjustment;
+                    const adjText = adjVal === 0 ? '' : (adjVal > 0 ? `+${adjVal}` : adjVal);
+                    const btn = createAnswerButton(option.label, () => handleCh3Answer(adj, option), adjText);
+                    answerOptions.appendChild(btn);
+                });
+            } else if (adj.type === 'yesno') {
+                const yesAdj = adj.yesAdjustment || 0;
+                const noAdj = adj.noAdjustment || 0;
+                const yesText = yesAdj === 0 ? '' : (yesAdj > 0 ? `+${yesAdj}` : yesAdj);
+                const noText = noAdj === 0 ? '' : (noAdj > 0 ? `+${noAdj}` : noAdj);
+
+                const yesBtn = createAnswerButton('Yes', () => handleCh3Answer(adj, { label: 'Yes', adjustment: yesAdj }), yesText);
+                const noBtn = createAnswerButton('No', () => handleCh3Answer(adj, { label: 'No', adjustment: noAdj }), noText);
+
+                answerOptions.appendChild(yesBtn);
+                answerOptions.appendChild(noBtn);
+            }
+        }
+
+        function handleCh3Answer(adj, option) {
+            state.history.push({
+                phase: 'ch3',
+                questionIndex: state.currentQuestionIndex,
+                previousAdjustments: [...state.ch3Adjustments]
+            });
+
+            if (option.adjustment !== 0) {
+                state.ch3Adjustments.push({
+                    id: adj.id,
+                    description: `${adj.section} ${adj.title}: ${option.label}`,
+                    adjustment: option.adjustment
+                });
+            }
+
+            state.currentQuestionIndex++;
+            showQuestion();
+        }
+
+        function createAnswerButton(text, onClick, adjustment = '') {
+            const btn = document.createElement('button');
+            btn.className = 'answer-btn';
+            btn.innerHTML = text;
+
+            if (adjustment) {
+                const adjSpan = document.createElement('span');
+                adjSpan.className = 'adjustment';
+                if (parseInt(adjustment) > 0) adjSpan.classList.add('positive');
+                if (parseInt(adjustment) < 0) adjSpan.classList.add('negative');
+                adjSpan.textContent = adjustment;
+                btn.appendChild(adjSpan);
+            }
+
+            btn.addEventListener('click', onClick);
+            return btn;
+        }
+
+        function goBack() {
+            if (state.history.length === 0) return;
+
+            const lastState = state.history.pop();
+
+            if (lastState.phase === 'base') {
+                state.phase = 'base';
+                state.currentQuestionIndex = lastState.questionId;
+                state.baseLevel = null;
+                state.baseDescription = '';
+            } else if (lastState.phase === 'soc') {
+                state.phase = 'soc';
+                state.currentQuestionIndex = lastState.questionIndex;
+                state.socAdjustments = lastState.previousAdjustments;
+            } else if (lastState.phase === 'ch3') {
+                state.phase = 'ch3';
+                state.currentQuestionIndex = lastState.questionIndex;
+                state.ch3Adjustments = lastState.previousAdjustments;
+            }
+
+            showQuestion();
+        }
+
+        function showResults() {
+            calculatorScreen.classList.add('hidden');
+            resultsScreen.classList.remove('hidden');
+
+            const finalLevel = calculateCurrentLevel();
+            document.getElementById('finalLevel').textContent = finalLevel;
+
+            // Build breakdown
+            const breakdown = document.getElementById('breakdown');
+            breakdown.innerHTML = '';
+
+            // Base level
+            addBreakdownItem(breakdown, `Base Offense Level (${state.baseDescription})`, state.baseLevel, false);
+
+            // SOC adjustments
+            state.socAdjustments.forEach(adj => {
+                addBreakdownItem(breakdown, adj.description, adj.adjustment, true);
+            });
+
+            // Chapter 3 adjustments
+            state.ch3Adjustments.forEach(adj => {
+                addBreakdownItem(breakdown, adj.description, adj.adjustment, true);
+            });
+
+            // Total
+            const totalDiv = document.createElement('div');
+            totalDiv.className = 'breakdown-item total';
+            totalDiv.innerHTML = `
+                <div class="description">Total Offense Level</div>
+                <div class="value">${finalLevel}</div>
+            `;
+            breakdown.appendChild(totalDiv);
+        }
+
+        function addBreakdownItem(container, description, value, isAdjustment) {
+            const div = document.createElement('div');
+            div.className = 'breakdown-item';
+
+            let valueClass = 'value';
+            let valueText;
+
+            if (isAdjustment) {
+                if (value > 0) {
+                    valueClass += ' positive';
+                    valueText = `+${value}`;
+                } else if (value < 0) {
+                    valueClass += ' negative';
+                    valueText = value.toString();
+                } else {
+                    valueText = '0';
+                }
+            } else {
+                valueText = value.toString();
+            }
+
+            div.innerHTML = `
+                <div class="description">${description}</div>
+                <div class="${valueClass}">${valueText}</div>
+            `;
+
+            container.appendChild(div);
+        }
+    </script>
+</body>
+</html>

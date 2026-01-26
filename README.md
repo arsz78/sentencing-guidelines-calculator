@@ -1,80 +1,87 @@
-# Szekely Guidelines Project
+# Federal Sentencing Guidelines Calculator
 
-**Version 0.0.2** - Enhanced Guideline Viewer (2026-01-12)
-
-A collection of tools for working with the United States Sentencing Guidelines Manual (2025 edition).
+An offline calculator for determining the Total Offense Level under the 2025 U.S. Sentencing Guidelines Manual.
 
 ## Overview
 
-This project provides web-based tools to assist federal criminal defense attorneys with sentencing calculations and guideline analysis. The flagship tool is an enhanced, portable guidelines viewer with section-based search and navigation.
+This calculator helps users determine the **Total Offense Level** by:
 
-## Current Features
+1. Selecting an offense and calculating the base offense level
+2. Applying specific offense characteristics (SOCs)
+3. Applying Chapter 3 adjustments (role, obstruction, acceptance)
+4. Displaying the final offense level with a breakdown
 
-### Enhanced Guidelines Viewer v0.0.2
+**Note:** This version calculates offense level only. Criminal History calculation is not included - users must determine their Criminal History Category separately and use the Sentencing Table to find the guideline range.
 
-A fully-featured, portable PDF viewer for the 2025 U.S. Sentencing Guidelines Manual.
+## Currently Supported Offenses
 
-**Key Features:**
-- **Dual Search Modes**: Search by page number (1-553) OR section number (e.g., §2D1.1, §2B1.1)
-- **Section Autocomplete**: Type-ahead suggestions for all 299 guideline sections
-- **Page Navigation**: Previous/Next buttons and arrow key support for flipping through pages
-- **Completely Portable**: Single 98MB HTML file with all 553 PDFs embedded (works offline)
-- **Fast**: No server requests, instant page switching after initial load
+- **2K2.1** - Unlawful Receipt, Possession, or Transportation of Firearms or Ammunition
 
-**Available Versions:**
-- **`guideline-viewer-complete.html`** (98 MB) - Recommended. Complete standalone version with all PDFs embedded
-- **`guideline-viewer.html`** (5 KB) - Original lightweight version requiring local PDF files
+## Usage
 
-**Usage (Complete Version):**
-1. Open `guideline-viewer-complete.html` in your web browser
-2. Wait 10-20 seconds for initial load (one-time, then instant)
-3. **Page Mode**: Enter page number 1-553 and click View
-4. **Section Mode**: Click "Section Number" toggle, enter section (e.g., 2D1.1) and click View
-5. **Navigate**: Use Previous/Next buttons or arrow keys to flip through pages
-6. **Autocomplete**: Start typing a section number to see suggestions
+### Quick Start
 
-**Sample Sections:**
-- `2D1.1` - Drug Offenses (primary drug guideline)
-- `2B1.1` - Theft, Property Destruction, and Fraud
-- `2A1.1` - First Degree Murder
-- `2A2.1` - Assault with Intent to Commit Murder
-- `2K2.1` - Unlawful Possession or Trafficking in Firearms
+1. Open `calculator.html` in any web browser
+2. Select an offense from the dropdown
+3. Answer questions one at a time
+4. View the final offense level and breakdown
 
-**Build Scripts** (for rebuilding or updating):
+### Building from Source
+
+The `index.html` file contains the full application with embedded data. To rebuild after modifying the JSON data files:
+
 ```bash
-python3 build-section-index.py  # Extract sections from PDFs (5-10 min)
-python3 embed-pdfs.py           # Encode PDFs as base64 (2-5 min)
-python3 build-final.py          # Build complete HTML (1 min)
+python3 build.py
 ```
 
-## Planned Features
+This creates `calculator.html` with the latest data inlined.
 
-Future calculator tools:
-- Drug weight conversion calculator
-- Fraud guideline walk-through calculator
-- Drug guideline walk-through calculator
-- VOSR (Violation of Supervised Release) guideline table calculator
-- Sentencing table generator
-- Gun guideline calculator
+## File Structure
 
-## Requirements
+```
+/Users/andy/Claude/guidelines/
+├── Guidelines/                      # 553 PDF files from 2025 Guidelines Manual
+├── data/
+│   ├── offense-guidelines.json      # Offense rules (2K2.1 Firearms)
+│   └── chapter3-adjustments.json    # Chapter 3 adjustments
+├── index.html                       # Main calculator app (source)
+├── calculator.html                  # Built calculator (standalone)
+├── build.py                         # Build script
+└── README.md                        # This file
+```
 
-**For Complete Viewer:**
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- 100MB+ available RAM for browser
-- No internet connection required after download
+## Test Cases
 
-**For Development/Rebuilding:**
-- Python 3.9+
-- `pdfplumber` library (`pip3 install pdfplumber`)
-- Guidelines directory containing PDF files
+The calculator has been verified against these test scenarios:
+
+| Scenario | Base | SOCs | Ch.3 | Total |
+|----------|------|------|------|-------|
+| Prohibited person + stolen firearm + acceptance | 14 | +2 | -3 | **13** |
+| Prohibited person w/semiauto + stolen + acceptance | 20 | +2 | -3 | **19** |
+| 2+ prior COV/CSO + 5 firearms + obstruction | 24 | +2 | +2 | **28** |
+
+## Data Sources
+
+All guideline data is sourced from the **2025 U.S. Sentencing Guidelines Manual** (November 1, 2025):
+
+- **2K2.1 Firearms**: Pages 237-250
+- **Chapter 3 Part B (Role)**: Pages 333-334
+- **Chapter 3 Part C (Obstruction)**: Pages 340-342
+- **Chapter 3 Part E (Acceptance)**: Pages 357-358
+
+## Disclaimer
+
+This calculator is for **educational purposes only**. It does not constitute legal advice. Consult a qualified attorney for actual sentencing matters. The calculator may not account for all possible enhancements, departures, or unique case circumstances.
+
+## Future Enhancements
+
+Potential additions for future versions:
+
+- Additional offense guidelines (2D1.1 drugs, 2B1.1 fraud, 2L1.2 reentry)
+- Criminal History Category calculator
+- Sentencing Table lookup
+- PDF viewer integration
 
 ## License
 
-MIT License - Copyright (c) 2026 Andrew Szekely
-
-See [LICENSE](LICENSE) file for details.
-
-## About
-
-Created to streamline federal sentencing calculations and guideline lookups for legal professionals.
+This project is provided as-is for educational use.
