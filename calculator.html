@@ -359,6 +359,291 @@
             display: none !important;
         }
 
+        /* Mode Toggle Styles */
+        .mode-toggle {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .mode-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        .mode-option:hover {
+            border-color: var(--accent);
+        }
+
+        .mode-option.selected {
+            border-color: var(--accent);
+            background: #ebf8ff;
+        }
+
+        .mode-option input {
+            accent-color: var(--accent);
+        }
+
+        .mode-description {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* Checklist Screen Styles */
+        .checklist-status-bar {
+            position: sticky;
+            top: 10px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .checklist-status-bar .status-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .checklist-status-bar .current-level {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .checklist-status-bar .level-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .checklist-status-bar .review-summary {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .checklist-status-bar .review-summary.has-unreviewed {
+            color: #fbd38d;
+            font-weight: 600;
+        }
+
+        .checklist-section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .checklist-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--primary-light);
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checklist-section-header:hover {
+            background: var(--primary);
+        }
+
+        .checklist-section-header .section-title {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checklist-section-header .section-title .toggle-icon {
+            transition: transform 0.2s ease;
+        }
+
+        .checklist-section.collapsed .section-title .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .checklist-section-header .section-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .checklist-section-body {
+            padding: 15px 20px;
+        }
+
+        .checklist-section.collapsed .checklist-section-body {
+            display: none;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            gap: 12px;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-top: 2px;
+        }
+
+        .review-indicator.reviewed {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .review-indicator.reviewed::after {
+            content: '✓';
+        }
+
+        .checklist-item-content {
+            flex: 1;
+        }
+
+        .checklist-item-reference {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .checklist-item-text {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .checklist-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .checklist-option {
+            padding: 8px 14px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            background: white;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .checklist-option:hover {
+            border-color: var(--accent);
+            background: #ebf8ff;
+        }
+
+        .checklist-option.selected {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .checklist-option .option-adjustment {
+            margin-left: 6px;
+            font-weight: 600;
+        }
+
+        .checklist-option.selected .option-adjustment {
+            opacity: 0.9;
+        }
+
+        /* Base offense grouped options */
+        .base-offense-group {
+            margin-bottom: 20px;
+        }
+
+        .base-offense-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .base-offense-group-header {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .base-offense-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .base-offense-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .base-offense-option:hover {
+            border-color: var(--accent);
+            background: #ebf8ff;
+        }
+
+        .base-offense-option.selected {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+
+        .base-offense-option input {
+            margin-right: 12px;
+            accent-color: var(--accent);
+        }
+
+        .base-offense-option .option-level {
+            margin-left: auto;
+            font-weight: 700;
+            min-width: 50px;
+            text-align: right;
+        }
+
+        .checklist-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 10px;
@@ -390,7 +675,24 @@
         <div id="startScreen" class="card">
             <div class="card-body start-screen">
                 <h2>Calculate Offense Level</h2>
-                <p>This calculator helps determine the Total Offense Level for federal sentencing guidelines. Select an offense to begin.</p>
+                <p>This calculator helps determine the Total Offense Level for federal sentencing guidelines. Select an offense and mode to begin.</p>
+
+                <div class="mode-toggle">
+                    <label class="mode-option selected" id="modeWizard">
+                        <input type="radio" name="mode" value="wizard" checked>
+                        <div>
+                            <div>Wizard Mode</div>
+                            <div class="mode-description">Step-by-step guided flow</div>
+                        </div>
+                    </label>
+                    <label class="mode-option" id="modeChecklist">
+                        <input type="radio" name="mode" value="checklist">
+                        <div>
+                            <div>Checklist Mode</div>
+                            <div class="mode-description">See all questions at once</div>
+                        </div>
+                    </label>
+                </div>
 
                 <div class="offense-select">
                     <select id="offenseSelect">
@@ -441,6 +743,29 @@
                         <button class="btn btn-secondary" id="restartBtn">Start Over</button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Checklist Screen -->
+        <div id="checklistScreen" class="hidden">
+            <div class="checklist-status-bar">
+                <div class="status-left">
+                    <div>
+                        <div class="level-label">Current Offense Level</div>
+                        <div class="current-level" id="checklistLevel">--</div>
+                    </div>
+                    <div id="checklistOffense" style="font-size: 0.9rem; opacity: 0.8;"></div>
+                </div>
+                <div>
+                    <div class="review-summary" id="reviewSummary">0 of 0 reviewed</div>
+                </div>
+            </div>
+
+            <div id="checklistContent"></div>
+
+            <div class="checklist-actions">
+                <button class="btn btn-outline" id="checklistRestartBtn">Start Over</button>
+                <button class="btn btn-primary" id="checklistResultBtn" disabled>View Results</button>
             </div>
         </div>
 
@@ -835,6 +1160,7 @@
 
         // Calculator State
         let state = {
+            mode: 'wizard', // wizard or checklist
             offense: null,
             phase: 'start', // start, base, soc, ch3, result
             currentQuestionIndex: 0,
@@ -843,12 +1169,19 @@
             answers: [],
             socAdjustments: [],
             ch3Adjustments: [],
-            history: []
+            history: [],
+            // Checklist mode state
+            checklistSelections: {
+                base: null, // { level, description }
+                socs: {},   // { socId: { adjustment, description, minLevel? } }
+                ch3: {}     // { ch3Id: { adjustment, description } }
+            }
         };
 
         // DOM Elements
         const startScreen = document.getElementById('startScreen');
         const calculatorScreen = document.getElementById('calculatorScreen');
+        const checklistScreen = document.getElementById('checklistScreen');
         const resultsScreen = document.getElementById('resultsScreen');
         const offenseSelect = document.getElementById('offenseSelect');
         const startBtn = document.getElementById('startBtn');
@@ -862,16 +1195,36 @@
         const newCalcBtn = document.getElementById('newCalcBtn');
         const currentLevelEl = document.getElementById('currentLevel');
         const currentOffenseEl = document.getElementById('currentOffense');
+        // Checklist mode elements
+        const modeWizard = document.getElementById('modeWizard');
+        const modeChecklist = document.getElementById('modeChecklist');
+        const checklistContent = document.getElementById('checklistContent');
+        const checklistLevelEl = document.getElementById('checklistLevel');
+        const checklistOffenseEl = document.getElementById('checklistOffense');
+        const reviewSummaryEl = document.getElementById('reviewSummary');
+        const checklistRestartBtn = document.getElementById('checklistRestartBtn');
+        const checklistResultBtn = document.getElementById('checklistResultBtn');
 
         // Initialize
         offenseSelect.addEventListener('change', () => {
             startBtn.disabled = !offenseSelect.value;
         });
 
+        // Mode toggle handlers
+        document.querySelectorAll('input[name="mode"]').forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                state.mode = e.target.value;
+                modeWizard.classList.toggle('selected', state.mode === 'wizard');
+                modeChecklist.classList.toggle('selected', state.mode === 'checklist');
+            });
+        });
+
         startBtn.addEventListener('click', startCalculation);
         backBtn.addEventListener('click', goBack);
         restartBtn.addEventListener('click', restart);
         newCalcBtn.addEventListener('click', restart);
+        checklistRestartBtn.addEventListener('click', restart);
+        checklistResultBtn.addEventListener('click', showChecklistResults);
 
         function startCalculation() {
             state.offense = offenseSelect.value;
@@ -883,17 +1236,32 @@
             state.socAdjustments = [];
             state.ch3Adjustments = [];
             state.history = [];
+            state.checklistSelections = {
+                base: null,
+                socs: {},
+                ch3: {}
+            };
 
             startScreen.classList.add('hidden');
-            calculatorScreen.classList.remove('hidden');
             resultsScreen.classList.add('hidden');
 
-            currentOffenseEl.textContent = OFFENSE_DATA[state.offense].title;
-            showQuestion();
+            if (state.mode === 'checklist') {
+                calculatorScreen.classList.add('hidden');
+                checklistScreen.classList.remove('hidden');
+                checklistOffenseEl.textContent = OFFENSE_DATA[state.offense].title;
+                renderChecklist();
+            } else {
+                checklistScreen.classList.add('hidden');
+                calculatorScreen.classList.remove('hidden');
+                currentOffenseEl.textContent = OFFENSE_DATA[state.offense].title;
+                showQuestion();
+            }
         }
 
         function restart() {
+            const currentMode = state.mode;
             state = {
+                mode: currentMode,
                 offense: null,
                 phase: 'start',
                 currentQuestionIndex: 0,
@@ -902,11 +1270,17 @@
                 answers: [],
                 socAdjustments: [],
                 ch3Adjustments: [],
-                history: []
+                history: [],
+                checklistSelections: {
+                    base: null,
+                    socs: {},
+                    ch3: {}
+                }
             };
 
             startScreen.classList.remove('hidden');
             calculatorScreen.classList.add('hidden');
+            checklistScreen.classList.add('hidden');
             resultsScreen.classList.add('hidden');
             offenseSelect.value = '';
             startBtn.disabled = true;
@@ -1267,6 +1641,401 @@
             `;
 
             container.appendChild(div);
+        }
+
+        // ========== CHECKLIST MODE FUNCTIONS ==========
+
+        function renderChecklist() {
+            const offense = OFFENSE_DATA[state.offense];
+            checklistContent.innerHTML = '';
+
+            // Base Offense Level Section
+            renderBaseOffenseSection(offense);
+
+            // Specific Offense Characteristics Section
+            renderSOCSection(offense);
+
+            // Chapter 3 Adjustments Section
+            renderCh3Section();
+
+            updateChecklistStatus();
+        }
+
+        function renderBaseOffenseSection(offense) {
+            const section = document.createElement('div');
+            section.className = 'checklist-section';
+            section.id = 'checklist-base';
+
+            // Flatten the decision tree into selectable base levels
+            const baseLevels = extractBaseLevels(offense.baseOffenseQuestions);
+
+            section.innerHTML = `
+                <div class="checklist-section-header" onclick="toggleSection('checklist-base')">
+                    <div class="section-title">
+                        <span class="toggle-icon">▼</span>
+                        Base Offense Level - ${offense.section}
+                    </div>
+                    <div class="section-value" id="base-value">--</div>
+                </div>
+                <div class="checklist-section-body">
+                    <div class="checklist-item">
+                        <div class="review-indicator" id="base-indicator"></div>
+                        <div class="checklist-item-content">
+                            <div class="checklist-item-text">Select the applicable base offense level:</div>
+                            <div class="base-offense-options" id="base-options"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            checklistContent.appendChild(section);
+
+            // Populate base options
+            const optionsContainer = document.getElementById('base-options');
+            baseLevels.forEach((level, index) => {
+                const option = document.createElement('div');
+                option.className = 'base-offense-option';
+                option.dataset.level = level.baseLevel;
+                option.dataset.description = level.description;
+                option.innerHTML = `
+                    <input type="radio" name="baseLevel" id="base-${index}">
+                    <label for="base-${index}" style="flex:1; cursor:pointer;">${level.description}</label>
+                    <span class="option-level">${level.baseLevel}</span>
+                `;
+                option.addEventListener('click', () => selectBaseLevel(option, level));
+                optionsContainer.appendChild(option);
+            });
+        }
+
+        function extractBaseLevels(questions) {
+            // Extract all terminal results from the decision tree
+            const levels = [];
+            const seen = new Set();
+
+            questions.forEach(q => {
+                if (q.yesResult && !seen.has(q.yesResult.baseLevel + q.yesResult.description)) {
+                    levels.push(q.yesResult);
+                    seen.add(q.yesResult.baseLevel + q.yesResult.description);
+                }
+                if (q.noResult && !seen.has(q.noResult.baseLevel + q.noResult.description)) {
+                    levels.push(q.noResult);
+                    seen.add(q.noResult.baseLevel + q.noResult.description);
+                }
+            });
+
+            // Sort by base level descending
+            levels.sort((a, b) => b.baseLevel - a.baseLevel);
+            return levels;
+        }
+
+        function selectBaseLevel(element, level) {
+            // Deselect all
+            document.querySelectorAll('.base-offense-option').forEach(opt => {
+                opt.classList.remove('selected');
+                opt.querySelector('input').checked = false;
+            });
+
+            // Select this one
+            element.classList.add('selected');
+            element.querySelector('input').checked = true;
+
+            state.checklistSelections.base = {
+                level: level.baseLevel,
+                description: level.description
+            };
+
+            document.getElementById('base-value').textContent = level.baseLevel;
+            document.getElementById('base-indicator').classList.add('reviewed');
+
+            updateChecklistStatus();
+        }
+
+        function renderSOCSection(offense) {
+            const section = document.createElement('div');
+            section.className = 'checklist-section';
+            section.id = 'checklist-soc';
+
+            section.innerHTML = `
+                <div class="checklist-section-header" onclick="toggleSection('checklist-soc')">
+                    <div class="section-title">
+                        <span class="toggle-icon">▼</span>
+                        Specific Offense Characteristics
+                    </div>
+                    <div class="section-value" id="soc-value">+0</div>
+                </div>
+                <div class="checklist-section-body" id="soc-items"></div>
+            `;
+
+            checklistContent.appendChild(section);
+
+            const itemsContainer = document.getElementById('soc-items');
+
+            offense.specificOffenseCharacteristics.forEach((soc, index) => {
+                const item = document.createElement('div');
+                item.className = 'checklist-item';
+                item.innerHTML = `
+                    <div class="review-indicator" id="soc-indicator-${soc.id}"></div>
+                    <div class="checklist-item-content">
+                        <div class="checklist-item-reference">${soc.reference || ''}</div>
+                        <div class="checklist-item-text">${soc.text}</div>
+                        ${soc.note ? `<div class="question-note">${soc.note}</div>` : ''}
+                        <div class="checklist-options" id="soc-options-${soc.id}"></div>
+                    </div>
+                `;
+                itemsContainer.appendChild(item);
+
+                const optionsContainer = document.getElementById(`soc-options-${soc.id}`);
+
+                if (soc.type === 'select') {
+                    soc.options.forEach((option, optIndex) => {
+                        const optEl = createChecklistOption(option.label, option.adjustment);
+                        optEl.addEventListener('click', () => selectSOC(soc.id, optEl, option));
+                        optionsContainer.appendChild(optEl);
+                    });
+                } else if (soc.type === 'yesno') {
+                    const yesAdj = soc.yesEffect?.adjustment || 0;
+                    const noAdj = soc.noEffect?.adjustment || 0;
+
+                    const yesOpt = createChecklistOption('Yes', yesAdj);
+                    yesOpt.addEventListener('click', () => selectSOC(soc.id, yesOpt, {
+                        label: 'Yes',
+                        adjustment: yesAdj,
+                        minLevel: soc.yesEffect?.minimumLevel
+                    }));
+                    optionsContainer.appendChild(yesOpt);
+
+                    const noOpt = createChecklistOption('No', noAdj);
+                    noOpt.addEventListener('click', () => selectSOC(soc.id, noOpt, {
+                        label: 'No',
+                        adjustment: noAdj
+                    }));
+                    optionsContainer.appendChild(noOpt);
+                }
+            });
+        }
+
+        function selectSOC(socId, element, option) {
+            // Deselect siblings
+            element.parentElement.querySelectorAll('.checklist-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+
+            element.classList.add('selected');
+
+            state.checklistSelections.socs[socId] = {
+                adjustment: option.adjustment,
+                description: option.label,
+                minLevel: option.minLevel
+            };
+
+            document.getElementById(`soc-indicator-${socId}`).classList.add('reviewed');
+
+            updateSOCTotal();
+            updateChecklistStatus();
+        }
+
+        function updateSOCTotal() {
+            let total = 0;
+            Object.values(state.checklistSelections.socs).forEach(soc => {
+                total += soc.adjustment;
+            });
+            const sign = total >= 0 ? '+' : '';
+            document.getElementById('soc-value').textContent = sign + total;
+        }
+
+        function renderCh3Section() {
+            const section = document.createElement('div');
+            section.className = 'checklist-section';
+            section.id = 'checklist-ch3';
+
+            section.innerHTML = `
+                <div class="checklist-section-header" onclick="toggleSection('checklist-ch3')">
+                    <div class="section-title">
+                        <span class="toggle-icon">▼</span>
+                        Chapter 3 Adjustments
+                    </div>
+                    <div class="section-value" id="ch3-value">+0</div>
+                </div>
+                <div class="checklist-section-body" id="ch3-items"></div>
+            `;
+
+            checklistContent.appendChild(section);
+
+            const itemsContainer = document.getElementById('ch3-items');
+
+            CHAPTER3_DATA.adjustments.forEach((adj, index) => {
+                const item = document.createElement('div');
+                item.className = 'checklist-item';
+                item.innerHTML = `
+                    <div class="review-indicator" id="ch3-indicator-${adj.id}"></div>
+                    <div class="checklist-item-content">
+                        <div class="checklist-item-reference">${adj.section} - ${adj.title}</div>
+                        <div class="checklist-item-text">${adj.question}</div>
+                        ${adj.description ? `<div class="question-note">${adj.description}</div>` : ''}
+                        <div class="checklist-options" id="ch3-options-${adj.id}"></div>
+                    </div>
+                `;
+                itemsContainer.appendChild(item);
+
+                const optionsContainer = document.getElementById(`ch3-options-${adj.id}`);
+
+                if (adj.type === 'select') {
+                    adj.options.forEach((option, optIndex) => {
+                        const optEl = createChecklistOption(option.label, option.adjustment);
+                        optEl.addEventListener('click', () => selectCh3(adj.id, optEl, option));
+                        optionsContainer.appendChild(optEl);
+                    });
+                } else if (adj.type === 'yesno') {
+                    const yesOpt = createChecklistOption('Yes', adj.yesAdjustment);
+                    yesOpt.addEventListener('click', () => selectCh3(adj.id, yesOpt, {
+                        label: 'Yes',
+                        adjustment: adj.yesAdjustment
+                    }));
+                    optionsContainer.appendChild(yesOpt);
+
+                    const noOpt = createChecklistOption('No', adj.noAdjustment);
+                    noOpt.addEventListener('click', () => selectCh3(adj.id, noOpt, {
+                        label: 'No',
+                        adjustment: adj.noAdjustment
+                    }));
+                    optionsContainer.appendChild(noOpt);
+                }
+            });
+        }
+
+        function selectCh3(ch3Id, element, option) {
+            // Deselect siblings
+            element.parentElement.querySelectorAll('.checklist-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+
+            element.classList.add('selected');
+
+            state.checklistSelections.ch3[ch3Id] = {
+                adjustment: option.adjustment,
+                description: option.label
+            };
+
+            document.getElementById(`ch3-indicator-${ch3Id}`).classList.add('reviewed');
+
+            updateCh3Total();
+            updateChecklistStatus();
+        }
+
+        function updateCh3Total() {
+            let total = 0;
+            Object.values(state.checklistSelections.ch3).forEach(ch3 => {
+                total += ch3.adjustment;
+            });
+            const sign = total >= 0 ? '+' : '';
+            document.getElementById('ch3-value').textContent = sign + total;
+        }
+
+        function createChecklistOption(label, adjustment) {
+            const opt = document.createElement('button');
+            opt.className = 'checklist-option';
+            opt.type = 'button';
+
+            let adjText = '';
+            if (adjustment !== 0) {
+                adjText = `<span class="option-adjustment">${adjustment > 0 ? '+' + adjustment : adjustment}</span>`;
+            }
+
+            opt.innerHTML = `${label}${adjText}`;
+            return opt;
+        }
+
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.classList.toggle('collapsed');
+        }
+
+        function updateChecklistStatus() {
+            // Calculate current level
+            const level = calculateChecklistLevel();
+            checklistLevelEl.textContent = level !== null ? level : '--';
+
+            // Count reviewed items
+            const offense = OFFENSE_DATA[state.offense];
+            const totalSOCs = offense.specificOffenseCharacteristics.length;
+            const totalCh3 = CHAPTER3_DATA.adjustments.length;
+            const totalItems = 1 + totalSOCs + totalCh3; // base + SOCs + Ch3
+
+            const reviewedBase = state.checklistSelections.base ? 1 : 0;
+            const reviewedSOCs = Object.keys(state.checklistSelections.socs).length;
+            const reviewedCh3 = Object.keys(state.checklistSelections.ch3).length;
+            const reviewedTotal = reviewedBase + reviewedSOCs + reviewedCh3;
+
+            reviewSummaryEl.textContent = `${reviewedTotal} of ${totalItems} reviewed`;
+
+            if (reviewedTotal < totalItems) {
+                reviewSummaryEl.classList.add('has-unreviewed');
+            } else {
+                reviewSummaryEl.classList.remove('has-unreviewed');
+            }
+
+            // Enable results button if base is selected
+            checklistResultBtn.disabled = !state.checklistSelections.base;
+        }
+
+        function calculateChecklistLevel() {
+            if (!state.checklistSelections.base) return null;
+
+            let level = state.checklistSelections.base.level;
+
+            // Add SOC adjustments
+            Object.values(state.checklistSelections.socs).forEach(soc => {
+                level += soc.adjustment;
+            });
+
+            // Check for minimum levels
+            Object.values(state.checklistSelections.socs).forEach(soc => {
+                if (soc.minLevel && level < soc.minLevel) {
+                    level = soc.minLevel;
+                }
+            });
+
+            // Add Chapter 3 adjustments
+            Object.values(state.checklistSelections.ch3).forEach(ch3 => {
+                level += ch3.adjustment;
+            });
+
+            return Math.max(0, level);
+        }
+
+        function showChecklistResults() {
+            // Convert checklist selections to state format for results display
+            state.baseLevel = state.checklistSelections.base.level;
+            state.baseDescription = state.checklistSelections.base.description;
+
+            state.socAdjustments = [];
+            const offense = OFFENSE_DATA[state.offense];
+            offense.specificOffenseCharacteristics.forEach(soc => {
+                const selection = state.checklistSelections.socs[soc.id];
+                if (selection && selection.adjustment !== 0) {
+                    state.socAdjustments.push({
+                        id: soc.id,
+                        description: `${soc.reference || ''} ${selection.description}`,
+                        adjustment: selection.adjustment,
+                        minLevel: selection.minLevel
+                    });
+                }
+            });
+
+            state.ch3Adjustments = [];
+            CHAPTER3_DATA.adjustments.forEach(adj => {
+                const selection = state.checklistSelections.ch3[adj.id];
+                if (selection && selection.adjustment !== 0) {
+                    state.ch3Adjustments.push({
+                        id: adj.id,
+                        description: `${adj.section} ${adj.title}: ${selection.description}`,
+                        adjustment: selection.adjustment
+                    });
+                }
+            });
+
+            checklistScreen.classList.add('hidden');
+            showResults();
         }
     </script>
 </body>

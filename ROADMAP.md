@@ -4,8 +4,8 @@ This file guides future development sessions. Edit priorities and add notes as n
 
 ## Current Status
 
-- **Version**: 0.0.1
-- **Completed**: §2K2.1 Firearms offense calculator with Chapter 3 adjustments
+- **Version**: 0.0.2
+- **Completed**: §2K2.1 Firearms offense calculator with Chapter 3 adjustments, Wizard/Checklist mode toggle
 - **Architecture**: Standalone offline HTML with data-driven JSON configuration
 
 ---
@@ -35,13 +35,13 @@ The current "wizard" flow steps through questions one at a time. Experienced att
 
 ### Checklist Mode (new)
 
-- [ ] Display all base offense questions at once
-- [ ] Display all SOCs simultaneously with current selections visible
-- [ ] Allow marking items in any order
-- [ ] Visual indicator for "not yet reviewed" vs "reviewed and answered"
-- [ ] Same calculation logic, different presentation
+- [x] Display all base offense questions at once
+- [x] Display all SOCs simultaneously with current selections visible
+- [x] Allow marking items in any order
+- [x] Visual indicator for "not yet reviewed" vs "reviewed and answered"
+- [x] Same calculation logic, different presentation
 
-**Implementation**: Add mode toggle at start; both modes use same JSON data structure.
+**Implementation**: Mode toggle added at start screen; both modes use same JSON data structure. Checklist mode extracts base levels from decision tree and presents as flat selectable list.
 
 ---
 
@@ -49,14 +49,14 @@ The current "wizard" flow steps through questions one at a time. Experienced att
 
 Currently SOCs have binary yes/no or select options. Add richer states to support the checklist workflow:
 
-### For all SOC questions:
+### For all SOC questions
 
 - [ ] Add "Needs Review / Flagged" state (distinct from yes/no/select)
 - [ ] Add "Considered but N/A" state (distinct from "No")
 - [ ] Visual differentiation: unanswered vs answered vs flagged
 - [ ] Prevent final calculation if any items still flagged
 
-### Exportable Decision Trail:
+### Exportable Decision Trail
 
 - [ ] Generate summary showing each SOC considered
 - [ ] Format: "§2K2.1(b)(1) Firearm count: 3-7 firearms (+2) — APPLIED"
@@ -77,7 +77,7 @@ Add one more guideline to confirm the data structure scales before building out 
 - [ ] Validate JSON structure works for different guideline patterns
 - **Notes**: Relatively straightforward; good test case
 
-### Then consider:
+### Then consider
 
 - §2B1.1 - Fraud/Theft (loss tables)
 - §2D1.1 - Drug Trafficking (quantity tables, conversions)
@@ -142,27 +142,29 @@ Add one more guideline to confirm the data structure scales before building out 
 
 ## Session Notes
 
-_Add notes here for the next coding session:_
+*Add notes here for the next coding session:*
 
-```
 Next session focus:
+
 - Consider implementing Checklist Mode toggle as proof of concept
 - Or add §2L1.2 to validate architecture scales
 
 Blockers/questions:
+
 - What's the preferred export format for decision trail? (plain text, PDF, copy-paste?) Plan text or PDF export
 - Should flagged items block calculation entirely, or allow "provisional" result? Allow provision, we often have to present the "known unknowns" to clients
 
 Other notes:
+
 - Target user: experienced attorney, knows guidelines, needs process discipline
 - Environment: offline, correctional facility, time-pressured
-```
 
 ---
 
 ## Data Sources
 
 All guideline data from **2025 U.S. Sentencing Guidelines Manual** (November 1, 2025):
+
 - PDFs located in `Guidelines/` folder (553 files)
 - Key sections extracted to `data/*.json` files
 

@@ -22,9 +22,11 @@ This calculator helps users determine the **Total Offense Level** by:
 ### Quick Start
 
 1. Open `calculator.html` in any web browser
-2. Select an offense from the dropdown
-3. Answer questions one at a time
-4. View the final offense level and breakdown
+2. Choose a mode:
+   - **Wizard Mode**: Step-by-step guided flow (default)
+   - **Checklist Mode**: See all questions at once
+3. Select an offense from the dropdown
+4. Answer questions and view the final offense level with breakdown
 
 ### Building from Source
 
