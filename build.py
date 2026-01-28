@@ -5,7 +5,6 @@ Inlines JSON data files into the HTML for complete offline functionality.
 """
 
 import json
-import re
 from pathlib import Path
 
 
@@ -18,14 +17,46 @@ def main():
 
     print("Building Federal Sentencing Guidelines Calculator...")
 
-    # Read data files
-    print("  Loading offense-guidelines.json...")
-    with open(data_dir / "offense-guidelines.json", "r") as f:
-        offense_data = json.load(f)
+    # Find all year directories in data/
+    year_dirs = sorted([d for d in data_dir.iterdir() if d.is_dir() and d.name.isdigit()])
 
-    print("  Loading chapter3-adjustments.json...")
-    with open(data_dir / "chapter3-adjustments.json", "r") as f:
-        chapter3_data = json.load(f)
+    if not year_dirs:
+        print("  Error: No year directories found in data/")
+        return
+
+    # Build combined data structure keyed by year
+    all_offense_data = {}
+    all_chapter3_data = {}
+
+    for year_dir in year_dirs:
+        year = year_dir.name
+        print(f"  Loading {year} guidelines...")
+
+        # Load and merge all offense files for this year
+        offenses_dir = year_dir / "offenses"
+        year_offenses = {}
+        if offenses_dir.exists():
+            offense_files = sorted(offenses_dir.glob("*.json"))
+            for offense_file in offense_files:
+                print(f"    Loading offenses/{offense_file.name}...")
+                with open(offense_file, "r") as f:
+                    file_data = json.load(f)
+                    year_offenses.update(file_data)
+
+        all_offense_data[year] = year_offenses
+        print(f"    Loaded {len(year_offenses)} offense guideline(s)")
+
+        # Load chapter3 adjustments for this year
+        chapter3_file = year_dir / "chapter3-adjustments.json"
+        if chapter3_file.exists():
+            print(f"    Loading chapter3-adjustments.json...")
+            with open(chapter3_file, "r") as f:
+                all_chapter3_data[year] = json.load(f)
+        else:
+            print(f"    Warning: No chapter3-adjustments.json found for {year}")
+            all_chapter3_data[year] = {}
+
+    print(f"  Total: {len(year_dirs)} guideline year(s) loaded")
 
     # Read HTML template
     print("  Loading index.html template...")
@@ -33,12 +64,10 @@ def main():
         html_content = f.read()
 
     # Replace placeholder data with actual JSON
-    # The placeholders are marked with comments like /*OFFENSE_DATA_PLACEHOLDER*/.../*END_OFFENSE_DATA*/
+    offense_json = json.dumps(all_offense_data, indent=2)
+    chapter3_json = json.dumps(all_chapter3_data, indent=2)
 
-    offense_json = json.dumps(offense_data, indent=2)
-    chapter3_json = json.dumps(chapter3_data, indent=2)
-
-    # Replace OFFENSE_DATA using string find/replace to avoid regex escape issues
+    # Replace OFFENSE_DATA
     start_marker = "/*OFFENSE_DATA_PLACEHOLDER*/"
     end_marker = "/*END_OFFENSE_DATA*/"
     start_idx = html_content.find(start_marker)

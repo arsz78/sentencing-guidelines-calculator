@@ -1,0 +1,287 @@
+{
+  "2K2.1": {
+    "title": "Unlawful Receipt, Possession, or Transportation of Firearms or Ammunition;",
+    "section": "2K2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 245.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve a semiautomatic firearm capable of accepting a large capacity magazine OR a firearm described in 26 U.S.C. \u00a7 5845(a)?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Did the defendant commit any part of the instant offense subsequent to sustaining at least two felony convictions of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "Special firearm with 2+ prior felony convictions"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the defendant commit any part of the instant offense subsequent to sustaining at least two felony convictions of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 24,
+          "description": "2+ prior felony convictions"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_3",
+        "text": "Did the defendant commit any part of the instant offense subsequent to sustaining one felony conviction of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "Special firearm with 1 prior felony conviction"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_4",
+        "text": "Did the defendant commit any part of the instant offense subsequent to sustaining one felony conviction of either a crime of violence or a controlled substance offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "1 prior felony conviction"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_5",
+        "text": "Did the offense involve a semiautomatic firearm capable of accepting a large capacity magazine OR a firearm described in 26 U.S.C. \u00a7 5845(a) AND the defendant was either: (1) a prohibited person at time of offense, (2) convicted under 18 U.S.C. \u00a7 922(d), \u00a7 932, or \u00a7 933, or (3) convicted under 18 U.S.C. \u00a7 922(a)(6) or \u00a7 924(a)(1)(A) with knowledge/intent/reason to believe the offense would result in transfer to a prohibited person?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Special firearm with prohibited person circumstances"
+        },
+        "noNext": "base_6"
+      },
+      {
+        "id": "base_6",
+        "text": "Did the offense involve a firearm described in 26 U.S.C. \u00a7 5845(a)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "NFA firearm"
+        },
+        "noNext": "base_7"
+      },
+      {
+        "id": "base_7",
+        "text": "Was the defendant either: (1) a prohibited person at time of offense, (2) convicted under 18 U.S.C. \u00a7 922(d), \u00a7 932, or \u00a7 933, or (3) convicted under 18 U.S.C. \u00a7 922(a)(6) or \u00a7 924(a)(1)(A) with knowledge/intent/reason to believe the offense would result in transfer to a prohibited person?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Prohibited person circumstances"
+        },
+        "noNext": "base_8"
+      },
+      {
+        "id": "base_8",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 922(c), (e), (f), (m), (s), (t), or (x)(1), or 18 U.S.C. \u00a7 1715?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Specific statutory violations"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Default base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "firearms_quantity",
+        "text": "How many firearms were involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(1)",
+        "options": [
+          {
+            "label": "Fewer than 3 firearms",
+            "adjustment": 0
+          },
+          {
+            "label": "3-7 firearms",
+            "adjustment": 2
+          },
+          {
+            "label": "8-24 firearms",
+            "adjustment": 4
+          },
+          {
+            "label": "25-99 firearms",
+            "adjustment": 6
+          },
+          {
+            "label": "100-199 firearms",
+            "adjustment": 8
+          },
+          {
+            "label": "200 or more firearms",
+            "adjustment": 10
+          }
+        ]
+      },
+      {
+        "id": "lawful_sporting_collection",
+        "text": "Did the defendant possess all ammunition and firearms solely for lawful sporting purposes or collection, and did not unlawfully discharge or otherwise unlawfully use such firearms or ammunition?",
+        "type": "yesno",
+        "reference": "\u00a72K2.1(b)(2)",
+        "condition": "Does not apply to defendants subject to subsection (a)(1), (a)(2), (a)(3), (a)(4), or (a)(5)",
+        "yesEffect": {
+          "setLevel": 6,
+          "description": "Decrease to level 6 for lawful sporting/collection purposes"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "destructive_device",
+        "text": "What type of destructive device was involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(3)",
+        "options": [
+          {
+            "label": "No destructive device",
+            "adjustment": 0
+          },
+          {
+            "label": "Portable rocket, missile, or launching device",
+            "adjustment": 15
+          },
+          {
+            "label": "Other destructive device",
+            "adjustment": 2
+          }
+        ]
+      },
+      {
+        "id": "stolen_altered_firearm",
+        "text": "What applies to the firearms involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(4)",
+        "options": [
+          {
+            "label": "None of the below",
+            "adjustment": 0
+          },
+          {
+            "label": "Any firearm was stolen",
+            "adjustment": 2
+          },
+          {
+            "label": "Any firearm had modified serial number (illegible/unrecognizable) OR defendant knew firearm lacked serial number",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "machinegun_conversion",
+        "text": "What applies regarding machinegun conversion devices? (Apply the greatest)",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(5)",
+        "options": [
+          {
+            "label": "None of the below",
+            "adjustment": 0
+          },
+          {
+            "label": "Possessed 4+ devices OR transferred/sold any device",
+            "adjustment": 2
+          },
+          {
+            "label": "Possessed 30+ devices",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "trafficking_prohibited_persons",
+        "text": "What trafficking activity applies? (Apply the greatest)",
+        "type": "select",
+        "reference": "\u00a72K2.1(b)(6)",
+        "options": [
+          {
+            "label": "None of the below",
+            "adjustment": 0
+          },
+          {
+            "label": "Convicted under 18 U.S.C. \u00a7 933(a)(2) or (a)(3)",
+            "adjustment": 2
+          },
+          {
+            "label": "Trafficked firearm/ammunition to prohibited person or for unlawful use",
+            "adjustment": 2
+          },
+          {
+            "label": "Trafficked 2+ firearms to person with violent/drug conviction, under criminal sentence, or for unlawful use",
+            "adjustment": 5
+          }
+        ]
+      },
+      {
+        "id": "export_or_other_felony",
+        "text": "Did the defendant possess/transfer firearms in connection with export from US or another felony offense?",
+        "type": "yesno",
+        "reference": "\u00a72K2.1(b)(7)",
+        "yesEffect": {
+          "adjustment": 4,
+          "minimumLevel": 18,
+          "description": "Export or connection to another felony"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "recordkeeping_concealment",
+        "text": "Did a recordkeeping offense reflect an effort to conceal a substantive firearms/ammunition offense?",
+        "type": "yesno",
+        "reference": "\u00a72K2.1(b)(8)",
+        "note": "If yes, use the offense level for the substantive offense instead (requires manual calculation)",
+        "yesEffect": {
+          "adjustment": 0,
+          "description": "Cross-reference: use substantive offense level"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "criminal_organization",
+        "text": "Did the defendant receive a (b)(6) enhancement AND commit the offense in connection with participation in a criminal group of 5+ persons?",
+        "type": "yesno",
+        "reference": "\u00a72K2.1(b)(9)",
+        "condition": "Only applies if defendant receives enhancement under subsection (b)(6)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Criminal organization enhancement"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "vulnerable_defendant_reduction",
+        "text": "Does the defendant qualify for the vulnerable defendant reduction?",
+        "type": "yesno",
+        "reference": "\u00a72K2.1(b)(10)",
+        "condition": "Only applies if: (1) receives (b)(6) enhancement, (2) has \u22641 criminal history point, and (3) was motivated by relationship/threats/fear OR unusually vulnerable due to physical/mental condition",
+        "yesEffect": {
+          "adjustment": -2,
+          "description": "Vulnerable defendant reduction"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

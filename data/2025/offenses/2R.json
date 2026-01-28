@@ -1,0 +1,81 @@
+{
+  "2R1.1": {
+    "title": "Bid-Rigging, Price-Fixing or Market-Allocation Agreements Among",
+    "section": "2R1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 302.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72R1.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Base offense level for \u00a72R1.1"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_noncompetitive_bids",
+        "text": "Did the conduct involve participation in an agreement to submit non-competitive bids?",
+        "type": "yesno",
+        "reference": "\u00a72R1.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 1,
+          "description": "Participation in agreement to submit non-competitive bids"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_volume_of_commerce",
+        "text": "What was the volume of commerce attributable to the defendant?",
+        "type": "select",
+        "reference": "\u00a72R1.1(b)(2)",
+        "options": [
+          {
+            "label": "$1,000,000 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $1,000,000",
+            "adjustment": 2
+          },
+          {
+            "label": "More than $10,000,000",
+            "adjustment": 4
+          },
+          {
+            "label": "More than $50,000,000",
+            "adjustment": 6
+          },
+          {
+            "label": "More than $100,000,000",
+            "adjustment": 8
+          },
+          {
+            "label": "More than $300,000,000",
+            "adjustment": 10
+          },
+          {
+            "label": "More than $600,000,000",
+            "adjustment": 12
+          },
+          {
+            "label": "More than $1,200,000,000",
+            "adjustment": 14
+          },
+          {
+            "label": "More than $1,850,000,000",
+            "adjustment": 16
+          }
+        ]
+      }
+    ]
+  }
+}

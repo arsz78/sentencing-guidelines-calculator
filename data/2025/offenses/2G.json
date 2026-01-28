@@ -1,0 +1,559 @@
+{
+  "2G1.1": {
+    "title": "Promoting a Commercial Sex Act or Prohibited Sexual Conduct with an",
+    "section": "2G1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 200.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the offense of conviction 18 U.S.C. \u00a7 1591 (sex trafficking of children or by force, fraud, or coercion)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 34,
+          "description": "Offense of conviction is 18 U.S.C. \u00a7 1591"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "No base offense level specified for other offenses under this guideline"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "fraud_coercion_or_2421a_b2",
+        "text": "Does the offense involve fraud or coercion, or is the offense of conviction 18 U.S.C. \u00a7 2421A(b)(2)?",
+        "type": "yesno",
+        "reference": "\u00a72G1.1(b)(1)",
+        "condition": "Only applies if subsection (a)(2) applies",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Offense involved fraud or coercion, or offense of conviction is 18 U.S.C. \u00a7 2421A(b)(2)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2G1.3": {
+    "title": "Promoting a Commercial Sex Act or Prohibited Sexual Conduct with a Minor;",
+    "section": "2G1.3",
+    "pdfReference": "Guidelines/2025/GLMFull 202.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant convicted under 18 U.S.C. \u00a7 1591?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 34,
+          "description": "Convicted under 18 U.S.C. \u00a7 1591"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "Not convicted under 18 U.S.C. \u00a7 1591 - no base offense level applies from this section"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "parent_guardian_custody",
+        "text": "Was the defendant a parent, relative, or legal guardian of the minor, or was the minor otherwise in the custody, care, or supervisory control of the defendant?",
+        "type": "yesno",
+        "reference": "\u00a72G1.3(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Defendant was parent/guardian or had custody/care/supervisory control"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "misrepresentation_undue_influence",
+        "text": "Did the offense involve knowing misrepresentation of identity to persuade/induce/entice/coerce travel by minor, or did a participant otherwise unduly influence a minor to engage in prohibited sexual conduct?",
+        "type": "yesno",
+        "reference": "\u00a72G1.3(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Misrepresentation or undue influence"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "computer_use",
+        "text": "Did the offense involve use of a computer or interactive computer service to persuade/induce/entice/coerce travel by minor or to entice/encourage/offer/solicit prohibited sexual conduct?",
+        "type": "yesno",
+        "reference": "\u00a72G1.3(b)(3)",
+        "condition": "Subsection (b)(3)(B) does not apply if offense of conviction is 18 U.S.C. \u00a7 2421A",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Computer or interactive computer service used"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "sex_act_commercial_enhancement",
+        "text": "Apply the greater enhancement for sexual conduct or commercial sex act involvement:",
+        "type": "select",
+        "reference": "\u00a72G1.3(b)(4)",
+        "options": [
+          {
+            "label": "No enhancement applies",
+            "adjustment": 0
+          },
+          {
+            "label": "Offense involved sex act/sexual contact, OR subsection (a)(3)/(a)(4) applies and involved commercial sex act",
+            "adjustment": 2
+          },
+          {
+            "label": "Subsection (a)(4) applies AND offense of conviction is 18 U.S.C. \u00a7 2421A(b)(2)",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "minor_under_12",
+        "text": "Did the offense involve a minor who had not attained the age of 12 years?",
+        "type": "yesno",
+        "reference": "\u00a72G1.3(b)(5)",
+        "condition": "Only applies if subsection (a)(3) or (a)(4) applies",
+        "yesEffect": {
+          "adjustment": 8,
+          "description": "Minor under 12 years old"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2G2.1": {
+    "title": "Sexually Exploiting a Minor by Production of Sexually Explicit Visual or",
+    "section": "2G2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 207.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this case involve an offense under \u00a72G2.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 32,
+          "description": "Base offense level for \u00a72G2.1 violations"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "minor_age",
+        "text": "What was the age of the minor involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72G2.1(b)(1)",
+        "options": [
+          {
+            "label": "16 years or older",
+            "adjustment": 0
+          },
+          {
+            "label": "12-15 years old",
+            "adjustment": 2
+          },
+          {
+            "label": "Under 12 years old",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "sexual_conduct",
+        "text": "What type of sexual conduct was involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72G2.1(b)(2)",
+        "note": "Apply the greater enhancement",
+        "options": [
+          {
+            "label": "No sexual act or sexual contact",
+            "adjustment": 0
+          },
+          {
+            "label": "Sexual act or sexual contact",
+            "adjustment": 2
+          },
+          {
+            "label": "Sexual act AND conduct described in 18 U.S.C. \u00a7 2241(a) or (b)",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "distribution",
+        "text": "Did the defendant knowingly engage in distribution?",
+        "type": "yesno",
+        "reference": "\u00a72G2.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Defendant knowingly engaged in distribution"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "material_content",
+        "text": "Did the offense involve material that portrays sadistic or masochistic conduct, other depictions of violence, or an infant or toddler?",
+        "type": "yesno",
+        "reference": "\u00a72G2.1(b)(4)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Material portrayed sadistic/masochistic conduct, violence, or infant/toddler"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "position_of_trust",
+        "text": "Was the defendant a parent, relative, or legal guardian of the minor, or was the minor otherwise in the defendant's custody, care, or supervisory control?",
+        "type": "yesno",
+        "reference": "\u00a72G2.1(b)(5)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Defendant was in position of trust or authority over the minor"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "solicitation_methods",
+        "text": "Did the offense involve knowing misrepresentation of identity or use of computer/internet to solicit or facilitate the minor's participation?",
+        "type": "yesno",
+        "reference": "\u00a72G2.1(b)(6)",
+        "condition": "For the purpose of producing sexually explicit material or transmitting such material live",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Used misrepresentation or computer/internet to solicit minor participation"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2G2.2": {
+    "title": "Trafficking in Material Involving the Sexual Exploitation of a Minor; Receiving,",
+    "section": "2G2.2",
+    "pdfReference": "Guidelines/2025/GLMFull 210.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 1466A(b), \u00a7 2252(a)(4), \u00a7 2252A(a)(5), or \u00a7 2252A(a)(7)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Convicted under specified subsections"
+        },
+        "noResult": {
+          "baseLevel": 22,
+          "description": "All other convictions"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_limited_receipt",
+        "text": "Does the defendant qualify for the limited receipt/solicitation reduction?",
+        "type": "yesno",
+        "reference": "\u00a72G2.2(b)(1)",
+        "condition": "Only applies if: (A) subsection (a)(2) applies; (B) defendant's conduct was limited to receipt or solicitation of material; and (C) defendant did not intend to traffic in or distribute such material",
+        "yesEffect": {
+          "adjustment": -2,
+          "description": "Limited to receipt/solicitation without intent to distribute"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_prepubescent_minor",
+        "text": "Did the material involve a prepubescent minor or a minor who had not attained the age of 12 years?",
+        "type": "yesno",
+        "reference": "\u00a72G2.2(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Material involved prepubescent minor or minor under 12"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_distribution",
+        "text": "What type of distribution was involved (if any)?",
+        "type": "select",
+        "reference": "\u00a72G2.2(b)(3)",
+        "options": [
+          {
+            "label": "No distribution",
+            "adjustment": 0
+          },
+          {
+            "label": "Distribution for pecuniary gain",
+            "adjustment": "per \u00a72B1.1 table (min +5)",
+            "description": "Based on retail value but not less than 5 levels"
+          },
+          {
+            "label": "Distribution in exchange for valuable consideration (not pecuniary gain)",
+            "adjustment": 5
+          },
+          {
+            "label": "Distribution to a minor",
+            "adjustment": 5
+          },
+          {
+            "label": "Distribution to minor intended to persuade illegal activity (not sexual conduct)",
+            "adjustment": 6
+          },
+          {
+            "label": "Distribution to minor intended to facilitate prohibited sexual conduct",
+            "adjustment": 7
+          },
+          {
+            "label": "Other knowing distribution",
+            "adjustment": 2
+          }
+        ]
+      },
+      {
+        "id": "soc_violent_content",
+        "text": "Did the material portray sadistic/masochistic conduct, violence, or sexual abuse of infant/toddler?",
+        "type": "yesno",
+        "reference": "\u00a72G2.2(b)(4)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Material portrayed sadistic/masochistic conduct, violence, or abuse of infant/toddler"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_pattern_activity",
+        "text": "Did the defendant engage in a pattern of activity involving sexual abuse or exploitation of a minor?",
+        "type": "yesno",
+        "reference": "\u00a72G2.2(b)(5)",
+        "yesEffect": {
+          "adjustment": 5,
+          "description": "Pattern of activity involving sexual abuse or exploitation of minor"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_computer_use",
+        "text": "Did the offense involve use of a computer or interactive computer service?",
+        "type": "yesno",
+        "reference": "\u00a72G2.2(b)(6)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Used computer or interactive computer service for possession, transmission, receipt, distribution, or accessing material"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_number_images",
+        "text": "How many images were involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72G2.2(b)(7)",
+        "options": [
+          {
+            "label": "Fewer than 10 images",
+            "adjustment": 0
+          },
+          {
+            "label": "At least 10 but fewer than 150 images",
+            "adjustment": 2
+          },
+          {
+            "label": "At least 150 but fewer than 300 images",
+            "adjustment": 3
+          },
+          {
+            "label": "At least 300 but fewer than 600 images",
+            "adjustment": 4
+          },
+          {
+            "label": "600 or more images",
+            "adjustment": 5
+          }
+        ]
+      }
+    ]
+  },
+  "2G3.1": {
+    "title": "Importing, Mailing, or Transporting Obscene Matter; Transferring Obscene",
+    "section": "2G3.1",
+    "pdfReference": "Guidelines/2025/GLMFull 217.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72G3.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Base offense level for \u00a72G3.1 offenses"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_distribution_type",
+        "text": "What type of distribution was involved? (Apply the Greatest)",
+        "type": "select",
+        "reference": "\u00a72G3.1(b)(1)",
+        "options": [
+          {
+            "label": "No distribution or none of the below apply",
+            "adjustment": 0
+          },
+          {
+            "label": "Distribution for pecuniary gain (increase by levels from \u00a72B1.1 table corresponding to retail value, but not less than 5 levels)",
+            "adjustment": 5,
+            "description": "Minimum 5 levels, but may be higher based on retail value per \u00a72B1.1"
+          },
+          {
+            "label": "Distribution in exchange for valuable consideration, but not for pecuniary gain",
+            "adjustment": 5
+          },
+          {
+            "label": "Distribution to a minor",
+            "adjustment": 5
+          },
+          {
+            "label": "Distribution to a minor intended to persuade, induce, entice, or coerce minor to engage in illegal activity (other than prohibited sexual conduct)",
+            "adjustment": 6
+          },
+          {
+            "label": "Distribution to a minor intended to persuade, induce, entice, coerce, or facilitate travel to engage in prohibited sexual conduct",
+            "adjustment": 7
+          },
+          {
+            "label": "Knowingly engaged in distribution (other than above types)",
+            "adjustment": 2
+          }
+        ]
+      },
+      {
+        "id": "soc_deceptive_methods",
+        "text": "Did the offense involve using misleading domain names or embedded words/images to deceive a minor into viewing harmful material?",
+        "type": "yesno",
+        "reference": "\u00a72G3.1(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Use of misleading domain name or embedded words/digital images with intent to deceive minor"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_computer_use",
+        "text": "Did the offense involve the use of a computer or an interactive computer service?",
+        "type": "yesno",
+        "reference": "\u00a72G3.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Use of computer or interactive computer service"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_violent_content",
+        "text": "Did the offense involve material that portrays sadistic or masochistic conduct or other depictions of violence?",
+        "type": "yesno",
+        "reference": "\u00a72G3.1(b)(4)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Material portraying sadistic/masochistic conduct or violence"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2G3.2": {
+    "title": "Obscene Telephone Communications for a Commercial Purpose;",
+    "section": "2G3.2",
+    "pdfReference": "Guidelines/2025/GLMFull 219.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does 6 plus the offense level from the table in \u00a72B1.1 corresponding to the volume of commerce attributable to the defendant result in a level greater than 16 (base level 12 plus maximum 4-level enhancement)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "6 + \u00a72B1.1 offense level",
+          "description": "Large-scale operation enhancement applies - use 6 plus the offense level from \u00a72B1.1 table based on volume of commerce"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Was a person who received the telephonic communication less than eighteen years of age, OR was a broadcast made between six o'clock in the morning and eleven o'clock at night?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "Base level 12, plus 4 levels for communication received by minor or broadcast during daytime hours"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Base offense level with no enhancements"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "minor_or_broadcast_time",
+        "text": "Did a person who received the telephonic communication under 18 years of age, or was a broadcast made between 6:00 AM and 11:00 PM?",
+        "type": "yesno",
+        "reference": "\u00a72G3.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Communication received by minor or broadcast during daytime hours"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "volume_of_commerce",
+        "text": "Does 6 plus the offense level from \u00a72B1.1 corresponding to the volume of commerce attributable to the defendant exceed the offense level determined above?",
+        "type": "yesno",
+        "reference": "\u00a72G3.2(b)(2)",
+        "yesEffect": {
+          "setLevel": "6 + \u00a72B1.1 offense level",
+          "description": "Large-scale operation based on volume of commerce"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

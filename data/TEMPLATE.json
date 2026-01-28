@@ -1,0 +1,88 @@
+{
+  "_instructions": "Copy this template to {year}/offenses/{chapter}.json. Remove all _comment fields before use.",
+
+  "SECTION_NUMBER": {
+    "_comment": "Replace SECTION_NUMBER with the guideline section (e.g., '2L1.2')",
+    "title": "Full title of the offense guideline",
+    "section": "SECTION_NUMBER",
+    "pdfReference": "Guidelines/YEAR/GLMFull PAGE.pdf",
+
+    "baseOffenseQuestions": [
+      {
+        "_comment": "BRANCHING QUESTION - leads to other questions",
+        "id": "base_1",
+        "text": "Question text that determines which path to follow?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "_comment": "TERMINAL QUESTION - yes gives a result, no continues",
+        "id": "base_1a",
+        "text": "Question that might end with a base level?",
+        "type": "yesno",
+        "yesResult": { "baseLevel": 20, "description": "Short description of why this level" },
+        "noNext": "base_1b"
+      },
+      {
+        "_comment": "FINAL QUESTION - both answers give results (end of tree)",
+        "id": "base_2",
+        "text": "Final question in this branch?",
+        "type": "yesno",
+        "yesResult": { "baseLevel": 12, "description": "Description for yes" },
+        "noResult": { "baseLevel": 6, "description": "Description for no" }
+      }
+    ],
+
+    "specificOffenseCharacteristics": [
+      {
+        "_comment": "SELECT TYPE - multiple choice adjustment",
+        "id": "soc_example_select",
+        "text": "Question with multiple options?",
+        "type": "select",
+        "reference": "§SECTION(b)(1)",
+        "options": [
+          { "label": "Option that gives no adjustment", "adjustment": 0 },
+          { "label": "Option that adds 2 levels", "adjustment": 2 },
+          { "label": "Option that adds 4 levels", "adjustment": 4 }
+        ]
+      },
+      {
+        "_comment": "YESNO TYPE - simple yes/no adjustment",
+        "id": "soc_example_yesno",
+        "text": "Yes/no question for specific characteristic?",
+        "type": "yesno",
+        "reference": "§SECTION(b)(2)",
+        "yesEffect": { "adjustment": 2, "description": "Added because X" },
+        "noEffect": { "adjustment": 0 }
+      },
+      {
+        "_comment": "YESNO WITH MINIMUM LEVEL - adjustment plus floor",
+        "id": "soc_example_minimum",
+        "text": "Characteristic that also sets a minimum level?",
+        "type": "yesno",
+        "reference": "§SECTION(b)(3)",
+        "yesEffect": { "adjustment": 4, "minimumLevel": 18, "description": "Adds 4 with min level 18" },
+        "noEffect": { "adjustment": 0 }
+      },
+      {
+        "_comment": "YESNO WITH SET LEVEL - overrides current level entirely",
+        "id": "soc_example_setlevel",
+        "text": "Characteristic that resets the level to a fixed value?",
+        "type": "yesno",
+        "reference": "§SECTION(b)(4)",
+        "condition": "baseLevel <= 14",
+        "note": "Optional note shown to user explaining when this applies",
+        "yesEffect": { "setLevel": 6, "description": "Reduces to level 6" },
+        "noEffect": { "adjustment": 0 }
+      }
+    ],
+
+    "_comment_socCap": "OPTIONAL - cap on cumulative SOC adjustments",
+    "socCap": {
+      "maxLevel": 29,
+      "appliesTo": ["soc_example_select", "soc_example_yesno"],
+      "exception": "Description of any exceptions to the cap"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "2P1.1": {
+    "title": "Escape, Instigating or Assisting Escape",
+    "section": "2P1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 289.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the custody or confinement by virtue of an arrest on a charge of felony, or conviction of any offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 13,
+          "description": "Custody/confinement by virtue of arrest on felony charge or conviction of any offense"
+        },
+        "noResult": {
+          "baseLevel": 8,
+          "description": "All other custody or confinement situations"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "force_threat",
+        "text": "Was the use or threat of force against any person involved?",
+        "type": "yesno",
+        "reference": "\u00a72P1.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 5,
+          "description": "Use or threat of force against any person"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "voluntary_return",
+        "text": "Did the defendant escape from non-secure custody and return voluntarily within ninety-six hours without committing any qualifying offense?",
+        "type": "yesno",
+        "reference": "\u00a72P1.1(b)(2)",
+        "yesEffect": {
+          "adjustment": -7,
+          "description": "Voluntary return within 96 hours (7-level reduction for (a)(1) base offense level or 4-level reduction for (a)(2) base offense level)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        },
+        "condition": "Only applies if defendant did not commit any federal, state, or local offense punishable by imprisonment of one year or more while away"
+      },
+      {
+        "id": "community_facility_escape",
+        "text": "Did the defendant escape from non-secure custody of a community corrections center, community treatment center, halfway house, or similar facility (and subsection (b)(2) does not apply)?",
+        "type": "yesno",
+        "reference": "\u00a72P1.1(b)(3)",
+        "yesEffect": {
+          "adjustment": -4,
+          "description": "Escape from community facility (4-level reduction for (a)(1) base offense level or 2-level reduction for (a)(2) base offense level)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        },
+        "condition": "Only applies if subsection (b)(2) is not applicable and defendant did not commit any federal, state, or local offense punishable by imprisonment of one year or more while away"
+      },
+      {
+        "id": "law_enforcement_employee",
+        "text": "Was the defendant a law enforcement or correctional officer or employee, or an employee of the Department of Justice, at the time of the offense?",
+        "type": "yesno",
+        "reference": "\u00a72P1.1(b)(4)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Law enforcement, correctional, or DOJ employee"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2P1.2": {
+    "title": "Providing or Possessing Contraband in Prison",
+    "section": "2P1.2",
+    "pdfReference": "Guidelines/2025/GLMFull 290.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the object of the offense the distribution of a controlled substance?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 1791(a)(1) and punishable under 18 U.S.C. \u00a7 1791(b)(1), and would the offense level from \u00a72D1.1 be less than level 26?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "Distribution of controlled substance with mandatory minimum level 26"
+        },
+        "noResult": {
+          "baseLevel": "\u00a72D1.1",
+          "description": "Apply offense level from \u00a72D1.1 for distribution of controlled substance"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Was the object a firearm or destructive device?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 23,
+          "description": "Firearm or destructive device"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Was the object a weapon (other than a firearm or destructive device), any object that might be used as a weapon or as a means of facilitating escape, ammunition, LSD, PCP, methamphetamine, or a narcotic drug?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 13,
+          "description": "Weapon, weapon-like object, ammunition, or specified controlled substances"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_4",
+        "text": "Was the object an alcoholic beverage, United States or foreign currency, a mobile phone or similar device, or a controlled substance (other than LSD, PCP, methamphetamine, or a narcotic drug)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Alcoholic beverage, currency, mobile phone, or other controlled substance"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_5",
+        "text": "Was the object any other object that threatened the order, discipline, or security of the institution or the life, health, or safety of an individual?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 4,
+          "description": "Other object threatening institutional security or individual safety"
+        },
+        "noResult": {
+          "baseLevel": 4,
+          "description": "Default level for any prohibited object"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "law_enforcement_officer",
+        "text": "Was the defendant a law enforcement or correctional officer or employee, or an employee of the Department of Justice, at the time of the offense?",
+        "type": "yesno",
+        "reference": "\u00a72P1.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Defendant was a law enforcement or correctional officer or employee, or an employee of the Department of Justice"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

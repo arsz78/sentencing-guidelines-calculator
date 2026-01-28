@@ -1,0 +1,420 @@
+{
+  "2T1.1": {
+    "title": "Tax Evasion; Willful Failure to File Return, Supply Information, or Pay Tax;",
+    "section": "2T1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 312.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is there a tax loss in this case?",
+        "type": "yesno",
+        "yesNext": "base_2",
+        "noResult": {
+          "baseLevel": 6,
+          "description": "No tax loss"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Is the tax loss more than $3,500,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "Tax loss more than $3,500,000"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Is the tax loss more than $2,000,000 but not more than $3,500,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 24,
+          "description": "Tax loss more than $2,000,000 but not more than $3,500,000"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_4",
+        "text": "Is the tax loss more than $1,500,000 but not more than $2,000,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "Tax loss more than $1,500,000 but not more than $2,000,000"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_5",
+        "text": "Is the tax loss more than $1,000,000 but not more than $1,500,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Tax loss more than $1,000,000 but not more than $1,500,000"
+        },
+        "noNext": "base_6"
+      },
+      {
+        "id": "base_6",
+        "text": "Is the tax loss more than $550,000 but not more than $1,000,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Tax loss more than $550,000 but not more than $1,000,000"
+        },
+        "noNext": "base_7"
+      },
+      {
+        "id": "base_7",
+        "text": "Is the tax loss more than $350,000 but not more than $550,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "Tax loss more than $350,000 but not more than $550,000"
+        },
+        "noNext": "base_8"
+      },
+      {
+        "id": "base_8",
+        "text": "Is the tax loss more than $200,000 but not more than $350,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Tax loss more than $200,000 but not more than $350,000"
+        },
+        "noNext": "base_9"
+      },
+      {
+        "id": "base_9",
+        "text": "Is the tax loss more than $120,000 but not more than $200,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Tax loss more than $120,000 but not more than $200,000"
+        },
+        "noNext": "base_10"
+      },
+      {
+        "id": "base_10",
+        "text": "Is the tax loss more than $80,000 but not more than $120,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Tax loss more than $80,000 but not more than $120,000"
+        },
+        "noNext": "base_11"
+      },
+      {
+        "id": "base_11",
+        "text": "Is the tax loss more than $40,000 but not more than $80,000?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Tax loss more than $40,000 but not more than $80,000"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Tax loss $40,000 or less"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "unreported_criminal_income",
+        "text": "Did the defendant fail to report or correctly identify the source of income exceeding $10,000 in any year from criminal activity?",
+        "type": "yesno",
+        "reference": "\u00a72T1.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12,
+          "description": "Failed to report or correctly identify source of income exceeding $10,000 from criminal activity"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "sophisticated_means",
+        "text": "Did the offense involve sophisticated means?",
+        "type": "yesno",
+        "reference": "\u00a72T1.1(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12,
+          "description": "Offense involved sophisticated means"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2T1.4": {
+    "title": "Aiding, Assisting, Procuring, Counseling, or Advising Tax Fraud",
+    "section": "2T1.4",
+    "pdfReference": "Guidelines/2025/GLMFull 317.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is there a tax loss resulting from the defendant's aid, assistance, procurance, or advice?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noResult": {
+          "baseLevel": 6,
+          "description": "No tax loss - level 6"
+        }
+      },
+      {
+        "id": "base_1a",
+        "text": "What is the amount of the tax loss as defined in \u00a72T1.1?",
+        "type": "taxloss",
+        "result": {
+          "baseLevel": "\u00a72T4.1",
+          "description": "Level from Tax Table (\u00a72T4.1) corresponding to the tax loss amount"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "pattern_or_business",
+        "text": "Did the defendant commit the offense as part of a pattern/scheme from which they derived substantial income, or were they in the business of preparing tax returns?",
+        "type": "yesno",
+        "reference": "\u00a72T1.4(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Pattern/scheme with substantial income or tax preparer business"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "sophisticated_means",
+        "text": "Did the offense involve sophisticated means?",
+        "type": "yesno",
+        "reference": "\u00a72T1.4(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12,
+          "description": "Sophisticated means with minimum level 12"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2T1.6": {
+    "title": "Failing to Collect or Truthfully Account for and Pay Over Tax",
+    "section": "2T1.6",
+    "pdfReference": "Guidelines/2025/GLMFull 318.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve embezzlement by withholding tax from an employee's earnings and willfully failing to account to the employee for it?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Would applying \u00a72B1.1 (Theft, Property Destruction, and Fraud) result in a higher offense level than the level from \u00a72T4.1 (Tax Table)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72B1.1",
+          "description": "Apply \u00a72B1.1 (Theft, Property Destruction, and Fraud) for embezzlement of withheld taxes"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Is there a tax amount that was not collected or accounted for and paid over?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72T4.1",
+          "description": "Level from \u00a72T4.1 (Tax Table) corresponding to the tax not collected or accounted for and paid over"
+        },
+        "noResult": {
+          "baseLevel": "\u00a72T4.1",
+          "description": "Level from \u00a72T4.1 (Tax Table) for failure to collect, account for, or pay over tax"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_tax_preparer_promoter",
+        "text": "Does the defendant derive a substantial portion of income from promoting tax schemes or regularly prepare/assist in tax return preparation for profit?",
+        "type": "yesno",
+        "reference": "\u00a72T1.6(b)(1)",
+        "condition": "If this enhancement applies, do not apply \u00a73B1.3 (Abuse of Position of Trust or Use of Special Skill)",
+        "yesEffect": {
+          "adjustment": "[LEVEL NOT SPECIFIED]",
+          "description": "Defendant derives substantial income from promoting tax schemes or regularly prepares tax returns for profit"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_sophisticated_means",
+        "text": "Did the offense involve sophisticated means?",
+        "type": "yesno",
+        "reference": "\u00a72T1.6(b)(2)",
+        "yesEffect": {
+          "adjustment": "[LEVEL NOT SPECIFIED]",
+          "description": "Offense involved especially complex or intricate conduct, such as hiding assets through fictitious entities, corporate shells, or offshore accounts"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2T1.8": {
+    "title": "Offenses Relating to Withholding Statements",
+    "section": "2T1.8",
+    "pdfReference": "Guidelines/2025/GLMFull 319.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the base offense level from \u00a72T4.1 (Tax Table) corresponding to the amount not deposited minus 5 levels greater than 4?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72T4.1 level minus 5",
+          "description": "5 less than the level from \u00a72T4.1 (Tax Table) corresponding to the amount not deposited"
+        },
+        "noResult": {
+          "baseLevel": 4,
+          "description": "Default base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2T1.9": {
+    "title": "Conspiracy to Impede, Impair, Obstruct, or Defeat Tax",
+    "section": "2T1.9",
+    "pdfReference": "Guidelines/2025/GLMFull 320.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the offense level determined from \u00a72T1.1 or \u00a72T1.4 (as appropriate) greater than 10?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72T1.1 or \u00a72T1.4 level",
+          "description": "Use offense level from \u00a72T1.1 or \u00a72T1.4 as appropriate"
+        },
+        "noResult": {
+          "baseLevel": 10,
+          "description": "Use base offense level 10"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "violence_planned_threatened",
+        "text": "Did the offense involve the planned or threatened use of violence to impede, impair, obstruct, or defeat the ascertainment, computation, assessment, or collection of revenue?",
+        "type": "yesno",
+        "reference": "\u00a72T1.9(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Planned or threatened violence to impede revenue collection"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "encourage_others_violate",
+        "text": "Was the conduct intended to encourage persons other than or in addition to co-conspirators to violate the internal revenue laws or impede, impair, obstruct, or defeat the ascertainment, computation, assessment, or collection of revenue?",
+        "type": "yesno",
+        "reference": "\u00a72T1.9(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Conduct intended to encourage others to violate revenue laws"
+        },
+        "noEffect": {
+          "adjustment": 0
+        },
+        "condition": "Do not apply if an adjustment from \u00a72T1.4(b)(1) is applied"
+      }
+    ]
+  },
+  "2T2.1": {
+    "title": "Non-Payment of Taxes",
+    "section": "2T2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 321.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Has the tax loss amount been determined?",
+        "type": "yesno",
+        "yesNext": "base_2",
+        "noResult": {
+          "baseLevel": "Cannot be determined",
+          "description": "Tax loss amount must be calculated to determine base offense level from Tax Table \u00a72T4.1"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Should the base offense level be determined by consulting the Tax Table in \u00a72T4.1 using the calculated tax loss amount?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Per \u00a72T4.1 Tax Table",
+          "description": "Base offense level corresponds to the tax loss amount as specified in the Tax Table at \u00a72T4.1"
+        },
+        "noResult": {
+          "baseLevel": "Error",
+          "description": "Invalid path - base offense level must be determined from Tax Table \u00a72T4.1"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2T3.1": {
+    "title": "Evading Import Duties or Restrictions",
+    "section": "2T3.1",
+    "pdfReference": "Guidelines/2025/GLMFull 323.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the tax loss (amount of duty) exceed $1,500?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "See \u00a72T4.1 Tax Table",
+          "description": "Use the level from \u00a72T4.1 Tax Table corresponding to the tax loss amount"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the tax loss (amount of duty) exceed $200?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 5,
+          "description": "Tax loss exceeded $200 but did not exceed $1,500"
+        },
+        "noResult": {
+          "baseLevel": 4,
+          "description": "Tax loss did not exceed $200"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "sophisticated_means",
+        "text": "Did the offense involve sophisticated means?",
+        "type": "yesno",
+        "reference": "\u00a72T3.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12,
+          "description": "Offense involved sophisticated means"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

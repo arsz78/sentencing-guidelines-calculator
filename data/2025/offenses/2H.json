@@ -1,0 +1,324 @@
+{
+  "2H1.1": {
+    "title": "Offenses Involving Individual Rights",
+    "section": "2H1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 221.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is there an underlying offense with its own offense guideline that applies to this case?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "underlying_offense_level",
+          "description": "Use the offense level from the applicable underlying offense guideline"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense involve two or more participants?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Offense involved two or more participants"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Did the offense involve either (A) the use or threat of force against a person, or (B) property damage or the threat of property damage?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Offense involved use/threat of force against person or property damage/threat of property damage"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base level for all other offenses under this guideline"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "public_official_or_color_of_law",
+        "text": "Was the defendant a public official at the time of the offense, or was the offense committed under color of law?",
+        "type": "yesno",
+        "reference": "\u00a72H1.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 6,
+          "description": "Defendant was a public official or offense was committed under color of law"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2H3.1": {
+    "title": "Interception of Communications; Eavesdropping; Disclosure of Certain",
+    "section": "2H3.1",
+    "pdfReference": "Guidelines/2025/GLMFull 223.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the obstruction occur by use of force or threat of force against person(s) or property?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Obstruction by force or threat of force"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the defendant solicit, demand, accept, or agree to accept anything of value to vote, refrain from voting, vote for or against a particular candidate, or register to vote?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Vote buying/selling"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Did the defendant give false information to establish eligibility to vote?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "False information for voting eligibility"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_4",
+        "text": "Did the defendant vote more than once in a federal election?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Multiple voting in federal election"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Obstruction by forgery, fraud, theft, bribery, deceit, or other means"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "commercial_advantage_or_conviction",
+        "text": "Does the defendant fall under 18 U.S.C. \u00a7 1039(d) or (e), OR was the purpose to obtain direct or indirect commercial advantage or economic gain?",
+        "type": "yesno",
+        "reference": "\u00a72H3.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 3,
+          "description": "Conviction under 18 U.S.C. \u00a7 1039(d) or (e), or purpose was commercial advantage/economic gain"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "section_119_conviction",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 119?",
+        "type": "select",
+        "reference": "\u00a72H3.1(b)(2)",
+        "options": [
+          {
+            "label": "Not convicted under \u00a7 119",
+            "adjustment": 0
+          },
+          {
+            "label": "Convicted under \u00a7 119",
+            "adjustment": 8
+          },
+          {
+            "label": "Convicted under \u00a7 119 AND offense involved use of computer/interactive computer service to make restricted personal information about covered person publicly available",
+            "adjustment": 10
+          }
+        ]
+      }
+    ]
+  },
+  "2H3.3": {
+    "title": "Obstructing Correspondence",
+    "section": "2H3.3",
+    "pdfReference": "Guidelines/2025/GLMFull 225.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the offense of obstructing correspondence committed for pecuniary gain?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 9,
+          "description": "Base level 6 plus 3-level increase for pecuniary gain"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base offense level for obstructing correspondence"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_pecuniary_gain",
+        "text": "Was the offense committed for pecuniary gain?",
+        "type": "yesno",
+        "reference": "\u00a72H3.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 3,
+          "description": "Offense committed for pecuniary gain"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2H4.1": {
+    "title": "Peonage, Involuntary Servitude, Slave Trade, and Child Soldiers",
+    "section": "2H4.1",
+    "pdfReference": "Guidelines/2025/GLMFull 226.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant convicted of an offense under 18 U.S.C. \u00a7 1592?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Conviction under 18 U.S.C. \u00a7 1592"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Was the defendant convicted of an offense under 18 U.S.C. \u00a7 1593A based on an act in violation of 18 U.S.C. \u00a7 1592?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Conviction under 18 U.S.C. \u00a7 1593A based on violation of \u00a7 1592"
+        },
+        "noResult": {
+          "baseLevel": 22,
+          "description": "Default base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "bodily_injury",
+        "text": "What level of bodily injury did any victim sustain?",
+        "type": "select",
+        "reference": "\u00a72H4.1(b)(1)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "dangerous_weapon",
+        "text": "What was the extent of dangerous weapon involvement?",
+        "type": "select",
+        "reference": "\u00a72H4.1(b)(2)",
+        "options": [
+          {
+            "label": "No dangerous weapon involved",
+            "adjustment": 0
+          },
+          {
+            "label": "Dangerous weapon was brandished or use was threatened",
+            "adjustment": 2
+          },
+          {
+            "label": "Dangerous weapon was used",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "peonage_duration",
+        "text": "How long was any victim held in a condition of peonage or involuntary servitude?",
+        "type": "select",
+        "reference": "\u00a72H4.1(b)(3)",
+        "options": [
+          {
+            "label": "No peonage or involuntary servitude",
+            "adjustment": 0
+          },
+          {
+            "label": "Between 6 months and 1 year",
+            "adjustment": 1
+          },
+          {
+            "label": "More than 1 year",
+            "adjustment": 3
+          }
+        ]
+      }
+    ]
+  },
+  "2H4.2": {
+    "title": "Willful Violations of the Migrant and Seasonal Agricultural Worker Protection",
+    "section": "2H4.2",
+    "pdfReference": "Guidelines/2025/GLMFull 227.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense have a base offense level of 6?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Base offense level under \u00a72H4.2"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base offense level under \u00a72H4.2"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_bodily_injury",
+        "text": "Did the offense involve bodily injury?",
+        "type": "select",
+        "reference": "\u00a72H4.2(b)(1)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "soc_prior_adjudication",
+        "text": "Did the defendant commit any part of the instant offense subsequent to sustaining a civil or administrative adjudication for similar misconduct?",
+        "type": "yesno",
+        "reference": "\u00a72H4.2(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense committed after civil or administrative adjudication for similar misconduct"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "2X1.1": {
+    "title": "Attempt, Solicitation, or Conspiracy",
+    "section": "2X1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 325.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Has the substantive offense that was the object of the attempt, solicitation, or conspiracy been identified?",
+        "type": "yesno",
+        "yesNext": "base_2",
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default base offense level when substantive offense cannot be identified"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Can any intended offense conduct beyond the basic substantive offense be established with reasonable certainty?",
+        "type": "yesno",
+        "yesNext": "base_3",
+        "noResult": {
+          "baseLevel": "substantive",
+          "description": "Base offense level from the guideline for the substantive offense"
+        }
+      },
+      {
+        "id": "base_3",
+        "text": "Are there specific adjustments in the substantive offense guideline that apply to the intended offense conduct that can be established with reasonable certainty?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "substantive_plus_adjustments",
+          "description": "Base offense level from the substantive offense guideline plus applicable adjustments for intended offense conduct established with reasonable certainty"
+        },
+        "noResult": {
+          "baseLevel": "substantive",
+          "description": "Base offense level from the guideline for the substantive offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "attempt_reduction",
+        "text": "Was this an attempt offense?",
+        "type": "yesno",
+        "reference": "\u00a72X1.1(b)(1)",
+        "yesEffect": {
+          "adjustment": -3,
+          "description": "Decrease by 3 levels for attempt, unless defendant completed all acts believed necessary or was about to complete them but for apprehension/interruption",
+          "condition": "Does not apply if defendant completed all acts believed necessary for successful completion or circumstances demonstrate defendant was about to complete all such acts but for apprehension or interruption by some similar event beyond defendant's control"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "conspiracy_reduction",
+        "text": "Was this a conspiracy offense?",
+        "type": "yesno",
+        "reference": "\u00a72X1.1(b)(2)",
+        "yesEffect": {
+          "adjustment": -3,
+          "description": "Decrease by 3 levels for conspiracy, unless defendant or co-conspirator completed all acts believed necessary or was about to complete them but for apprehension/interruption",
+          "condition": "Does not apply if defendant or co-conspirator completed all acts conspirators believed necessary for successful completion or circumstances demonstrate conspirators were about to complete all such acts but for apprehension or interruption by some similar event beyond their control"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "solicitation_reduction",
+        "text": "Was this a solicitation offense?",
+        "type": "select",
+        "reference": "\u00a72X1.1(b)(3)",
+        "options": [
+          {
+            "label": "No",
+            "adjustment": 0
+          },
+          {
+            "label": "Yes, but statute treats solicitation identically with substantive offense",
+            "adjustment": 0,
+            "description": "No reduction applies when statute treats solicitation same as substantive offense"
+          },
+          {
+            "label": "Yes, and standard solicitation reduction applies",
+            "adjustment": -3,
+            "description": "Decrease by 3 levels for solicitation, unless person solicited completed all acts believed necessary or was about to complete them but for apprehension/interruption",
+            "condition": "Does not apply if person solicited completed all acts he believed necessary for successful completion or circumstances demonstrate person was about to complete all such acts but for apprehension or interruption by some similar event beyond such person's control"
+          }
+        ]
+      }
+    ]
+  },
+  "2X3.1": {
+    "title": "Accessory After the Fact",
+    "section": "2X3.1",
+    "pdfReference": "Guidelines/2025/GLMFull 328.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the conduct limited to harboring a fugitive (and not involving other accessory conduct)?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Does the case fall under subdivision (C) (special harboring cases)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "6 levels lower than underlying offense (max 30)",
+          "description": "Harboring fugitive - special case under subdivision (C)"
+        },
+        "noResult": {
+          "baseLevel": "6 levels lower than underlying offense (min 4, max 20)",
+          "description": "Harboring fugitive - general case"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Is the underlying offense level high enough that 6 levels lower would exceed level 30?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 30,
+          "description": "Maximum cap of level 30 applied"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Is the underlying offense level low enough that 6 levels lower would be less than level 4?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 4,
+          "description": "Minimum floor of level 4 applied"
+        },
+        "noResult": {
+          "baseLevel": "6 levels lower than underlying offense",
+          "description": "Standard calculation: 6 levels below underlying offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2X4.1": {
+    "title": "Misprision of Felony",
+    "section": "2X4.1",
+    "pdfReference": "Guidelines/2025/GLMFull 329.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the offense level for the underlying offense 23 or higher?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 19,
+          "description": "9 levels lower than underlying offense, capped at maximum of 19"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Is the offense level for the underlying offense 13 or higher?",
+        "type": "yesno",
+        "yesNext": "base_2a",
+        "noResult": {
+          "baseLevel": 4,
+          "description": "9 levels lower than underlying offense, but minimum of 4 applies"
+        }
+      },
+      {
+        "id": "base_2a",
+        "text": "Is the calculated level (underlying offense level minus 9) at least 4?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "underlying_minus_9",
+          "description": "9 levels lower than the underlying offense level"
+        },
+        "noResult": {
+          "baseLevel": 4,
+          "description": "9 levels lower than underlying offense, but minimum of 4 applies"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2X5.1": {
+    "title": "Other Felony Offenses",
+    "section": "2X5.1",
+    "pdfReference": "Guidelines/2025/GLMFull 330.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the defendant convicted of conduct described in 18 U.S.C. \u00a7 1841(a)(1) and listed in 18 U.S.C. \u00a7 1841?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "apply_underlying_guideline",
+          "description": "Apply the guideline that covers the specific conduct the defendant is convicted of having engaged in, as described in 18 U.S.C. \u00a7 1841(a)(1) and listed in 18 U.S.C. \u00a7 1841"
+        },
+        "noResult": {
+          "baseLevel": "not_applicable",
+          "description": "Section 2X5.1 does not apply - defendant not convicted of conduct under 18 U.S.C. \u00a7 1841"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2X5.2": {
+    "title": "Class A Misdemeanors",
+    "section": "2X5.2",
+    "pdfReference": "Guidelines/2025/GLMFull 331.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 1841(a)(1)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "REFER_TO_UNDERLYING_OFFENSE",
+          "description": "Apply the Chapter Two offense guideline that covers the specific conduct the defendant is convicted of having engaged in (the conduct that violates a specific provision listed in 18 U.S.C. \u00a7 1841)"
+        },
+        "noResult": {
+          "baseLevel": "NOT_APPLICABLE",
+          "description": "This guideline section does not apply - defendant not convicted under 18 U.S.C. \u00a7 1841(a)(1)"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2X6.1": {
+    "title": "Use of a Minor in a Crime of Violence",
+    "section": "2X6.1",
+    "pdfReference": "Guidelines/2025/GLMFull 332.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the defendant convicted of using a minor to commit a crime of violence under 18 U.S.C. \u00a7 25?",
+        "type": "yesno",
+        "yesNext": "base_2",
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Has the offense level for the underlying crime of violence been determined?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "4 + underlying offense level",
+          "description": "4 plus the offense level from the guideline applicable to the underlying crime of violence"
+        },
+        "noResult": {
+          "baseLevel": "4 + underlying offense level",
+          "description": "4 plus the offense level from the guideline applicable to the underlying crime of violence (underlying offense level must be determined)"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2X7.2": {
+    "title": "Submersible and Semi-Submersible Vessels",
+    "section": "2X7.2",
+    "pdfReference": "Guidelines/2025/GLMFull 333.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant convicted under 18 U.S.C. \u00a7 555(c)?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Is the offense level (4 plus the underlying smuggling offense level) less than level 16?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "18 U.S.C. \u00a7 555(c) with calculated level less than 16"
+        },
+        "noResult": {
+          "baseLevel": "4 + underlying offense level",
+          "description": "18 U.S.C. \u00a7 555(c) - 4 plus underlying smuggling offense level"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Was the defendant convicted under 18 U.S.C. \u00a7 555(a)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "18 U.S.C. \u00a7 555(a)"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Was the defendant convicted under 18 U.S.C. \u00a7 555?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "18 U.S.C. \u00a7 555"
+        },
+        "noResult": {
+          "baseLevel": 8,
+          "description": "Default - 18 U.S.C. \u00a7 555"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_vessel_conduct",
+        "text": "Did the offense involve any of the following conduct with the submersible or semi-submersible vessel?",
+        "type": "select",
+        "reference": "\u00a72X7.2(b)(1)",
+        "options": [
+          {
+            "label": "No aggravating conduct",
+            "adjustment": 0
+          },
+          {
+            "label": "Failure to heave to when directed by law enforcement officers",
+            "adjustment": 2
+          },
+          {
+            "label": "Attempt to sink the vessel",
+            "adjustment": 4
+          },
+          {
+            "label": "Sinking of the vessel",
+            "adjustment": 8
+          }
+        ]
+      }
+    ]
+  }
+}

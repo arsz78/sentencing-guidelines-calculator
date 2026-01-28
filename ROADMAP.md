@@ -4,9 +4,9 @@ This file guides future development sessions. Edit priorities and add notes as n
 
 ## Current Status
 
-- **Version**: 0.0.2
-- **Completed**: §2K2.1 Firearms offense calculator with Chapter 3 adjustments, Wizard/Checklist mode toggle
-- **Architecture**: Standalone offline HTML with data-driven JSON configuration
+- **Version**: 0.0.3
+- **Completed**: 98 offense guidelines across all 18 Chapter 2 categories with Chapter 3 adjustments, Wizard/Checklist mode toggle
+- **Architecture**: Year-based data structure with chapter-organized JSON files, build system merges all data into standalone offline HTML
 
 ---
 
@@ -23,17 +23,17 @@ This file guides future development sessions. Edit priorities and add notes as n
 
 ---
 
-## Priority 1: UX Mode Toggle (Wizard vs Checklist)
+## Priority 1: UX Mode Toggle (Wizard vs Checklist) ✅ COMPLETED
 
 The current "wizard" flow steps through questions one at a time. Experienced attorneys may prefer to see everything at once.
 
-### Wizard Mode (current)
+### Wizard Mode
 
 - Step-by-step guided flow
 - Good for unfamiliar guidelines or training
 - System prevents skipping steps
 
-### Checklist Mode (new)
+### Checklist Mode
 
 - [x] Display all base offense questions at once
 - [x] Display all SOCs simultaneously with current selections visible
@@ -41,7 +41,7 @@ The current "wizard" flow steps through questions one at a time. Experienced att
 - [x] Visual indicator for "not yet reviewed" vs "reviewed and answered"
 - [x] Same calculation logic, different presentation
 
-**Implementation**: Mode toggle added at start screen; both modes use same JSON data structure. Checklist mode extracts base levels from decision tree and presents as flat selectable list.
+**Status**: ✅ Implemented in v0.0.2. Mode toggle added at start screen; both modes use same JSON data structure. Checklist mode extracts base levels from decision tree and presents as flat selectable list.
 
 ---
 
@@ -66,38 +66,38 @@ Currently SOCs have binary yes/no or select options. Add richer states to suppor
 
 ---
 
-## Priority 3: Validate Architecture with Second Guideline
+## Priority 3: Comprehensive Chapter 2 Coverage ✅ COMPLETED
 
-Add one more guideline to confirm the data structure scales before building out many more.
+Add all Chapter 2 offense guidelines to validate architecture and provide comprehensive coverage.
 
-### §2L1.2 - Unlawfully Entering or Remaining
+- [x] Year-based data directory structure (`data/2025/`)
+- [x] Chapter-organized offense files (`offenses/2A.json`, `offenses/2B.json`, etc.)
+- [x] Build system merges all chapter files by year
+- [x] Parse all 18 Chapter 2 categories from source PDFs
+- [x] 98 offense guidelines successfully parsed and integrated
+- [x] Template file documents all field types for contributors
 
-- [ ] Base offense levels
-- [ ] Prior deportation enhancements
-- [ ] Validate JSON structure works for different guideline patterns
-- **Notes**: Relatively straightforward; good test case
+**Status**: ✅ Implemented in v0.0.3. Architecture validated across diverse guideline types:
+- Simple guidelines (2R1.1 Antitrust)
+- Complex decision trees (2A1.1 Murder, 2K2.1 Firearms)
+- Drug quantity tables (2D1.1)
+- Loss amount tables (2B1.1)
+- Immigration enhancements (2L1.2)
 
-### Then consider
-
-- §2B1.1 - Fraud/Theft (loss tables)
-- §2D1.1 - Drug Trafficking (quantity tables, conversions)
+**Known Issues**: 43 guidelines failed automated parsing (71% success rate) due to PDF text extraction issues. These require manual review or improved extraction logic. See `parse_failures.log` for details.
 
 ---
 
-## Priority 4: Additional Offense Guidelines
+## Priority 4: Data Quality Review
 
-### §2D1.1 - Drug Trafficking
+With 98 guidelines now integrated, focus shifts to validation and refinement.
 
-- [ ] Extract base offense levels from drug quantity tables
-- [ ] Add specific offense characteristics
-- [ ] Handle multiple drug types and conversions
-- **Notes**: Complex due to drug quantity tables and drug equivalency table (will require math!)
-
-### §2B1.1 - Fraud/Theft
-
-- [ ] Base offense levels based on loss amount
-- [ ] Specific offense characteristics (victims, sophisticated means, etc.)
-- **Notes**: Loss tables have many tiers
+- [ ] Manual review of high-priority guidelines (most common offenses)
+- [ ] Fix 43 failed parses from automated extraction
+- [ ] Validate calculations against known case examples
+- [ ] Add test cases for each guideline category
+- [ ] Verify PDF references link correctly
+- **Notes**: Priority guidelines for review: 2K2.1 (firearms), 2D1.1 (drugs), 2B1.1 (fraud), 2L1.2 (immigration), 2G2.2 (child exploitation)
 
 ---
 
@@ -144,20 +144,27 @@ Add one more guideline to confirm the data structure scales before building out 
 
 *Add notes here for the next coding session:*
 
-Next session focus:
+### v0.0.3 Achievements
+- ✅ Expanded from 1 to 98 offense guidelines
+- ✅ Reorganized architecture: year-based dirs, chapter-organized files
+- ✅ Build system merges all chapters
+- ✅ Automated PDF parsing (71% success rate)
+- ✅ Created TEMPLATE.json for contributors
 
-- Consider implementing Checklist Mode toggle as proof of concept
-- Or add §2L1.2 to validate architecture scales
+### Next session focus:
+- Data quality: Review and fix high-priority guidelines (2K2.1, 2D1.1, 2B1.1, 2L1.2)
+- Enhanced response states (flagged, considered but N/A)
+- Exportable decision trail (copy-to-clipboard)
 
-Blockers/questions:
+### Blockers/questions resolved:
+- ✅ Export format: Plain text or PDF export
+- ✅ Flagged items: Allow provisional result (need to present "known unknowns" to clients)
+- ✅ Architecture scales: Validated with 98 guidelines across 18 chapters
 
-- What's the preferred export format for decision trail? (plain text, PDF, copy-paste?) Plan text or PDF export
-- Should flagged items block calculation entirely, or allow "provisional" result? Allow provision, we often have to present the "known unknowns" to clients
-
-Other notes:
-
+### Other notes:
 - Target user: experienced attorney, knows guidelines, needs process discipline
 - Environment: offline, correctional facility, time-pressured
+- Calculator size: 338 KB standalone (works in any browser)
 
 ---
 

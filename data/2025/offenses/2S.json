@@ -1,0 +1,92 @@
+{
+  "2S1.1": {
+    "title": "Laundering of Monetary Instruments; Engaging in Monetary Transactions in",
+    "section": "2S1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 306.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the defendant commit the underlying offense from which the laundered funds were derived (or would be accountable for it under \u00a71B1.3(a)(1)(A))?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Can the offense level for the underlying offense be determined?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "underlying_offense_level",
+          "description": "Use the offense level for the underlying offense from which the laundered funds were derived"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "What is the value of the laundered funds to determine the enhancement from \u00a72B1.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "8_plus_2B1_1_enhancement",
+          "description": "8 plus the number of offense levels from \u00a72B1.1 corresponding to the value of the laundered funds"
+        },
+        "noResult": {
+          "baseLevel": "8_plus_2B1_1_enhancement",
+          "description": "8 plus the number of offense levels from \u00a72B1.1 corresponding to the value of the laundered funds"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "enhanced_knowledge",
+        "text": "Does subsection (a)(2) apply AND did the defendant know or believe that any of the laundered funds were proceeds of, or intended to promote: (i) controlled substance/listed chemical offense; (ii) crime of violence; or (iii) offense involving firearms, explosives, national security, or sexual exploitation of a minor?",
+        "type": "yesno",
+        "reference": "\u00a72S1.1(b)(1)",
+        "condition": "Only applies if subsection (a)(2) applies",
+        "yesEffect": {
+          "adjustment": 6
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "conviction_type_business",
+        "text": "Which applies (select the greatest enhancement)?",
+        "type": "select",
+        "reference": "\u00a72S1.1(b)(2)",
+        "options": [
+          {
+            "label": "None apply",
+            "adjustment": 0
+          },
+          {
+            "label": "Convicted under 18 U.S.C. \u00a7 1957",
+            "adjustment": 1
+          },
+          {
+            "label": "Convicted under 18 U.S.C. \u00a7 1956",
+            "adjustment": 2
+          },
+          {
+            "label": "Subsection (a)(2) applies AND defendant was in the business of laundering funds",
+            "adjustment": 4,
+            "condition": "Only if subsection (a)(2) applies"
+          }
+        ]
+      },
+      {
+        "id": "sophisticated_laundering",
+        "text": "Does subsection (b)(2)(B) apply AND did the offense involve sophisticated laundering?",
+        "type": "yesno",
+        "reference": "\u00a72S1.1(b)(3)",
+        "condition": "Only applies if subsection (b)(2)(B) applies (convicted under 18 U.S.C. \u00a7 1956)",
+        "yesEffect": {
+          "adjustment": 2
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

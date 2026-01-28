@@ -1,0 +1,301 @@
+{
+  "2M3.1": {
+    "title": "Gathering or Transmitting National Defense Information to Aid a Foreign",
+    "section": "2M3.1",
+    "pdfReference": "Guidelines/2025/GLMFull 273.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this an offense under 18 U.S.C. \u00a7\u00a7 2155, 2156, 42 U.S.C. \u00a7 2284, or 49 U.S.C. \u00a7 60123?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "Destruction of, or production of defective, war material, war premises, or war utilities"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply to this offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2M3.4": {
+    "title": "Losing National Defense Information",
+    "section": "2M3.4",
+    "pdfReference": "Guidelines/2025/GLMFull 275.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve top secret information?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Top secret information was lost"
+        },
+        "noResult": {
+          "baseLevel": 13,
+          "description": "Non-top secret national defense information was lost"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2M4.1": {
+    "title": "Failure to Register and Evasion of Military Service",
+    "section": "2M4.1",
+    "pdfReference": "Guidelines/2025/GLMFull 277.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the person who disclosed the information have or previously have authorized access to classified information identifying a covert agent?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 30,
+          "description": "Information disclosed by person with authorized access to classified information identifying a covert agent"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the person who disclosed the information have authorized access only to other classified information (not identifying a covert agent)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 25,
+          "description": "Information disclosed by person with authorized access only to other classified information"
+        },
+        "noResult": {
+          "baseLevel": null,
+          "description": "This guideline does not apply - refer to \u00a72X5.1 (Other Offenses)"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2M5.1": {
+    "title": "Evasion of Export Controls; Financial Transactions with Countries Supporting",
+    "section": "2M5.1",
+    "pdfReference": "Guidelines/2025/GLMFull 278.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Were national security controls or controls relating to the proliferation of nuclear, biological, or chemical weapons or materials evaded?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "National security or WMD proliferation controls evaded"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense involve a financial transaction with a country supporting international terrorism (as designated under section 1754 of the Export Controls Act of 2018)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "Financial transaction with country supporting international terrorism"
+        },
+        "noResult": {
+          "baseLevel": 14,
+          "description": "All other cases"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "induction_period",
+        "text": "Did the offense occur at a time when persons were being inducted for compulsory military service?",
+        "type": "yesno",
+        "reference": "\u00a72M5.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 6,
+          "description": "Offense occurred during compulsory military service induction period"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2M5.3": {
+    "title": "Providing Material Support or Resources to Designated Foreign Terrorist",
+    "section": "2M5.3",
+    "pdfReference": "Guidelines/2025/GLMFull 279.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve only non-fully automatic small arms (rifles, handguns, or shotguns) with 2 or fewer weapons?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Did the offense involve only ammunition for non-fully automatic small arms with 500 or fewer rounds?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Non-fully automatic small arms (\u22642 weapons) and/or ammunition (\u2264500 rounds)"
+        },
+        "noResult": {
+          "baseLevel": 14,
+          "description": "Non-fully automatic small arms (\u22642 weapons) and/or ammunition (\u2264500 rounds)"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense involve only ammunition for non-fully automatic small arms with 500 or fewer rounds?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Non-fully automatic small arms (\u22642 weapons) and/or ammunition (\u2264500 rounds)"
+        },
+        "noResult": {
+          "baseLevel": 26,
+          "description": "All other cases"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_dangerous_items_or_support",
+        "text": "Did the offense involve the provision of dangerous weapons, firearms, explosives, funds to purchase such items, or funds/material support for violent acts?",
+        "type": "yesno",
+        "reference": "\u00a72M5.3(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense involved provision of dangerous weapons, firearms, explosives, funds to purchase such items, or funds/material support with intent, knowledge, or reason to believe they would be used for violent acts"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2M6.1": {
+    "title": "Unlawful Activity Involving Nuclear Material, Weapons, or Facilities,",
+    "section": "2M6.1",
+    "pdfReference": "Guidelines/2025/GLMFull 281.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the offense committed with intent to injure the United States?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 42,
+          "description": "Intent to injure the United States"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Was the offense committed with intent to aid a foreign nation or a foreign terrorist organization?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 42,
+          "description": "Intent to aid foreign nation or foreign terrorist organization"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 175b?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "Conviction under 18 U.S.C. \u00a7 175b"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_4",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 175?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Conviction under 18 U.S.C. \u00a7 175"
+        },
+        "noResult": {
+          "baseLevel": 28,
+          "description": "Default base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_select_biological_agents",
+        "text": "Did the offense involve a threat to use, or otherwise involve select biological agents, listed precursors/toxic chemicals, nuclear material, or weapons of mass destruction containing these materials?",
+        "type": "yesno",
+        "reference": "\u00a72M6.1(b)(1)",
+        "condition": "Applies only if subsection (a)(2) or (a)(4)(A) applies",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense involved select biological agent, listed precursor/toxic chemical, nuclear material, or WMD containing these materials"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_victim_injury",
+        "text": "What was the extent of victim injury?",
+        "type": "select",
+        "reference": "\u00a72M6.1(b)(2)",
+        "condition": "Applies only if subsection (a)(2), (a)(3), or (a)(4)(A) applies",
+        "options": [
+          {
+            "label": "No injury or minor injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Injury between serious and permanent/life-threatening",
+            "adjustment": 3
+          },
+          {
+            "label": "Death or permanent/life-threatening bodily injury",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "soc_substantial_disruption",
+        "text": "Did the offense result in substantial disruption of public/governmental/business functions or substantial expenditure for cleanup/decontamination/response?",
+        "type": "yesno",
+        "reference": "\u00a72M6.1(b)(3)",
+        "condition": "Applies only if subsection (a)(2), (a)(3), or (a)(4) applies",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Offense resulted in substantial disruption or substantial cleanup/response expenditure"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2M6.2": {
+    "title": "Violation of Other Federal Atomic Energy Agency Statutes, Rules, and",
+    "section": "2M6.2",
+    "pdfReference": "Guidelines/2025/GLMFull 284.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the offense committed with intent to injure the United States or to aid a foreign nation?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 30,
+          "description": "Offense committed with intent to injure the United States or aid a foreign nation"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Nuclear energy offense without intent to injure the United States or aid a foreign nation"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  }
+}

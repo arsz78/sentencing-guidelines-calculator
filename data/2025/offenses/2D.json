@@ -1,0 +1,713 @@
+{
+  "2D1.1": {
+    "title": "Unlawful Manufacturing, Importing, Exporting, or Trafficking",
+    "section": "2D1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 138.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the defendant convicted of an offense under 21 U.S.C. \u00a7 841?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 43,
+          "description": "Conviction under 21 U.S.C. \u00a7 841"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default base offense level for drug trafficking offenses"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "base_offense_level_determination",
+        "text": "What is the applicable base offense level based on conviction or stipulation?",
+        "type": "select",
+        "reference": "\u00a72D1.1(a)",
+        "options": [
+          {
+            "label": "Level 43: Convicted under 21 U.S.C. \u00a7 841(b)(1)(A)/(B)/(C) or \u00a7 960(b)(1)/(2)/(3) with mandatory life imprisonment, or parties stipulate to such offense/level",
+            "adjustment": 0,
+            "setLevel": 43
+          },
+          {
+            "label": "Level 38: Convicted under 21 U.S.C. \u00a7 841(b)(1)(A)/(B)/(C) or \u00a7 960(b)(1)/(2)/(3) with 20 years to life imprisonment, or parties stipulate to such offense/level",
+            "adjustment": 0,
+            "setLevel": 38
+          },
+          {
+            "label": "Level 30: Convicted under 21 U.S.C. \u00a7 841(b)(1)(E) or \u00a7 960(b)(5) with 30-year maximum imprisonment, or parties stipulate to such offense/level",
+            "adjustment": 0,
+            "setLevel": 30
+          },
+          {
+            "label": "Level 26: Convicted under 21 U.S.C. \u00a7 841(b)(1)(E) or \u00a7 960(b)(5) with 15-year maximum imprisonment, or parties stipulate to such offense/level",
+            "adjustment": 0,
+            "setLevel": 26
+          },
+          {
+            "label": "Drug Quantity Table applies: Use offense level specified in Drug Quantity Table",
+            "adjustment": 0,
+            "description": "Refer to Drug Quantity Table in subsection (c)"
+          }
+        ]
+      }
+    ]
+  },
+  "2D1.10": {
+    "title": "Endangering Human Life While Illegally Manufacturing a Controlled",
+    "section": "2D1.10",
+    "pdfReference": "Guidelines/2025/GLMFull 170.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is 3 plus the offense level from the Drug Quantity Table in \u00a72D1.1 greater than 20?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "3 + Drug Quantity Table level",
+          "description": "3 plus the offense level from the Drug Quantity Table in \u00a72D1.1"
+        },
+        "noResult": {
+          "baseLevel": 20,
+          "description": "Minimum base offense level of 20"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "manufacture_amphetamine_methamphetamine",
+        "text": "Did the offense involve the manufacture of amphetamine or methamphetamine, and if so, did it create a substantial risk of harm to the life of a minor or an incompetent?",
+        "type": "select",
+        "reference": "\u00a72D1.10(b)(1)",
+        "options": [
+          {
+            "label": "No manufacture of amphetamine or methamphetamine",
+            "adjustment": 0
+          },
+          {
+            "label": "Manufacture of amphetamine or methamphetamine (no substantial risk to minor/incompetent)",
+            "adjustment": 3,
+            "minimumLevel": 27
+          },
+          {
+            "label": "Manufacture of amphetamine or methamphetamine AND created substantial risk of harm to life of minor or incompetent",
+            "adjustment": 6,
+            "minimumLevel": 30
+          }
+        ]
+      }
+    ]
+  },
+  "2D1.11": {
+    "title": "Unlawfully Distributing, Importing, Exporting or Possessing a Listed Chemical;",
+    "section": "2D1.11",
+    "pdfReference": "Guidelines/2025/GLMFull 171.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve unlawfully manufacturing a controlled substance, or attempting to manufacture a controlled substance unlawfully, and would applying \u00a72D1.1 result in a greater offense level than determined by this guideline?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Apply \u00a72D1.1",
+          "description": "Cross reference to \u00a72D1.1 for unlawful manufacturing"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Does the offense involve ephedrine, pseudoephedrine, or phenylpropanolamine (use subsection (d) table)?",
+        "type": "yesno",
+        "yesNext": "base_2a",
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_2a",
+        "text": "Is the quantity 9 KG or more of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesNext": "base_2a1",
+        "noNext": "base_2b"
+      },
+      {
+        "id": "base_2a1",
+        "text": "Does the defendant receive an adjustment under \u00a73B1.2 (Mitigating Role)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 34,
+          "description": "Level 38 decreased by 4 levels for mitigating role"
+        },
+        "noResult": {
+          "baseLevel": 38,
+          "description": "9 KG or more of ephedrine/pseudoephedrine/phenylpropanolamine"
+        }
+      },
+      {
+        "id": "base_2b",
+        "text": "Is the quantity at least 3 KG but less than 9 KG of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesNext": "base_2b1",
+        "noNext": "base_2c"
+      },
+      {
+        "id": "base_2b1",
+        "text": "Does the defendant receive an adjustment under \u00a73B1.2 (Mitigating Role)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 33,
+          "description": "Level 36 decreased by 3 levels for mitigating role"
+        },
+        "noResult": {
+          "baseLevel": 36,
+          "description": "At least 3 KG but less than 9 KG of ephedrine/pseudoephedrine/phenylpropanolamine"
+        }
+      },
+      {
+        "id": "base_2c",
+        "text": "Is the quantity at least 1 KG but less than 3 KG of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesNext": "base_2c1",
+        "noNext": "base_2d"
+      },
+      {
+        "id": "base_2c1",
+        "text": "Does the defendant receive an adjustment under \u00a73B1.2 (Mitigating Role)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 31,
+          "description": "Level 34 decreased by 3 levels for mitigating role"
+        },
+        "noResult": {
+          "baseLevel": 34,
+          "description": "At least 1 KG but less than 3 KG of ephedrine/pseudoephedrine/phenylpropanolamine"
+        }
+      },
+      {
+        "id": "base_2d",
+        "text": "Is the quantity at least 300 G but less than 1 KG of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesNext": "base_2d1",
+        "noNext": "base_2e"
+      },
+      {
+        "id": "base_2d1",
+        "text": "Does the defendant receive an adjustment under \u00a73B1.2 (Mitigating Role)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 30,
+          "description": "Level 32 decreased by 2 levels for mitigating role"
+        },
+        "noResult": {
+          "baseLevel": 32,
+          "description": "At least 300 G but less than 1 KG of ephedrine/pseudoephedrine/phenylpropanolamine"
+        }
+      },
+      {
+        "id": "base_2e",
+        "text": "Is the quantity at least 100 G but less than 300 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 30,
+          "description": "At least 100 G but less than 300 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2f"
+      },
+      {
+        "id": "base_2f",
+        "text": "Is the quantity at least 70 G but less than 100 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 28,
+          "description": "At least 70 G but less than 100 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2g"
+      },
+      {
+        "id": "base_2g",
+        "text": "Is the quantity at least 40 G but less than 70 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "At least 40 G but less than 70 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2h"
+      },
+      {
+        "id": "base_2h",
+        "text": "Is the quantity at least 10 G but less than 40 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 24,
+          "description": "At least 10 G but less than 40 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2i"
+      },
+      {
+        "id": "base_2i",
+        "text": "Is the quantity at least 8 G but less than 10 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "At least 8 G but less than 10 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2j"
+      },
+      {
+        "id": "base_2j",
+        "text": "Is the quantity at least 6 G but less than 8 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "At least 6 G but less than 8 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2k"
+      },
+      {
+        "id": "base_2k",
+        "text": "Is the quantity at least 4 G but less than 6 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "At least 4 G but less than 6 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2l"
+      },
+      {
+        "id": "base_2l",
+        "text": "Is the quantity at least 2 G but less than 4 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "At least 2 G but less than 4 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noNext": "base_2m"
+      },
+      {
+        "id": "base_2m",
+        "text": "Is the quantity at least 1 G but less than 2 G of ephedrine, pseudoephedrine, or phenylpropanolamine?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "At least 1 G but less than 2 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Less than 1 G of ephedrine/pseudoephedrine/phenylpropanolamine"
+        }
+      },
+      {
+        "id": "base_3",
+        "text": "Does the offense involve List I chemicals meeting the highest quantity thresholds (e.g., 2.7 KG or more of Benzaldehyde, 33 KG or more of Acetic Anhydride, etc.) per level 30 in table (e)(1)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 30,
+          "description": "List I or List II chemicals at highest threshold quantities"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_4",
+        "text": "Does the offense involve List I or List II chemicals meeting the second-highest quantity thresholds per level 28 in table (e)(2)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 28,
+          "description": "List I or List II chemicals at second-highest threshold quantities"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_5",
+        "text": "Does the offense involve List I or List II chemicals meeting the third-highest quantity thresholds per level 26 in table (e)(3)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "List I or List II chemicals at third-highest threshold quantities"
+        },
+        "noNext": "base_6"
+      },
+      {
+        "id": "base_6",
+        "text": "Does the offense involve List I or List II chemicals meeting the fourth-highest quantity thresholds per level 24 in table (e)(4)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 24,
+          "description": "List I or List II chemicals at fourth-highest threshold quantities"
+        },
+        "noNext": "base_7"
+      },
+      {
+        "id": "base_7",
+        "text": "Does the offense involve List I or List II chemicals meeting the fifth-highest quantity thresholds per level 22 in table (e)(5)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "List I or List II chemicals at fifth-highest threshold quantities"
+        },
+        "noNext": "base_8"
+      },
+      {
+        "id": "base_8",
+        "text": "Does the offense involve List I or List II chemicals meeting the sixth-highest quantity thresholds per level 20 in table (e)(6)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "List I or List II chemicals at sixth-highest threshold quantities"
+        },
+        "noNext": "base_9"
+      },
+      {
+        "id": "base_9",
+        "text": "Does the offense involve List I or List II chemicals meeting the seventh-highest quantity thresholds per level 18 in table (e)(7)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "List I or List II chemicals at seventh-highest threshold quantities"
+        },
+        "noNext": "base_10"
+      },
+      {
+        "id": "base_10",
+        "text": "Does the offense involve List I or List II chemicals meeting the eighth-highest quantity thresholds per level 16 in table (e)(8)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "List I or List II chemicals at eighth-highest threshold quantities"
+        },
+        "noNext": "base_11"
+      },
+      {
+        "id": "base_11",
+        "text": "Does the offense involve List I or List II chemicals meeting the ninth-highest quantity thresholds per level 14 in table (e)(9) (including 3.6 KG or more of Anthranilic Acid or 4.8 KG or more of N-Acetylanthranilic Acid)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "List I or List II chemicals at ninth-highest threshold quantities"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "List I or List II chemicals below all higher thresholds"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_dangerous_weapon",
+        "text": "Was a dangerous weapon (including a firearm) possessed?",
+        "type": "yesno",
+        "reference": "\u00a72D1.11(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Dangerous weapon possessed"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2D1.12": {
+    "title": "Unlawful Possession, Manufacture, Distribution, Transportation, Exportation,",
+    "section": "2D1.12",
+    "pdfReference": "Guidelines/2025/GLMFull 182.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the defendant intend to manufacture a controlled substance, or know or believe the prohibited flask, equipment, chemical, product, or material was to be used to manufacture a controlled substance?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Intent or knowledge regarding controlled substance manufacturing"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the defendant have reasonable cause to believe the prohibited flask, equipment, chemical, product, or material was to be used to manufacture a controlled substance?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 9,
+          "description": "Reasonable cause to believe materials would be used for controlled substance manufacturing"
+        },
+        "noResult": {
+          "baseLevel": 9,
+          "description": "Default base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "methamphetamine_related",
+        "text": "Did the defendant intend to manufacture methamphetamine, or know/believe/have reasonable cause to believe the prohibited flask, equipment, chemical, product, or material was to be used to manufacture methamphetamine?",
+        "type": "yesno",
+        "reference": "\u00a72D1.12(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Methamphetamine manufacturing intent or knowledge"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "environmental_hazard",
+        "text": "Did the offense involve unlawful discharge/emission/release of hazardous substances into the environment OR unlawful transportation/treatment/storage/disposal of hazardous waste?",
+        "type": "yesno",
+        "reference": "\u00a72D1.12(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Environmental hazard or hazardous waste violations"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "mass_marketing",
+        "text": "Did the defendant (or person for whose conduct defendant is accountable) distribute prohibited materials through mass-marketing by means of an interactive computer service?",
+        "type": "yesno",
+        "reference": "\u00a72D1.12(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Mass-marketing distribution through interactive computer service"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "stolen_anhydrous_ammonia",
+        "text": "Did the offense involve stealing anhydrous ammonia or transporting stolen anhydrous ammonia?",
+        "type": "yesno",
+        "reference": "\u00a72D1.12(b)(4)",
+        "yesEffect": {
+          "adjustment": 6,
+          "description": "Stealing or transporting stolen anhydrous ammonia"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2D1.13": {
+    "title": "Structuring Chemical Transactions or Creating a Chemical Mixture to Evade",
+    "section": "2D1.13",
+    "pdfReference": "Guidelines/2025/GLMFull 184.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the defendant know or believe that the chemical was to be used to manufacture a controlled substance unlawfully?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72D1.11",
+          "description": "Apply the offense level from \u00a72D1.11 (includes base offense level and any applicable specific offense characteristics or cross references)"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the defendant have reason to believe that the chemical was to be used to manufacture a controlled substance unlawfully?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72D1.11 minus 3",
+          "description": "Apply the offense level from \u00a72D1.11 reduced by 3 levels"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base offense level 6 applies when defendant neither knew/believed nor had reason to believe the chemical would be used unlawfully"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2D1.2": {
+    "title": "Drug Offenses Occurring Near Protected Locations or Involving Underage or",
+    "section": "2D1.2",
+    "pdfReference": "Guidelines/2025/GLMFull 165.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve a person less than eighteen years of age?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 26,
+          "description": "Offense involved person under 18 years of age"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense directly involve controlled substances in connection with a protected location or an underage or pregnant individual?",
+        "type": "yesno",
+        "yesNext": "base_2a",
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_2a",
+        "text": "What is the offense level from \u00a72D1.1 for the quantity of controlled substances directly involving the protected location or underage/pregnant individual?",
+        "type": "calculation",
+        "result": {
+          "baseLevel": "2 plus \u00a72D1.1 level",
+          "description": "2 plus offense level from \u00a72D1.1 for protected location/underage/pregnant individual quantity"
+        }
+      },
+      {
+        "id": "base_3",
+        "text": "Are there controlled substances involved in the offense beyond those directly involving a protected location or underage/pregnant individual?",
+        "type": "yesno",
+        "yesNext": "base_3a",
+        "noResult": {
+          "baseLevel": 13,
+          "description": "Default base offense level"
+        }
+      },
+      {
+        "id": "base_3a",
+        "text": "What is the offense level from \u00a72D1.1 for the total quantity of controlled substances involved in the offense?",
+        "type": "calculation",
+        "result": {
+          "baseLevel": "1 plus \u00a72D1.1 level",
+          "description": "1 plus offense level from \u00a72D1.1 for total quantity of controlled substances"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2D1.5": {
+    "title": "Continuing Criminal Enterprise; Attempt or Conspiracy",
+    "section": "2D1.5",
+    "pdfReference": "Guidelines/2025/GLMFull 166.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the base offense level of 38 greater than 4 plus the offense level from \u00a72D1.1 applicable to the underlying offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 38,
+          "description": "Level 38 applies as the greater of the two options"
+        },
+        "noResult": {
+          "baseLevel": "4 + \u00a72D1.1 level",
+          "description": "4 plus the offense level from \u00a72D1.1 applicable to the underlying offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2D1.6": {
+    "title": "Use of Communication Facility in Committing Drug Offense; Attempt or",
+    "section": "2D1.6",
+    "pdfReference": "Guidelines/2025/GLMFull 167.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this a violation of 21 U.S.C. \u00a7 848 (Continuing Criminal Enterprise)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 38,
+          "description": "Continuing Criminal Enterprise under 21 U.S.C. \u00a7 848"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply - different offense type"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2D1.9": {
+    "title": "Placing or Maintaining Dangerous Devices on Federal Property to Protect the",
+    "section": "2D1.9",
+    "pdfReference": "Guidelines/2025/GLMFull 169.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve assembling, placing, causing to be placed, or maintaining a dangerous device (booby-trap) on federal property where a controlled substance is being manufactured or distributed?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 23,
+          "description": "Placing or maintaining dangerous devices on federal property to protect unlawful production of controlled substances"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply to this offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2D2.1": {
+    "title": "Unlawful Possession; Attempt or Conspiracy",
+    "section": "2D2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 185.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this offense covered by \u00a72D1.1 (Unlawful Manufacturing, Importing, Exporting, or Trafficking; Attempt or Conspiracy)?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default base offense level when \u00a72D1.1 does not apply"
+        }
+      },
+      {
+        "id": "base_1a",
+        "text": "Does the underlying offense qualify for \u00a72D1.1(a)(5)(A) or \u00a72D1.1(a)(5)(B) provisions?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "\u00a72D1.1(a)(5)(A) and (a)(5)(B) provisions are excluded, use alternative base level"
+        },
+        "noNext": "base_1b"
+      },
+      {
+        "id": "base_1b",
+        "text": "Can you determine the appropriate offense level from the \u00a72D1.1 drug quantity table for the underlying offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 0,
+          "description": "Apply the offense level from \u00a72D1.1 corresponding to the underlying drug offense"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default base offense level when \u00a72D1.1 level cannot be determined"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "terrorism_enhancement",
+        "text": "Does \u00a73A1.4 (Terrorism) apply to this offense?",
+        "type": "yesno",
+        "reference": "\u00a72D2.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 0
+        },
+        "noEffect": {
+          "adjustment": 6,
+          "description": "Terrorism enhancement does not apply"
+        }
+      }
+    ]
+  },
+  "2D2.3": {
+    "title": "Operating or Directing the Operation of a Common Carrier Under the",
+    "section": "2D2.3",
+    "pdfReference": "Guidelines/2025/GLMFull 186.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this case involve simple possession of a controlled substance under 21 U.S.C. \u00a7 844(a)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Simple possession of controlled substance (subject to statutory minimums under 21 U.S.C. \u00a7 844(a))"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Other offense covered by \u00a72D2.3"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  }
+}

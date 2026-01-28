@@ -1,0 +1,83 @@
+{
+  "2N1.1": {
+    "title": "Tampering or Attempting to Tamper Involving Risk of Death or Bodily Injury",
+    "section": "2N1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 285.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this case fall under \u00a72N1.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 25,
+          "description": "Base offense level for \u00a72N1.1"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "Not applicable under \u00a72N1.1"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "victim_injury",
+        "text": "What is the degree of bodily injury sustained by any victim?",
+        "type": "select",
+        "reference": "\u00a72N1.1(b)(1)",
+        "options": [
+          {
+            "label": "No bodily injury or minor injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Degree of injury between serious and permanent/life-threatening",
+            "adjustment": 3
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 4
+          }
+        ]
+      }
+    ]
+  },
+  "2N2.1": {
+    "title": "Violations of Statutes and Regulations Dealing With Any Food, Drug,",
+    "section": "2N2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 287.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72N2.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Base offense level for \u00a72N2.1 violations"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "prior_conviction",
+        "text": "Was the defendant convicted under 21 U.S.C. \u00a7 331 after sustaining a prior conviction under 21 U.S.C. \u00a7 331?",
+        "type": "yesno",
+        "reference": "\u00a72N2.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Prior conviction under 21 U.S.C. \u00a7 331"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

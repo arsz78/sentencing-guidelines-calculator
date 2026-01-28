@@ -2,6 +2,8 @@
 
 An offline calculator for determining the Total Offense Level under the 2025 U.S. Sentencing Guidelines Manual.
 
+**Current Version:** 0.0.3
+
 ## Overview
 
 This calculator helps users determine the **Total Offense Level** by:
@@ -13,9 +15,28 @@ This calculator helps users determine the **Total Offense Level** by:
 
 **Note:** This version calculates offense level only. Criminal History calculation is not included - users must determine their Criminal History Category separately and use the Sentencing Table to find the guideline range.
 
-## Currently Supported Offenses
+## Coverage
 
-- **2K2.1** - Unlawful Receipt, Possession, or Transportation of Firearms or Ammunition
+**98 offense guidelines** across all 18 Chapter 2 categories:
+
+- **2A** - Offenses Against the Person (15 guidelines)
+- **2B** - Offenses Involving Property (10 guidelines)
+- **2C** - Offenses Involving Public Officials (4 guidelines)
+- **2D** - Drug Offenses (10 guidelines)
+- **2E** - Offenses Involving Criminal Enterprises (6 guidelines)
+- **2G** - Offenses Involving Commercial Sex Acts (6 guidelines)
+- **2H** - Offenses Involving Individual Rights (5 guidelines)
+- **2J** - Administration of Justice (5 guidelines)
+- **2K** - Firearms Offenses (10 guidelines)
+- **2L** - Immigration Offenses (4 guidelines)
+- **2M** - National Defense and WMD (7 guidelines)
+- **2N** - Food, Drugs, Agricultural Products (2 guidelines)
+- **2P** - Prisons and Correctional Facilities (3 guidelines)
+- **2Q** - Environmental Offenses (4 guidelines)
+- **2R** - Antitrust Offenses (1 guideline)
+- **2S** - Money Laundering (2 guidelines)
+- **2T** - Tax and Related Offenses (7 guidelines)
+- **2X** - Other Offenses (7 guidelines)
 
 ## Usage
 
@@ -42,13 +63,20 @@ This creates `calculator.html` with the latest data inlined.
 
 ```
 /Users/andy/Claude/guidelines/
-├── Guidelines/                      # 553 PDF files from 2025 Guidelines Manual
+├── Guidelines/
+│   └── 2025/                        # 553 PDF files from 2025 Guidelines Manual
 ├── data/
-│   ├── offense-guidelines.json      # Offense rules (2K2.1 Firearms)
-│   └── chapter3-adjustments.json    # Chapter 3 adjustments
+│   ├── TEMPLATE.json                # Template with field documentation
+│   └── 2025/
+│       ├── offenses/
+│       │   ├── 2A.json              # Chapter 2A offenses
+│       │   ├── 2B.json              # Chapter 2B offenses
+│       │   └── ... (2C-2X)          # All 18 chapters
+│       └── chapter3-adjustments.json
 ├── index.html                       # Main calculator app (source)
-├── calculator.html                  # Built calculator (standalone)
-├── build.py                         # Build script
+├── calculator.html                  # Built calculator (standalone, 338 KB)
+├── build.py                         # Build script (merges all data by year)
+├── parse_guidelines.py              # Automated PDF parser
 └── README.md                        # This file
 ```
 
@@ -75,11 +103,21 @@ All guideline data is sourced from the **2025 U.S. Sentencing Guidelines Manual*
 
 This calculator is for **educational purposes only**. It does not constitute legal advice. Consult a qualified attorney for actual sentencing matters. The calculator may not account for all possible enhancements, departures, or unique case circumstances.
 
+## Architecture
+
+The calculator uses a **year-based data structure** to support the "one book rule" (defendant benefits from whichever guideline year produces the lower offense level):
+
+- **Year directories**: `data/2025/`, `data/2026/` (future)
+- **Chapter-organized**: Each Chapter 2 category in separate JSON file for maintainability
+- **Build-time merging**: `build.py` finds all years, merges chapter files, inlines into HTML
+- **Template-driven**: `data/TEMPLATE.json` documents all field types for contributors
+
 ## Future Enhancements
 
-Potential additions for future versions:
+See [ROADMAP.md](ROADMAP.md) for detailed development plan. Potential additions:
 
-- Additional offense guidelines (2D1.1 drugs, 2B1.1 fraud, 2L1.2 reentry)
+- Enhanced response states (flag for review, considered but N/A)
+- Exportable decision trail (copy-to-clipboard summary)
 - Criminal History Category calculator
 - Sentencing Table lookup
 - PDF viewer integration

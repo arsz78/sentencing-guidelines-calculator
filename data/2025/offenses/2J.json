@@ -1,0 +1,267 @@
+{
+  "2J1.2": {
+    "title": "Obstruction of Justice",
+    "section": "2J1.2",
+    "pdfReference": "Guidelines/2025/GLMFull 229.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this an obstruction of justice offense covered by \u00a72J1.2?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Base offense level for obstruction of justice"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "conviction_type_and_statutory_maximum",
+        "text": "What is the nature of the conviction and applicable statutory maximum?",
+        "type": "select",
+        "reference": "\u00a72J1.2(b)(1)",
+        "options": [
+          {
+            "label": "None of the below conditions apply",
+            "adjustment": 0
+          },
+          {
+            "label": "Convicted under 18 U.S.C. \u00a7 1001 with 8-year statutory maximum for sex offenses (18 U.S.C. \u00a7 1591 or chapters 109A, 109B, 110, or 117)",
+            "adjustment": 4
+          },
+          {
+            "label": "Offense involved causing or threatening physical injury or property damage to obstruct justice",
+            "adjustment": 8
+          },
+          {
+            "label": "Convicted under 18 U.S.C. \u00a7 1001 or \u00a7 1505 with 8-year statutory maximum for international or domestic terrorism",
+            "adjustment": 12
+          }
+        ]
+      },
+      {
+        "id": "substantial_interference",
+        "text": "Did the offense result in substantial interference with the administration of justice?",
+        "type": "yesno",
+        "reference": "\u00a72J1.2(b)(2)",
+        "yesEffect": {
+          "adjustment": 3,
+          "description": "Offense resulted in substantial interference with the administration of justice"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "extensive_scope_or_essential_records",
+        "text": "Did the offense involve destruction/alteration of substantial number of records, selection of essential/probative records to destroy, or was otherwise extensive in scope, planning, or preparation?",
+        "type": "yesno",
+        "reference": "\u00a72J1.2(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense involved substantial destruction/alteration of records or was extensive in scope"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2J1.3": {
+    "title": "Perjury or Subornation of Perjury; Bribery of Witness",
+    "section": "2J1.3",
+    "pdfReference": "Guidelines/2025/GLMFull 232.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this offense covered under \u00a72J1.3?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Base offense level for \u00a72J1.3 violations"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "Not applicable under this guideline section"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "physical_injury_or_property_damage",
+        "text": "Did the offense involve causing or threatening to cause physical injury to a person, or property damage, in order to suborn perjury?",
+        "type": "yesno",
+        "reference": "\u00a72J1.3(b)(1)",
+        "yesEffect": {
+          "adjustment": 8,
+          "description": "Offense involved causing or threatening to cause physical injury to a person, or property damage, in order to suborn perjury"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "substantial_interference",
+        "text": "Did the perjury, subornation of perjury, or witness bribery result in substantial interference with the administration of justice?",
+        "type": "yesno",
+        "reference": "\u00a72J1.3(b)(2)",
+        "yesEffect": {
+          "adjustment": 3,
+          "description": "Perjury, subornation of perjury, or witness bribery resulted in substantial interference with the administration of justice"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2J1.4": {
+    "title": "Impersonation",
+    "section": "2J1.4",
+    "pdfReference": "Guidelines/2025/GLMFull 233.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this offense covered under \u00a72J1.4?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Base offense level for \u00a72J1.4 violations"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_unlawful_arrest_detention_search",
+        "text": "Was the impersonation committed for the purpose of conducting an unlawful arrest, detention, or search?",
+        "type": "yesno",
+        "reference": "\u00a72J1.4(b)(1)",
+        "yesEffect": {
+          "adjustment": 6,
+          "description": "Impersonation committed for purpose of conducting unlawful arrest, detention, or search"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2J1.6": {
+    "title": "Failure to Appear by Defendant",
+    "section": "2J1.6",
+    "pdfReference": "Guidelines/2025/GLMFull 234.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the offense in respect to a felony?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Offense in respect to a felony"
+        },
+        "noResult": {
+          "baseLevel": 4,
+          "description": "Offense in respect to a misdemeanor"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_voluntary_surrender",
+        "text": "Did the defendant voluntarily surrender within 96 hours of the time originally scheduled to report?",
+        "type": "yesno",
+        "reference": "\u00a72J1.6(b)(1)(A)",
+        "condition": "Only applies if base offense level is determined under subsection (a)(1)",
+        "yesEffect": {
+          "adjustment": -5,
+          "description": "Voluntarily surrendered within 96 hours"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_community_facility",
+        "text": "Was the defendant ordered to report to a community corrections center, community treatment center, halfway house, or similar facility?",
+        "type": "yesno",
+        "reference": "\u00a72J1.6(b)(1)(B)",
+        "condition": "Only applies if base offense level is determined under subsection (a)(1) and voluntary surrender within 96 hours does not apply",
+        "yesEffect": {
+          "adjustment": -2,
+          "description": "Ordered to report to community facility (reduction does not apply if defendant committed federal, state, or local offense punishable by one year or more while away)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_underlying_offense_severity",
+        "text": "What is the punishment range for the underlying offense?",
+        "type": "select",
+        "reference": "\u00a72J1.6(b)(2)",
+        "condition": "Only applies if base offense level is determined under subsection (a)(2)",
+        "options": [
+          {
+            "label": "Not applicable or misdemeanor",
+            "adjustment": 0
+          },
+          {
+            "label": "Felony punishable by less than 5 years",
+            "adjustment": 3
+          },
+          {
+            "label": "Punishable by 5-14 years",
+            "adjustment": 6
+          },
+          {
+            "label": "Punishable by death or 15+ years",
+            "adjustment": 9
+          }
+        ]
+      }
+    ]
+  },
+  "2J1.9": {
+    "title": "Payment to Witness",
+    "section": "2J1.9",
+    "pdfReference": "Guidelines/2025/GLMFull 236.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the payment made or offered for refusing to testify or for the witness absenting himself to avoid testifying?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Base level 6 + 4 level increase for payment to refuse testimony or avoid testifying"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base level for witness gratuity payment"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_payment_type",
+        "text": "Was the payment made or offered for refusing to testify or for the witness absenting himself to avoid testifying?",
+        "type": "yesno",
+        "reference": "\u00a72J1.9(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Payment made or offered for refusing to testify or for witness absenting himself to avoid testifying"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

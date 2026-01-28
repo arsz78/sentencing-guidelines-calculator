@@ -1,0 +1,549 @@
+{
+  "2Q1.3": {
+    "title": "Mishandling of Other Environmental Pollutants; Recordkeeping, Tampering,",
+    "section": "2Q1.3",
+    "pdfReference": "Guidelines/2025/GLMFull 295.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this a recordkeeping offense that reflected an effort to conceal a substantive environmental offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "substantive offense level",
+          "description": "Use offense level for the substantive environmental offense being concealed"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense result in a substantial likelihood of death or serious bodily injury?",
+        "type": "yesno",
+        "yesNext": "base_2a",
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_2a",
+        "text": "Did the offense result in an ongoing, continuous, or repetitive discharge, release, or emission of a pollutant into the environment?",
+        "type": "yesno",
+        "yesNext": "base_2b",
+        "noNext": "base_2c"
+      },
+      {
+        "id": "base_2b",
+        "text": "Did the offense result in disruption of public utilities or evacuation of a community, or did cleanup require a substantial expenditure?",
+        "type": "yesno",
+        "yesNext": "base_2d",
+        "noNext": "base_2e"
+      },
+      {
+        "id": "base_2d",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 29,
+          "description": "Base 6 + substantial likelihood death/injury 11 + ongoing discharge 6 + disruption/cleanup 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 27,
+          "description": "Base 6 + substantial likelihood death/injury 11 + ongoing discharge 6 + disruption/cleanup 4"
+        }
+      },
+      {
+        "id": "base_2e",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 27,
+          "description": "Base 6 + substantial likelihood death/injury 11 + ongoing discharge 6 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 23,
+          "description": "Base 6 + substantial likelihood death/injury 11 + ongoing discharge 6"
+        }
+      },
+      {
+        "id": "base_2c",
+        "text": "Did the offense otherwise involve a discharge, release, or emission of a pollutant?",
+        "type": "yesno",
+        "yesNext": "base_2f",
+        "noNext": "base_2g"
+      },
+      {
+        "id": "base_2f",
+        "text": "Did the offense result in disruption of public utilities or evacuation of a community, or did cleanup require a substantial expenditure?",
+        "type": "yesno",
+        "yesNext": "base_2h",
+        "noNext": "base_2i"
+      },
+      {
+        "id": "base_2h",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 29,
+          "description": "Base 6 + substantial likelihood death/injury 11 + other discharge 4 + disruption/cleanup 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 25,
+          "description": "Base 6 + substantial likelihood death/injury 11 + other discharge 4 + disruption/cleanup 4"
+        }
+      },
+      {
+        "id": "base_2i",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 25,
+          "description": "Base 6 + substantial likelihood death/injury 11 + other discharge 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 21,
+          "description": "Base 6 + substantial likelihood death/injury 11 + other discharge 4"
+        }
+      },
+      {
+        "id": "base_2g",
+        "text": "Did the offense result in disruption of public utilities or evacuation of a community, or did cleanup require a substantial expenditure?",
+        "type": "yesno",
+        "yesNext": "base_2j",
+        "noNext": "base_2k"
+      },
+      {
+        "id": "base_2j",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 25,
+          "description": "Base 6 + substantial likelihood death/injury 11 + disruption/cleanup 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 21,
+          "description": "Base 6 + substantial likelihood death/injury 11 + disruption/cleanup 4"
+        }
+      },
+      {
+        "id": "base_2k",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 21,
+          "description": "Base 6 + substantial likelihood death/injury 11 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 17,
+          "description": "Base 6 + substantial likelihood death/injury 11"
+        }
+      },
+      {
+        "id": "base_3",
+        "text": "Did the offense result in an ongoing, continuous, or repetitive discharge, release, or emission of a pollutant into the environment?",
+        "type": "yesno",
+        "yesNext": "base_3a",
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_3a",
+        "text": "Did the offense result in disruption of public utilities or evacuation of a community, or did cleanup require a substantial expenditure?",
+        "type": "yesno",
+        "yesNext": "base_3b",
+        "noNext": "base_3c"
+      },
+      {
+        "id": "base_3b",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Base 6 + ongoing discharge 6 + disruption/cleanup 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 16,
+          "description": "Base 6 + ongoing discharge 6 + disruption/cleanup 4"
+        }
+      },
+      {
+        "id": "base_3c",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "Base 6 + ongoing discharge 6 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Base 6 + ongoing discharge 6"
+        }
+      },
+      {
+        "id": "base_4",
+        "text": "Did the offense otherwise involve a discharge, release, or emission of a pollutant?",
+        "type": "yesno",
+        "yesNext": "base_4a",
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_4a",
+        "text": "Did the offense result in disruption of public utilities or evacuation of a community, or did cleanup require a substantial expenditure?",
+        "type": "yesno",
+        "yesNext": "base_4b",
+        "noNext": "base_4c"
+      },
+      {
+        "id": "base_4b",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Base 6 + other discharge 4 + disruption/cleanup 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 14,
+          "description": "Base 6 + other discharge 4 + disruption/cleanup 4"
+        }
+      },
+      {
+        "id": "base_4c",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Base 6 + other discharge 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 10,
+          "description": "Base 6 + other discharge 4"
+        }
+      },
+      {
+        "id": "base_5",
+        "text": "Did the offense result in disruption of public utilities or evacuation of a community, or did cleanup require a substantial expenditure?",
+        "type": "yesno",
+        "yesNext": "base_5a",
+        "noNext": "base_6"
+      },
+      {
+        "id": "base_5a",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Base 6 + disruption/cleanup 4 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 10,
+          "description": "Base 6 + disruption/cleanup 4"
+        }
+      },
+      {
+        "id": "base_6",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Base 6 + permit violation 4"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "discharge_type",
+        "text": "Did the offense involve a discharge, release, or emission of a pollutant?",
+        "type": "select",
+        "reference": "\u00a72Q1.3(b)(1)",
+        "options": [
+          {
+            "label": "No discharge, release, or emission",
+            "adjustment": 0
+          },
+          {
+            "label": "Discharge, release, or emission (not ongoing/continuous/repetitive)",
+            "adjustment": 4
+          },
+          {
+            "label": "Ongoing, continuous, or repetitive discharge, release, or emission",
+            "adjustment": 6
+          }
+        ]
+      },
+      {
+        "id": "likelihood_harm",
+        "text": "Did the offense result in a substantial likelihood of death or serious bodily injury?",
+        "type": "yesno",
+        "reference": "\u00a72Q1.3(b)(2)",
+        "yesEffect": {
+          "adjustment": 11
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "disruption_or_cleanup",
+        "text": "Did the offense result in disruption of public utilities, evacuation of a community, or require cleanup with substantial expenditure?",
+        "type": "yesno",
+        "reference": "\u00a72Q1.3(b)(3)",
+        "yesEffect": {
+          "adjustment": 4
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "permit_violation",
+        "text": "Did the offense involve a discharge without a permit or in violation of a permit?",
+        "type": "yesno",
+        "reference": "\u00a72Q1.3(b)(4)",
+        "yesEffect": {
+          "adjustment": 4
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "concealment_recordkeeping",
+        "text": "Was this a recordkeeping offense that reflected an effort to conceal a substantive environmental offense?",
+        "type": "yesno",
+        "reference": "\u00a72Q1.3(b)(5)",
+        "condition": "Only applies to recordkeeping offenses",
+        "yesEffect": {
+          "setLevel": "substantive_offense_level",
+          "description": "Use the offense level for the substantive offense"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2Q1.4": {
+    "title": "Tampering or Attempted Tampering with a Public Water System; Threatening",
+    "section": "2Q1.4",
+    "pdfReference": "Guidelines/2025/GLMFull 296.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve a threat to tamper with a public water system AND conduct evidencing an intent to carry out the threat?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "Threat with intent to carry out"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense involve a threat to tamper with a public water system but WITHOUT any conduct evidencing an intent to carry out the threat?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "Threat without intent to carry out"
+        },
+        "noResult": {
+          "baseLevel": 26,
+          "description": "All other offenses under this guideline"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "bodily_injury",
+        "text": "What was the most serious bodily injury sustained by any victim?",
+        "type": "select",
+        "reference": "\u00a72Q1.4(b)(1)",
+        "options": [
+          {
+            "label": "No bodily injury or minor injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Injury between serious and permanent/life-threatening",
+            "adjustment": 3
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "public_disruption",
+        "text": "Did the offense result in substantial disruption of public, governmental, or business functions/services, or substantial expenditure for cleanup/decontamination response?",
+        "type": "yesno",
+        "reference": "\u00a72Q1.4(b)(2)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Substantial disruption or cleanup expenditure"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "ongoing_release",
+        "text": "Did the offense result in an ongoing, continuous, or repetitive release of a contaminant into a public water system or last for a substantial period of time?",
+        "type": "yesno",
+        "reference": "\u00a72Q1.4(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Ongoing or substantial duration release"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2Q1.6": {
+    "title": "Hazardous or Injurious Devices on Federal Lands",
+    "section": "2Q1.6",
+    "pdfReference": "Guidelines/2025/GLMFull 298.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the intent to violate the Controlled Substances Act?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Apply \u00a72D1.9",
+          "description": "Intent to violate Controlled Substances Act - apply \u00a72D1.9 (Placing or Maintaining Dangerous Devices on Federal Property to Protect the Unlawful Production of Controlled Substances; Attempt or Conspiracy)"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Was the intent to obstruct the harvesting of timber and did property destruction result?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Apply \u00a72B1.1",
+          "description": "Intent to obstruct timber harvesting with resulting property destruction - apply \u00a72B1.1 (Theft, Property Destruction, and Fraud)"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Did the offense involve reckless disregard to the risk that another person would be placed in danger of death or serious bodily injury under circumstances manifesting extreme indifference to such risk?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Apply \u00a72A2.2",
+          "description": "Reckless disregard with extreme indifference to risk of death or serious bodily injury - apply offense level from \u00a72A2.2 (Aggravated Assault)"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default base offense level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2Q2.1": {
+    "title": "Offenses Involving Fish, Wildlife, and Plants",
+    "section": "2Q2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 299.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this case involve one of the more serious forms of fish, wildlife, and plants offenses covered under subsections (a)(1)-(a)(3)?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Are there specific enhanced offense levels provided in subsections (a)(1)-(a)(3) that apply to this case?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "More serious forms under subsections (a)(1)-(a)(3) - refer to specific subsection for enhanced level"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "More serious forms but no enhanced level specified"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Was the intent to obstruct the harvesting of timber with little or no property damage resulting?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Minimum offense level for obstructing timber harvesting with little or no property damage"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "General fish, wildlife, and plants offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "commercial_or_pattern",
+        "text": "Did the offense involve commercial purpose/pecuniary gain or a pattern of similar violations?",
+        "type": "yesno",
+        "reference": "\u00a72Q2.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense was committed for pecuniary gain/commercial purpose or involved a pattern of similar violations"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "quarantine_or_disease_risk",
+        "text": "Did the offense involve unquarantined fish/wildlife/plants or create significant risk of infestation/disease transmission?",
+        "type": "yesno",
+        "reference": "\u00a72Q2.1(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Involved fish, wildlife, or plants not quarantined as required or created significant risk of infestation or disease transmission"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "market_value_or_protected_species",
+        "text": "What is the market value of the fish, wildlife, or plants involved, or did the offense involve protected species?",
+        "type": "select",
+        "reference": "\u00a72Q2.1(b)(3)",
+        "options": [
+          {
+            "label": "Market value $2,500 or less, no protected species",
+            "adjustment": 0
+          },
+          {
+            "label": "Market value exceeded $2,500 but did not exceed $6,500",
+            "adjustment": 1
+          },
+          {
+            "label": "Market value exceeded $6,500",
+            "adjustment": "table",
+            "description": "Use table in \u00a72B1.1 corresponding to market value amount"
+          },
+          {
+            "label": "Involved marine mammals listed as depleted under Marine Mammal Protection Act",
+            "adjustment": 4
+          },
+          {
+            "label": "Involved endangered/threatened species under Endangered Species Act",
+            "adjustment": 4
+          },
+          {
+            "label": "Involved species listed in CITES Appendix I",
+            "adjustment": 4
+          }
+        ],
+        "note": "If more than one applies, use the greater adjustment"
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+# Parse Failures Log
+# Generated during Chapter 2 parsing
+# Total: 149 sections attempted
+
+## Chapter 2A Failures (6/21):
+- 2A1.2: Second Degree Murder - Empty base offense text - fixed
+- 2A1.3: Voluntary Manslaughter - Empty base offense text  - fixed
+- 2A3.3: Criminal Sexual Abuse of a Ward - Incomplete text extraction
+- 2A4.2: Demanding or Receiving Ransom Money - SOC text incomplete
+- 2A5.1: Aircraft Piracy - Empty base offense text
+- 2A5.3: Committing Certain Crimes Aboard Aircraft - Empty base offense text
+
+## Chapter 2B Failures (1/11):
+- 2B5.1: Counterfeit Bearer Obligations - JSON response truncated
+
+## Chapter 2C Failures (1/5):
+- 2C1.5: Payments to Obtain Public Office - Empty base offense text
+
+## Chapter 2D Failures (7/17):
+- 2D1.14: Narco-Terrorism - Empty base offense text
+- 2D1.7: Unlawful Sale of Drug Paraphernalia - Empty base offense text
+- 2D1.8: Renting Drug Establishment - Missing SOC text
+- 2D2.2: Acquiring Controlled Substance by Fraud - Empty base offense text
+- 2D3.1: Regulatory Offenses (Registration) - Empty base offense text
+- 2D3.2: Regulatory Offenses (Controlled Substances) - Incomplete text
+
+## Chapter 2E Failures (3/9):
+- 2E1.2: Interstate Travel for Racketeering - Empty base offense text
+- 2E1.4: Use of Interstate Commerce for Murder-for-Hire - Empty base offense text
+- 2E3.1: Gambling Offenses - Incomplete text
+
+## Chapter 2G Failures (3/9):
+- 2G2.3: Selling/Buying Children for Sexual Exploitation - Empty base offense text
+- 2G2.5: Recordkeeping Offenses (Sexual Material) - Empty base offense text
+- 2G2.6: Child Exploitation Enterprises - Incomplete SOC text
+
+## Chapter 2H Failures (2/7):
+- 2H2.1: Obstructing an Election - Empty base offense text
+- 2H3.2: Manufacturing Eavesdropping Devices - Empty base offense text
+
+## Chapter 2J Failures (1/6):
+- 2J1.5: Failure to Appear by Material Witness - Empty base offense text
+
+## Chapter 2K Failures (0/10):
+- (None - all parsed successfully)
+
+## Chapter 2L Failures (1/5):
+- 2L2.5: Failure to Surrender Naturalization Certificate - SOC text from wrong section
+
+## Chapter 2M Failures (7/14):
+- 2M2.1: Destruction of War Materials - Incomplete SOC text
+- 2M2.3: Destruction of National Defense Materials - Empty base offense text
+- 2M3.2: Gathering National Defense Information - Incomplete base offense text
+- 2M3.3: Transmitting National Defense Information - Empty base offense text
+- 2M3.5: Tampering with Restricted Data - Incomplete text
+- 2M3.9: Disclosure of Covert Agent Identity - Empty base offense text
+- 2M5.2: Exportation of Arms/Munitions - Empty base offense text
+
+## Chapter 2N Failures (3/5):
+- 2N1.2: Providing False Information/Threatening to Tamper - Empty base offense text
+- 2N1.3: Tampering to Injure Business - Incomplete SOC text
+- 2N3.1: Odometer Laws - Incomplete SOC text
+
+## Chapter 2P Failures (1/3):
+- 2P1.3: Inciting Prison Riot - Empty base offense text
+
+## Chapter 2Q Failures (2/6):
+- 2Q1.1: Knowing Endangerment (Hazardous Materials) - Empty base offense text
+- 2Q1.2: Mishandling Hazardous Substances - Incomplete text
+
+## Chapter 2R Failures (0/1):
+- (None - all parsed successfully)
+
+## Chapter 2S Failures (1/2):
+- 2S1.3: Structuring Transactions - Incomplete SOC text
+
+## Chapter 2T Failures (2/9):
+- 2T1.7: Failing to Deposit Collected Taxes - Empty base offense text
+- 2T2.2: Regulatory Tax Offenses - Commentary instead of SOC
+
+## Chapter 2X Failures (2/9):
+- 2X2.1: Aiding and Abetting - Empty base offense text
+- 2X7.1: Border Tunnels - Empty base offense text
+
+---
+SUMMARY:
+- Total sections: 149
+- Successfully parsed: 106
+- Failed: 43
+- Success rate: 71%
+
+Most failures are due to text extraction issues where the PDF content
+doesn't properly segment into base offense vs SOC sections. These need
+manual review or improved extraction logic.

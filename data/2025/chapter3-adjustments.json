@@ -4,7 +4,7 @@
       "id": "role",
       "title": "Role in the Offense",
       "section": "3B1.1 / 3B1.2",
-      "pdfReference": "Guidelines/GLMFull 333.pdf",
+      "pdfReference": "Guidelines/2025/GLMFull 333.pdf",
       "type": "select",
       "question": "What was the defendant's role in the offense?",
       "options": [
@@ -48,7 +48,7 @@
       "id": "obstruction",
       "title": "Obstruction of Justice",
       "section": "3C1.1",
-      "pdfReference": "Guidelines/GLMFull 340.pdf",
+      "pdfReference": "Guidelines/2025/GLMFull 340.pdf",
       "type": "yesno",
       "question": "Did the defendant obstruct or impede the administration of justice during the investigation, prosecution, or sentencing of the instant offense?",
       "description": "Examples include: threatening witnesses, destroying evidence, perjury, providing materially false information to officials, fleeing prosecution.",
@@ -59,7 +59,7 @@
       "id": "acceptance",
       "title": "Acceptance of Responsibility",
       "section": "3E1.1",
-      "pdfReference": "Guidelines/GLMFull 357.pdf",
+      "pdfReference": "Guidelines/2025/GLMFull 357.pdf",
       "type": "select",
       "question": "Did the defendant accept responsibility for the offense?",
       "options": [

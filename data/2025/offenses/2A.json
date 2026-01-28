@@ -1,0 +1,1126 @@
+{
+  "2A1.1": {
+    "title": "First Degree Murder",
+    "section": "2A1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 49.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve a First Degree Murder?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 43,
+          "description": "Murder (premeditated killing or death resulting from specified felonies)"
+        },
+        "noResult": {
+          "baseLevel": null,
+          "description": "This guideline does not apply - refer to appropriate guideline for the actual offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+    "2A1.2": {
+    "title": "Second Degree Murder",
+    "section": "2A1.2",
+    "pdfReference": "Guidelines/2025/GLMFull 50.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve a Second Degree Murder?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 38,
+          "description": "Murder (premeditated killing or death resulting from specified felonies)"
+        },
+        "noResult": {
+          "baseLevel": null,
+          "description": "This guideline does not apply - refer to appropriate guideline for the actual offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2A1.3": {
+    "title": "Voluntary Manslaughter",
+    "section": "2A1.3",
+    "pdfReference": "Guidelines/2025/GLMFull 50.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve a Voluntary Manslaughter?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 29,
+          "description": ""
+        },
+        "noResult": {
+          "baseLevel": null,
+          "description": "This guideline does not apply - refer to appropriate guideline for the actual offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2A1.4": {
+    "title": "Involuntary Manslaughter",
+    "section": "2A1.4",
+    "pdfReference": "Guidelines/2025/GLMFull 50.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve reckless conduct?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Involuntary manslaughter with reckless conduct"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense involve criminally negligent conduct?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Involuntary manslaughter with criminally negligent conduct"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Involuntary manslaughter (default level)"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2A1.5": {
+    "title": "Conspiracy or Solicitation to Commit Murder",
+    "section": "2A1.5",
+    "pdfReference": "Guidelines/2025/GLMFull 51.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this a conspiracy or solicitation to commit murder offense under \u00a72A1.5?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 33,
+          "description": "Conspiracy or solicitation to commit murder"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "pecuniary_value",
+        "text": "Did the offense involve the offer or receipt of anything of pecuniary value for undertaking the murder?",
+        "type": "yesno",
+        "reference": "\u00a72A1.5(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Offense involved offer or receipt of pecuniary value for undertaking the murder"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A2.1": {
+    "title": "Assault with Intent to Commit Murder; Attempted Murder",
+    "section": "2A2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 52.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Would the object of the offense have constituted first degree murder?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 33,
+          "description": "Object of offense would have constituted first degree murder"
+        },
+        "noResult": {
+          "baseLevel": 27,
+          "description": "Object of offense would not have constituted first degree murder"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "bodily_injury",
+        "text": "What level of bodily injury did the victim sustain?",
+        "type": "select",
+        "reference": "\u00a72A2.1(b)(1)",
+        "options": [
+          {
+            "label": "No permanent, life-threatening, or serious bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Injury between serious and permanent/life-threatening",
+            "adjustment": 3
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "murder_for_hire",
+        "text": "Did the offense involve the offer or receipt of anything of pecuniary value for undertaking the murder?",
+        "type": "yesno",
+        "reference": "\u00a72A2.1(b)(2)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Murder for hire"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A2.2": {
+    "title": "Aggravated Assault",
+    "section": "2A2.2",
+    "pdfReference": "Guidelines/2025/GLMFull 53.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72A2.2?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Base offense level for \u00a72A2.2"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_minimal_planning",
+        "text": "Did the assault involve more than minimal planning?",
+        "type": "yesno",
+        "reference": "\u00a72A2.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "More than minimal planning"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_weapon_use",
+        "text": "What level of weapon involvement occurred?",
+        "type": "select",
+        "reference": "\u00a72A2.2(b)(2)",
+        "options": [
+          {
+            "label": "No weapon involved",
+            "adjustment": 0
+          },
+          {
+            "label": "Dangerous weapon (including firearm) brandished or use threatened",
+            "adjustment": 3
+          },
+          {
+            "label": "Dangerous weapon (including firearm) otherwise used",
+            "adjustment": 4
+          },
+          {
+            "label": "Firearm discharged",
+            "adjustment": 5
+          }
+        ]
+      },
+      {
+        "id": "soc_bodily_injury",
+        "text": "What degree of bodily injury did the victim sustain?",
+        "type": "select",
+        "reference": "\u00a72A2.2(b)(3)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Bodily Injury",
+            "adjustment": 3
+          },
+          {
+            "label": "Injury between Bodily and Serious Bodily",
+            "adjustment": 4
+          },
+          {
+            "label": "Serious Bodily Injury",
+            "adjustment": 5
+          },
+          {
+            "label": "Injury between Serious Bodily and Permanent/Life-Threatening",
+            "adjustment": 6
+          },
+          {
+            "label": "Permanent or Life-Threatening Bodily Injury",
+            "adjustment": 7
+          }
+        ],
+        "condition": "Cumulative adjustments from (b)(2) and (b)(3) shall not exceed 10 levels"
+      },
+      {
+        "id": "soc_domestic_strangulation",
+        "text": "Did the offense involve strangling, suffocating, or attempting to strangle or suffocate a spouse, intimate partner, or dating partner?",
+        "type": "yesno",
+        "reference": "\u00a72A2.2(b)(4)",
+        "yesEffect": {
+          "adjustment": 3,
+          "description": "Domestic strangulation/suffocation"
+        },
+        "noEffect": {
+          "adjustment": 0
+        },
+        "condition": "Cumulative adjustments from (b)(2), (b)(3), and (b)(4) shall not exceed 12 levels"
+      },
+      {
+        "id": "soc_payment_motivated",
+        "text": "Was the assault motivated by a payment or offer of money or other thing of value?",
+        "type": "yesno",
+        "reference": "\u00a72A2.2(b)(5)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Payment motivated assault"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_protection_order",
+        "text": "Did the offense involve the violation of a court protection order?",
+        "type": "yesno",
+        "reference": "\u00a72A2.2(b)(6)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Violation of court protection order"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_federal_officer",
+        "text": "Was the defendant convicted under 18 U.S.C. \u00a7 111(b) or \u00a7 115?",
+        "type": "yesno",
+        "reference": "\u00a72A2.2(b)(7)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Assault on federal officer or official"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A2.4": {
+    "title": "Obstructing or Impeding Officers",
+    "section": "2A2.4",
+    "pdfReference": "Guidelines/2025/GLMFull 56.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the conduct constitute aggravated assault as defined in \u00a72A2.2?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "See \u00a72A2.2",
+          "description": "Apply \u00a72A2.2 (Aggravated Assault) per cross reference"
+        },
+        "noResult": {
+          "baseLevel": 10,
+          "description": "Base offense level for obstructing or impeding officers"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_bodily_injury",
+        "text": "Did the victim sustain bodily injury or did the offense result in substantial bodily injury to a spouse, intimate partner, dating partner, or individual under 16?",
+        "type": "select",
+        "reference": "\u00a72A2.4(b)(1)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Victim sustained bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Substantial bodily injury to spouse, intimate partner, dating partner, or individual under 16",
+            "adjustment": 4
+          }
+        ]
+      }
+    ]
+  },
+  "2A3.1": {
+    "title": "Criminal Sexual Abuse; Attempt to Commit Criminal Sexual Abuse",
+    "section": "2A3.1",
+    "pdfReference": "Guidelines/2025/GLMFull 58.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant convicted under 18 U.S.C. \u00a7 2241(c)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 38,
+          "description": "Conviction under 18 U.S.C. \u00a7 2241(c)"
+        },
+        "noResult": {
+          "baseLevel": 30,
+          "description": "All other convictions"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "conduct_2241",
+        "text": "Did the offense involve conduct described in 18 U.S.C. \u00a7 2241(a) or (b)?",
+        "type": "yesno",
+        "reference": "\u00a72A3.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Conduct involving force, threats, rendering unconscious, or administering drugs"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "victim_age_subsection_a2",
+        "text": "If subsection (a)(2) applies, what was the victim's age?",
+        "type": "select",
+        "reference": "\u00a72A3.1(b)(2)",
+        "condition": "Only applies if subsection (a)(2) applies",
+        "options": [
+          {
+            "label": "Subsection (a)(2) does not apply",
+            "adjustment": 0
+          },
+          {
+            "label": "Victim had not attained the age of twelve years",
+            "adjustment": 4
+          },
+          {
+            "label": "Victim had attained the age of twelve but not sixteen years",
+            "adjustment": 2
+          },
+          {
+            "label": "Victim was sixteen years or older",
+            "adjustment": 0
+          }
+        ]
+      },
+      {
+        "id": "custody_control_victim",
+        "text": "Was the victim in the custody, care, or supervisory control of the defendant, or held in custody of a correctional facility?",
+        "type": "yesno",
+        "reference": "\u00a72A3.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Victim in defendant's custody/care/control or correctional facility custody"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "bodily_injury",
+        "text": "What degree of bodily injury did the victim sustain?",
+        "type": "select",
+        "reference": "\u00a72A3.1(b)(4)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Degree of injury between serious and permanent/life-threatening",
+            "adjustment": 3
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "victim_abducted",
+        "text": "Was the victim abducted?",
+        "type": "yesno",
+        "reference": "\u00a72A3.1(b)(5)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Victim was abducted"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "persuasion_facilitation_minor",
+        "text": "Did the offense involve knowing misrepresentation of identity or use of computer/interactive service to persuade/induce/entice/coerce a minor or facilitate transportation for prohibited sexual conduct?",
+        "type": "yesno",
+        "reference": "\u00a72A3.1(b)(6)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Knowing misrepresentation of participant's identity or use of computer/interactive service"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A3.2": {
+    "title": "Criminal Sexual Abuse of a Minor Under the Age of Sixteen Years",
+    "section": "2A3.2",
+    "pdfReference": "Guidelines/2025/GLMFull 62.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72A3.2?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Base offense level for \u00a72A3.2"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_custody_care_control",
+        "text": "Was the minor in the custody, care, or supervisory control of the defendant?",
+        "type": "yesno",
+        "reference": "\u00a72A3.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Minor was in defendant's custody, care, or supervisory control"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_misrepresentation_influence",
+        "text": "Did the offense involve knowing misrepresentation of identity or undue influence to engage the minor in prohibited sexual conduct?",
+        "type": "yesno",
+        "reference": "\u00a72A3.2(b)(2)",
+        "condition": "Only applies if subsection (b)(1) does not apply",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Knowing misrepresentation of participant's identity or undue influence to engage minor in prohibited sexual conduct"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_computer_use",
+        "text": "Was a computer or interactive computer service used to persuade, induce, entice, or coerce the minor to engage in prohibited sexual conduct?",
+        "type": "yesno",
+        "reference": "\u00a72A3.2(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Computer or interactive computer service used to persuade, induce, entice, or coerce minor"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A3.4": {
+    "title": "Abusive Sexual Contact or Attempt to Commit Abusive Sexual Contact",
+    "section": "2A3.4",
+    "pdfReference": "Guidelines/2025/GLMFull 66.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve conduct described in 18 U.S.C. \u00a7 2241(a) (aggravated sexual abuse by force, threat, or other means, or aggravated sexual abuse of a child)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Offense involved conduct under 18 U.S.C. \u00a7 2241(a)"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "No applicable base offense level specified for other conduct"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "victim_age_under_12",
+        "text": "Had the victim not attained the age of twelve years?",
+        "type": "yesno",
+        "reference": "\u00a72A3.4(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "minimumLevel": 22,
+          "description": "Victim under 12 years old"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "victim_age_12_to_15",
+        "text": "Had the victim attained the age of twelve years but had not attained the age of sixteen years?",
+        "type": "yesno",
+        "reference": "\u00a72A3.4(b)(2)",
+        "condition": "Base offense level is determined under subsection (a)(1) or (2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Victim between 12 and 15 years old"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "victim_in_custody_care_control",
+        "text": "Was the victim in the custody, care, or supervisory control of the defendant?",
+        "type": "yesno",
+        "reference": "\u00a72A3.4(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Victim in defendant's custody, care, or supervisory control"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "misrepresentation_of_identity",
+        "text": "Did the offense involve the knowing misrepresentation of a participant's identity to persuade, induce, entice, or coerce a minor to engage in prohibited sexual conduct?",
+        "type": "yesno",
+        "reference": "\u00a72A3.4(b)(4)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Knowing misrepresentation of participant's identity"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "computer_use",
+        "text": "Was a computer or an interactive computer service used to persuade, induce, entice, or coerce a minor to engage in prohibited sexual conduct?",
+        "type": "yesno",
+        "reference": "\u00a72A3.4(b)(5)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Use of computer or interactive computer service"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A3.5": {
+    "title": "Failure to Register as a Sex Offender",
+    "section": "2A3.5",
+    "pdfReference": "Guidelines/2025/GLMFull 68.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant required to register as a Tier III offender?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "Tier III offender registration required"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Was the defendant required to register as a Tier II offender?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Tier II offender registration required"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Was the defendant required to register as a Tier I offender?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Tier I offender registration required"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "No registration requirement established"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_offense_while_failure_status",
+        "text": "Did the defendant commit an offense while in a failure to register status?",
+        "type": "select",
+        "reference": "\u00a72A3.5(b)(1)",
+        "options": [
+          {
+            "label": "No offense committed",
+            "adjustment": 0
+          },
+          {
+            "label": "Sex offense against someone other than a minor",
+            "adjustment": 6
+          },
+          {
+            "label": "Felony offense against a minor (not sex offense)",
+            "adjustment": 6
+          },
+          {
+            "label": "Sex offense against a minor",
+            "adjustment": 8
+          }
+        ]
+      },
+      {
+        "id": "soc_voluntary_correction",
+        "text": "Did the defendant voluntarily correct the failure to register or attempt to register but was prevented by uncontrollable circumstances?",
+        "type": "yesno",
+        "reference": "\u00a72A3.5(b)(2)",
+        "yesEffect": {
+          "adjustment": -3,
+          "description": "Voluntary correction or prevented by uncontrollable circumstances not contributed to by defendant"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A3.6": {
+    "title": "Aggravated Offenses Relating to Registration as a Sex Offender",
+    "section": "2A3.6",
+    "pdfReference": "Guidelines/2025/GLMFull 70.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the offense under 18 U.S.C. \u00a7 2260A?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "statutory",
+          "description": "10 years imprisonment as required by statute, imposed consecutively to any sentence for enumerated offenses"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Is the offense under 18 U.S.C. \u00a7 2250(d)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "statutory",
+          "description": "Minimum 5 years imprisonment (maximum 30 years) as required by statute, imposed consecutively to any sentence under \u00a7 2250(a) or (b)"
+        },
+        "noResult": {
+          "baseLevel": "error",
+          "description": "Offense not covered by this guideline - only applies to 18 U.S.C. \u00a7\u00a7 2250(d) and 2260A"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "conviction_type",
+        "text": "Under which statute was the defendant convicted?",
+        "type": "select",
+        "reference": "\u00a72A3.6",
+        "options": [
+          {
+            "label": "18 U.S.C. \u00a7 2250(d)",
+            "adjustment": 0,
+            "description": "Guideline sentence is the minimum term of imprisonment required by statute"
+          },
+          {
+            "label": "18 U.S.C. \u00a7 2260A",
+            "adjustment": 0,
+            "description": "Guideline sentence is the term of imprisonment required by statute"
+          }
+        ]
+      }
+    ]
+  },
+  "2A4.1": {
+    "title": "Kidnapping, Abduction, Unlawful Restraint",
+    "section": "2A4.1",
+    "pdfReference": "Guidelines/2025/GLMFull 71.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this offense covered under \u00a72A4.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 32,
+          "description": "Base offense level for \u00a72A4.1"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "Not applicable under this guideline"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "ransom_demand",
+        "text": "Was a ransom demand or demand upon government made?",
+        "type": "yesno",
+        "reference": "\u00a72A4.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 6,
+          "description": "Ransom demand or demand upon government was made"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "victim_injury",
+        "text": "What level of bodily injury did the victim sustain?",
+        "type": "select",
+        "reference": "\u00a72A4.1(b)(2)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Injury between serious and permanent/life-threatening",
+            "adjustment": 3
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "dangerous_weapon",
+        "text": "Was a dangerous weapon used?",
+        "type": "yesno",
+        "reference": "\u00a72A4.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Dangerous weapon was used"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "victim_release_timeframe",
+        "text": "When was the victim released?",
+        "type": "select",
+        "reference": "\u00a72A4.1(b)(4)",
+        "options": [
+          {
+            "label": "Released before seven days elapsed",
+            "adjustment": 0
+          },
+          {
+            "label": "Not released before seven days elapsed",
+            "adjustment": 1
+          },
+          {
+            "label": "Not released before thirty days elapsed",
+            "adjustment": 2
+          }
+        ]
+      },
+      {
+        "id": "sexual_exploitation",
+        "text": "Was the victim sexually exploited?",
+        "type": "yesno",
+        "reference": "\u00a72A4.1(b)(5)",
+        "yesEffect": {
+          "adjustment": 6,
+          "description": "Victim was sexually exploited"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "minor_trafficking",
+        "text": "Was the victim a minor placed in care/custody of another in exchange for money or consideration?",
+        "type": "yesno",
+        "reference": "\u00a72A4.1(b)(6)",
+        "condition": "Victim is a minor and was placed in care/custody of person with no legal right",
+        "yesEffect": {
+          "adjustment": 3,
+          "description": "Minor victim placed in care/custody for money or consideration"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "connection_other_offense",
+        "text": "Was the kidnapping connected with another offense?",
+        "type": "yesno",
+        "reference": "\u00a72A4.1(b)(7)",
+        "condition": "Kidnapping occurred during commission of/connection with another offense, or another offense was committed during kidnapping",
+        "yesEffect": {
+          "adjustment": "special",
+          "description": "Apply cross-reference calculation: Use higher of (A) offense level from other offense guideline if it accounts for kidnapping, or (B) 4 plus offense level from other offense guideline (max level 43)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A5.2": {
+    "title": "Interference with Flight Crew Member or Flight Attendant; Interference with",
+    "section": "2A5.2",
+    "pdfReference": "Guidelines/2025/GLMFull 74.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this case involve an offense covered by \u00a72A5.2?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 38,
+          "description": "Base offense level for \u00a72A5.2"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "weapon_use_with_endangerment",
+        "text": "If subsection (a)(1) or (a)(2) applies, what level of weapon involvement occurred?",
+        "type": "select",
+        "reference": "\u00a72A5.2(b)(1)",
+        "condition": "Only applies if subsection (a)(1) or (a)(2) applies (intentionally or recklessly endangering safety)",
+        "options": [
+          {
+            "label": "No weapon involvement",
+            "adjustment": 0
+          },
+          {
+            "label": "A dangerous weapon was brandished or its use was threatened",
+            "adjustment": 3,
+            "minimumLevel": 24
+          },
+          {
+            "label": "A dangerous weapon was otherwise used",
+            "adjustment": 4,
+            "minimumLevel": 24
+          },
+          {
+            "label": "A firearm was discharged",
+            "adjustment": 5,
+            "minimumLevel": 24
+          }
+        ]
+      }
+    ]
+  },
+  "2A6.1": {
+    "title": "Threatening or Harassing Communications; Hoaxes; False Liens",
+    "section": "2A6.1",
+    "pdfReference": "Guidelines/2025/GLMFull 76.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is the defendant convicted of an offense under 47 U.S.C. \u00a7 223(a)(1)(C), (D), or (E) that did not involve a threat to injure a person or property?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Offense under 47 U.S.C. \u00a7 223(a)(1)(C), (D), or (E) without threat to injure person or property"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "All other threatening or harassing communications, hoaxes, or false liens offenses"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_intent_to_carry_out",
+        "text": "Did the offense involve any conduct evidencing an intent to carry out the threat?",
+        "type": "yesno",
+        "reference": "\u00a72A6.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 6,
+          "description": "Conduct evidencing intent to carry out threat"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_multiple_threats_liens",
+        "text": "Did the offense involve more than two threats, or (if convicted under 18 U.S.C. \u00a7 1521) more than two false liens or encumbrances?",
+        "type": "yesno",
+        "reference": "\u00a72A6.1(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "More than two threats or false liens/encumbrances"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_court_protection_order",
+        "text": "Did the offense involve the violation of a court protection order?",
+        "type": "yesno",
+        "reference": "\u00a72A6.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Violation of court protection order"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_substantial_disruption_expenditure",
+        "text": "Did the offense result in substantial disruption of public, governmental, or business functions/services, or substantial expenditure of funds to respond to the offense?",
+        "type": "yesno",
+        "reference": "\u00a72A6.1(b)(4)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Substantial disruption or expenditure of funds"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_public_threatening_communication",
+        "text": "Is the defendant convicted under 18 U.S.C. \u00a7 115, made a public threatening communication, and knew or should have known it created substantial risk of inciting others to violate 18 U.S.C. \u00a7 115?",
+        "type": "yesno",
+        "reference": "\u00a72A6.1(b)(5)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Public threatening communication with risk of inciting others"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_single_instance_minimal_deliberation",
+        "text": "Does the offense qualify for the minimal deliberation reduction?",
+        "type": "yesno",
+        "reference": "\u00a72A6.1(b)(6)",
+        "condition": "Only applies if subsection (a)(2) and subdivisions (1), (2), (3), (4), and (5) do not apply, and the offense involved a single instance evidencing little or no deliberation",
+        "yesEffect": {
+          "adjustment": -4,
+          "description": "Single instance with little or no deliberation"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2A6.2": {
+    "title": "Stalking or Domestic Violence",
+    "section": "2A6.2",
+    "pdfReference": "Guidelines/2025/GLMFull 78.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Did the offense involve the commission of another criminal offense that would be covered by a Chapter Two, Part A (Offenses Against the Person) guideline with a resulting offense level greater than what would be determined under this guideline?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Cross Reference",
+          "description": "Apply the offense guideline from Chapter Two, Part A most applicable to the other criminal offense"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Did the offense involve more than one of the following aggravating factors: (A) violation of a court protection order, (B) bodily injury, (C) strangling/suffocating/attempting to strangle or suffocate, (D) possession or threatened use of a dangerous weapon, or (E) a pattern of activity involving stalking, threatening, harassing, or assaulting the same victim?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 22,
+          "description": "Base offense level 18, plus 4-level increase for multiple aggravating factors"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Did the offense involve exactly one of the following aggravating factors: (A) violation of a court protection order, (B) bodily injury, (C) strangling/suffocating/attempting to strangle or suffocate, (D) possession or threatened use of a dangerous weapon, or (E) a pattern of activity involving stalking, threatening, harassing, or assaulting the same victim?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Base offense level 18, plus 2-level increase for one aggravating factor"
+        },
+        "noResult": {
+          "baseLevel": 18,
+          "description": "Base offense level with no aggravating factors"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "aggravating_factors",
+        "text": "How many of the following aggravating factors were present: (A) violation of a court protection order; (B) bodily injury; (C) strangling, suffocating, or attempting to strangle or suffocate; (D) possession, or threatened use, of a dangerous weapon; or (E) a pattern of activity involving stalking, threatening, harassing, or assaulting the same victim?",
+        "type": "select",
+        "reference": "\u00a72A6.2(b)(1)",
+        "options": [
+          {
+            "label": "None",
+            "adjustment": 0
+          },
+          {
+            "label": "One aggravating factor",
+            "adjustment": 2
+          },
+          {
+            "label": "More than one aggravating factor",
+            "adjustment": 4
+          }
+        ]
+      }
+    ]
+  }
+}

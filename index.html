@@ -668,7 +668,7 @@
     <div class="container">
         <header>
             <h1>Federal Sentencing Guidelines Calculator</h1>
-            <p>2025 Guidelines Manual - Offense Level Calculator</p>
+            <p>U.S. Sentencing Guidelines - Offense Level Calculator (v0.0.3)</p>
         </header>
 
         <!-- Start Screen -->
@@ -695,9 +695,14 @@
                 </div>
 
                 <div class="offense-select">
-                    <select id="offenseSelect">
+                    <select id="yearSelect">
+                        <option value="">-- Select Guidelines Year --</option>
+                    </select>
+                </div>
+
+                <div class="offense-select">
+                    <select id="offenseSelect" disabled>
                         <option value="">-- Select an Offense --</option>
-                        <option value="2K2.1">2K2.1 - Unlawful Receipt, Possession, or Transportation of Firearms</option>
                     </select>
                 </div>
 
@@ -808,6 +813,7 @@
         // Calculator State
         let state = {
             mode: 'wizard', // wizard or checklist
+            year: null,
             offense: null,
             phase: 'start', // start, base, soc, ch3, result
             currentQuestionIndex: 0,
@@ -830,6 +836,7 @@
         const calculatorScreen = document.getElementById('calculatorScreen');
         const checklistScreen = document.getElementById('checklistScreen');
         const resultsScreen = document.getElementById('resultsScreen');
+        const yearSelect = document.getElementById('yearSelect');
         const offenseSelect = document.getElementById('offenseSelect');
         const startBtn = document.getElementById('startBtn');
         const questionCard = document.getElementById('questionCard');
@@ -852,9 +859,41 @@
         const checklistRestartBtn = document.getElementById('checklistRestartBtn');
         const checklistResultBtn = document.getElementById('checklistResultBtn');
 
-        // Initialize
+        // Initialize - populate year dropdown
+        function populateYears() {
+            const years = Object.keys(OFFENSE_DATA).sort().reverse(); // Most recent first
+            years.forEach(year => {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year + ' Guidelines';
+                yearSelect.appendChild(option);
+            });
+        }
+        populateYears();
+
+        // Year selection updates offense dropdown
+        yearSelect.addEventListener('change', () => {
+            state.year = yearSelect.value || null;
+            offenseSelect.innerHTML = '<option value="">-- Select an Offense --</option>';
+
+            if (state.year && OFFENSE_DATA[state.year]) {
+                offenseSelect.disabled = false;
+                const offenses = OFFENSE_DATA[state.year];
+                Object.keys(offenses).sort().forEach(key => {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = key + ' - ' + offenses[key].title;
+                    offenseSelect.appendChild(option);
+                });
+            } else {
+                offenseSelect.disabled = true;
+            }
+            offenseSelect.value = '';
+            startBtn.disabled = true;
+        });
+
         offenseSelect.addEventListener('change', () => {
-            startBtn.disabled = !offenseSelect.value;
+            startBtn.disabled = !offenseSelect.value || !yearSelect.value;
         });
 
         // Mode toggle handlers
@@ -874,6 +913,7 @@
         checklistResultBtn.addEventListener('click', showChecklistResults);
 
         function startCalculation() {
+            state.year = yearSelect.value;
             state.offense = offenseSelect.value;
             state.phase = 'base';
             state.currentQuestionIndex = 0;
@@ -895,12 +935,12 @@
             if (state.mode === 'checklist') {
                 calculatorScreen.classList.add('hidden');
                 checklistScreen.classList.remove('hidden');
-                checklistOffenseEl.textContent = OFFENSE_DATA[state.offense].title;
+                checklistOffenseEl.textContent = OFFENSE_DATA[state.year][state.offense].title;
                 renderChecklist();
             } else {
                 checklistScreen.classList.add('hidden');
                 calculatorScreen.classList.remove('hidden');
-                currentOffenseEl.textContent = OFFENSE_DATA[state.offense].title;
+                currentOffenseEl.textContent = OFFENSE_DATA[state.year][state.offense].title;
                 showQuestion();
             }
         }
@@ -909,6 +949,7 @@
             const currentMode = state.mode;
             state = {
                 mode: currentMode,
+                year: null,
                 offense: null,
                 phase: 'start',
                 currentQuestionIndex: 0,
@@ -929,7 +970,9 @@
             calculatorScreen.classList.add('hidden');
             checklistScreen.classList.add('hidden');
             resultsScreen.classList.add('hidden');
-            offenseSelect.value = '';
+            yearSelect.value = '';
+            offenseSelect.innerHTML = '<option value="">-- Select an Offense --</option>';
+            offenseSelect.disabled = true;
             startBtn.disabled = true;
         }
 
@@ -994,7 +1037,7 @@
         }
 
         function showBaseQuestion() {
-            const offense = OFFENSE_DATA[state.offense];
+            const offense = OFFENSE_DATA[state.year][state.offense];
             const questions = offense.baseOffenseQuestions;
 
             // Find current question by ID or index
@@ -1056,7 +1099,7 @@
         }
 
         function showSOCQuestion() {
-            const offense = OFFENSE_DATA[state.offense];
+            const offense = OFFENSE_DATA[state.year][state.offense];
             const socs = offense.specificOffenseCharacteristics;
 
             if (state.currentQuestionIndex >= socs.length) {
@@ -1130,7 +1173,7 @@
         }
 
         function showCh3Question() {
-            const adjustments = CHAPTER3_DATA.adjustments;
+            const adjustments = CHAPTER3_DATA[state.year].adjustments;
 
             if (state.currentQuestionIndex >= adjustments.length) {
                 state.phase = 'result';
@@ -1293,7 +1336,7 @@
         // ========== CHECKLIST MODE FUNCTIONS ==========
 
         function renderChecklist() {
-            const offense = OFFENSE_DATA[state.offense];
+            const offense = OFFENSE_DATA[state.year][state.offense];
             checklistContent.innerHTML = '';
 
             // Base Offense Level Section
@@ -1510,7 +1553,7 @@
 
             const itemsContainer = document.getElementById('ch3-items');
 
-            CHAPTER3_DATA.adjustments.forEach((adj, index) => {
+            CHAPTER3_DATA[state.year].adjustments.forEach((adj, index) => {
                 const item = document.createElement('div');
                 item.className = 'checklist-item';
                 item.innerHTML = `
@@ -1603,9 +1646,9 @@
             checklistLevelEl.textContent = level !== null ? level : '--';
 
             // Count reviewed items
-            const offense = OFFENSE_DATA[state.offense];
+            const offense = OFFENSE_DATA[state.year][state.offense];
             const totalSOCs = offense.specificOffenseCharacteristics.length;
-            const totalCh3 = CHAPTER3_DATA.adjustments.length;
+            const totalCh3 = CHAPTER3_DATA[state.year].adjustments.length;
             const totalItems = 1 + totalSOCs + totalCh3; // base + SOCs + Ch3
 
             const reviewedBase = state.checklistSelections.base ? 1 : 0;
@@ -1656,7 +1699,7 @@
             state.baseDescription = state.checklistSelections.base.description;
 
             state.socAdjustments = [];
-            const offense = OFFENSE_DATA[state.offense];
+            const offense = OFFENSE_DATA[state.year][state.offense];
             offense.specificOffenseCharacteristics.forEach(soc => {
                 const selection = state.checklistSelections.socs[soc.id];
                 if (selection && selection.adjustment !== 0) {
@@ -1670,7 +1713,7 @@
             });
 
             state.ch3Adjustments = [];
-            CHAPTER3_DATA.adjustments.forEach(adj => {
+            CHAPTER3_DATA[state.year].adjustments.forEach(adj => {
                 const selection = state.checklistSelections.ch3[adj.id];
                 if (selection && selection.adjustment !== 0) {
                     state.ch3Adjustments.push({

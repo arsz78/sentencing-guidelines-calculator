@@ -1,0 +1,290 @@
+{
+  "2C1.1": {
+    "title": "Offering, Giving, Soliciting, or Receiving a Bribe; Extortion Under Color of",
+    "section": "2C1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 128.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant a public official?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Defendant was a public official"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Defendant was not a public official"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "multiple_bribe_extortion",
+        "text": "Did the offense involve more than one bribe or extortion?",
+        "type": "yesno",
+        "reference": "\u00a72C1.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense involved more than one bribe or extortion"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "value_threshold",
+        "text": "What is the greatest value among: the payment, the benefit received or to be received in return for the payment, the value of anything obtained or to be obtained by a public official or others acting with a public official, or the loss to the government from the offense?",
+        "type": "select",
+        "reference": "\u00a72C1.1(b)(2)",
+        "options": [
+          {
+            "label": "$6,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "See \u00a72B1.1 table",
+            "description": "Use the table in \u00a72B1.1 corresponding to the applicable amount"
+          }
+        ]
+      },
+      {
+        "id": "high_level_official",
+        "text": "Did the offense involve an elected public official or any public official in a high-level decision-making or sensitive position?",
+        "type": "yesno",
+        "reference": "\u00a72C1.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 4,
+          "minimumLevel": 18,
+          "description": "Offense involved elected public official or high-level decision-making/sensitive position official"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "public_official_facilitation",
+        "text": "Was the defendant a public official who facilitated entry into the US, obtaining immigration documents, or obtaining government identification documents?",
+        "type": "yesno",
+        "reference": "\u00a72C1.1(b)(4)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Public official facilitated entry into US, immigration documents, or government ID documents"
+        },
+        "noEffect": {
+          "adjustment": 0
+        },
+        "condition": "Defendant was a public official"
+      }
+    ]
+  },
+  "2C1.2": {
+    "title": "Offering, Giving, Soliciting, or Receiving a Gratuity",
+    "section": "2C1.2",
+    "pdfReference": "Guidelines/2025/GLMFull 132.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant a public official?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 11,
+          "description": "Defendant was a public official"
+        },
+        "noResult": {
+          "baseLevel": 9,
+          "description": "Defendant was not a public official"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "multiple_gratuities",
+        "text": "Did the offense involve more than one gratuity?",
+        "type": "yesno",
+        "reference": "\u00a72C1.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense involved more than one gratuity"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "gratuity_value",
+        "text": "What was the value of the gratuity?",
+        "type": "select",
+        "reference": "\u00a72C1.2(b)(2)",
+        "options": [
+          {
+            "label": "$6,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "per \u00a72B1.1 table",
+            "description": "Increase by levels corresponding to the amount from the table in \u00a72B1.1"
+          }
+        ]
+      },
+      {
+        "id": "high_level_official",
+        "text": "Did the offense involve an elected public official or any public official in a high-level decision-making or sensitive position?",
+        "type": "yesno",
+        "reference": "\u00a72C1.2(b)(3)",
+        "yesEffect": {
+          "adjustment": 4,
+          "minimumLevel": 15,
+          "description": "Offense involved elected official or high-level/sensitive position official"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "facilitated_entry_documents",
+        "text": "Was the defendant a public official who facilitated entry into the US, obtaining immigration documents, or obtaining government ID documents?",
+        "type": "yesno",
+        "reference": "\u00a72C1.2(b)(4)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Public official facilitated entry, immigration documents, or government ID documents"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2C1.3": {
+    "title": "Conflict of Interest; Payment or Receipt of Unauthorized Compensation",
+    "section": "2C1.3",
+    "pdfReference": "Guidelines/2025/GLMFull 134.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this offense covered under \u00a72C1.3?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Base offense level for \u00a72C1.3"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "Not applicable under this guideline"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "actual_planned_harm_government",
+        "text": "Did the offense involve actual or planned harm to the government?",
+        "type": "yesno",
+        "reference": "\u00a72C1.3(b)(1)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Offense involved actual or planned harm to the government"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2C1.8": {
+    "title": "Making, Receiving, or Failing to Report a Contribution, Donation, or",
+    "section": "2C1.8",
+    "pdfReference": "Guidelines/2025/GLMFull 136.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72C1.8?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Base offense level for \u00a72C1.8"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "illegal_transaction_value",
+        "text": "Did the value of the illegal transactions exceed $6,500?",
+        "type": "yesno",
+        "reference": "\u00a72C1.8(b)(1)",
+        "yesEffect": {
+          "adjustment": "table",
+          "description": "Increase by the number of levels from the table in \u00a72B1.1 corresponding to that amount"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "foreign_involvement",
+        "text": "Did the offense involve, directly or indirectly, an illegal transaction made by or received from?",
+        "type": "select",
+        "reference": "\u00a72C1.8(b)(2)",
+        "options": [
+          {
+            "label": "No foreign involvement",
+            "adjustment": 0
+          },
+          {
+            "label": "A foreign national",
+            "adjustment": 2
+          },
+          {
+            "label": "A government of a foreign country",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "governmental_funds_or_benefit",
+        "text": "Did the offense involve governmental funds or was it committed to obtain a specific federal benefit?",
+        "type": "yesno",
+        "reference": "\u00a72C1.8(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Offense involved contribution, donation, solicitation, expenditure, disbursement, or receipt of governmental funds; or defendant committed offense for purpose of obtaining specific, identifiable non-monetary federal benefit"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "transaction_count",
+        "text": "Did the defendant engage in 30 or more illegal transactions?",
+        "type": "yesno",
+        "reference": "\u00a72C1.8(b)(4)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Defendant engaged in 30 or more illegal transactions"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "intimidation_coercion",
+        "text": "Did the offense involve contribution, donation, solicitation, or expenditure made or obtained through intimidation, threat, or coercion?",
+        "type": "yesno",
+        "reference": "\u00a72C1.8(b)(5)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Offense involved contribution, donation, solicitation, or expenditure made or obtained through intimidation, threat of pecuniary or other harm, or coercion"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

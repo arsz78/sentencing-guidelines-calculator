@@ -1,0 +1,1127 @@
+{
+  "2B1.1": {
+    "title": "Larceny, Embezzlement, and Other Forms of Theft; Offenses Involving Stolen",
+    "section": "2B1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 81.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant convicted of an offense referenced to this guideline AND does that offense of conviction have a statutory maximum term of imprisonment of 20 years or more?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 7,
+          "description": "Offense referenced to guideline with statutory maximum of 20+ years"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "All other cases"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "loss_amount",
+        "text": "What was the loss amount?",
+        "type": "select",
+        "reference": "\u00a72B1.1(b)(1)",
+        "options": [
+          {
+            "label": "$6,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": 2
+          },
+          {
+            "label": "More than $15,000",
+            "adjustment": 4
+          },
+          {
+            "label": "More than $40,000",
+            "adjustment": 6
+          },
+          {
+            "label": "More than $95,000",
+            "adjustment": 8
+          },
+          {
+            "label": "More than $150,000",
+            "adjustment": 10
+          },
+          {
+            "label": "More than $250,000",
+            "adjustment": 12
+          },
+          {
+            "label": "More than $550,000",
+            "adjustment": 14
+          },
+          {
+            "label": "More than $1,500,000",
+            "adjustment": 16
+          },
+          {
+            "label": "More than $3,500,000",
+            "adjustment": 18
+          },
+          {
+            "label": "More than $9,500,000",
+            "adjustment": 20
+          },
+          {
+            "label": "More than $25,000,000",
+            "adjustment": 22
+          },
+          {
+            "label": "More than $65,000,000",
+            "adjustment": 24
+          },
+          {
+            "label": "More than $150,000,000",
+            "adjustment": 26
+          },
+          {
+            "label": "More than $250,000,000",
+            "adjustment": 28
+          },
+          {
+            "label": "More than $550,000,000",
+            "adjustment": 30
+          }
+        ]
+      },
+      {
+        "id": "victims_financial_hardship",
+        "text": "What was the impact on victims?",
+        "type": "select",
+        "reference": "\u00a72B1.1(b)(2)",
+        "options": [
+          {
+            "label": "None of the below conditions",
+            "adjustment": 0
+          },
+          {
+            "label": "10+ victims, mass-marketing, or substantial financial hardship to 1+ victims",
+            "adjustment": 2
+          },
+          {
+            "label": "Substantial financial hardship to 5+ victims",
+            "adjustment": 4
+          },
+          {
+            "label": "Substantial financial hardship to 25+ victims",
+            "adjustment": 6
+          }
+        ]
+      },
+      {
+        "id": "theft_from_person",
+        "text": "Did the offense involve theft from the person of another?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 2
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "receiving_stolen_property_business",
+        "text": "Did the offense involve receiving stolen property by a person in the business of receiving and selling stolen property?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(4)",
+        "yesEffect": {
+          "adjustment": 2
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "national_cemetery_veterans_memorial",
+        "text": "Did the offense involve theft of, damage to, destruction of, or trafficking in property from a national cemetery or veterans' memorial?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(5)",
+        "yesEffect": {
+          "adjustment": 2
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "email_addresses_improper_means",
+        "text": "Was defendant convicted under 18 U.S.C. \u00a7 1037 and did the offense involve obtaining electronic mail addresses through improper means?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(6)",
+        "yesEffect": {
+          "adjustment": 2
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "federal_health_care_offense",
+        "text": "Was defendant convicted of a federal health care offense involving a government health care program?",
+        "type": "select",
+        "reference": "\u00a72B1.1(b)(7)",
+        "options": [
+          {
+            "label": "No/Not applicable",
+            "adjustment": 0
+          },
+          {
+            "label": "Yes, loss more than $1,000,000",
+            "adjustment": 2
+          },
+          {
+            "label": "Yes, loss more than $7,000,000",
+            "adjustment": 3
+          },
+          {
+            "label": "Yes, loss more than $20,000,000",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "pre_retail_medical_product",
+        "text": "Did the offense involve conduct described in 18 U.S.C. \u00a7 670?",
+        "type": "select",
+        "reference": "\u00a72B1.1(b)(8)",
+        "options": [
+          {
+            "label": "No",
+            "adjustment": 0
+          },
+          {
+            "label": "Yes",
+            "adjustment": 2
+          },
+          {
+            "label": "Yes, and defendant was employed by or agent of organization in supply chain",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "misrepresentation_special_cases",
+        "text": "Did the offense involve specified misrepresentations or violations?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(9)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 10,
+          "description": "Misrepresentation as charitable/educational/religious/political organization or government agency; misrepresentation in bankruptcy; violation of judicial/administrative order; or misrepresentation regarding financial assistance for higher education"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "sophisticated_means_relocation",
+        "text": "Did the offense involve relocation of fraudulent scheme, substantial part committed from outside U.S., or sophisticated means?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(10)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12,
+          "description": "Relocation to evade law enforcement, substantial part from outside U.S., or sophisticated means"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "device_making_authentication_identification",
+        "text": "Did the offense involve device-making equipment, authentication features, access devices, or means of identification?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(11)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12,
+          "description": "Possession/use of device-making equipment or authentication features; production/trafficking of unauthorized/counterfeit access devices or authentication features; or unauthorized transfer/use of means of identification"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "conduct_1040",
+        "text": "Did the offense involve conduct described in 18 U.S.C. \u00a7 1040?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(12)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "social_security_ten_year_maximum",
+        "text": "Was defendant convicted under 42 U.S.C. \u00a7 408(a), \u00a7 1011(a), or \u00a7 1383a(a) with the statutory maximum of 10 years' imprisonment applicable?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(13)",
+        "yesEffect": {
+          "adjustment": 4,
+          "minimumLevel": 12
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "trade_secret_foreign",
+        "text": "Did the offense involve misappropriation of a trade secret with foreign involvement?",
+        "type": "select",
+        "reference": "\u00a72B1.1(b)(14)",
+        "options": [
+          {
+            "label": "No/Not applicable",
+            "adjustment": 0
+          },
+          {
+            "label": "Trade secret transported/transmitted out of U.S.",
+            "adjustment": 2
+          },
+          {
+            "label": "Offense to benefit foreign government/instrumentality/agent",
+            "adjustment": 4,
+            "minimumLevel": 14
+          }
+        ]
+      },
+      {
+        "id": "organized_theft_scheme",
+        "text": "Did the offense involve an organized scheme to steal or receive stolen vehicles/parts or cargo shipment goods?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(15)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 14
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "risk_death_weapon",
+        "text": "Did the offense involve conscious/reckless risk of death or serious bodily injury, or possession of a dangerous weapon?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(16)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 14
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "financial_institution_impact",
+        "text": "What was the impact on financial institutions or large organizations?",
+        "type": "select",
+        "reference": "\u00a72B1.1(b)(17)",
+        "options": [
+          {
+            "label": "No impact",
+            "adjustment": 0
+          },
+          {
+            "label": "Derived more than $1,000,000 gross receipts from financial institutions",
+            "adjustment": 2
+          },
+          {
+            "label": "Substantially jeopardized financial institution safety/soundness or endangered large organization solvency",
+            "adjustment": 4,
+            "minimumLevel": 24
+          }
+        ]
+      },
+      {
+        "id": "personal_information",
+        "text": "Did the offense involve intent to obtain personal information or unauthorized public dissemination of personal information?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(18)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "18 U.S.C. \u00a7 1030 with intent to obtain personal information, or unauthorized public dissemination of personal information"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "computer_critical_infrastructure",
+        "text": "What type of computer system was involved in the 18 U.S.C. \u00a7 1030 offense?",
+        "type": "select",
+        "reference": "\u00a72B1.1(b)(19)",
+        "options": [
+          {
+            "label": "Not applicable/No \u00a7 1030 conviction",
+            "adjustment": 0
+          },
+          {
+            "label": "Critical infrastructure or government system for justice/defense/security",
+            "adjustment": 2
+          },
+          {
+            "label": "Violation of \u00a7 1030(a)(5)(A)",
+            "adjustment": 4
+          },
+          {
+            "label": "Caused substantial disruption of critical infrastructure",
+            "adjustment": 6,
+            "minimumLevel": 24
+          }
+        ]
+      },
+      {
+        "id": "securities_commodities_professional",
+        "text": "Did the offense involve securities or commodities law violations by a professional in the field?",
+        "type": "yesno",
+        "reference": "\u00a72B1.1(b)(20)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Securities law violation by officer/director of public company, registered broker/dealer, or investment adviser; or commodities law violation by officer/director of futures commission merchant/introducing broker, commodities trading advisor, or commodity pool operator"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2B1.4": {
+    "title": "Insider Trading",
+    "section": "2B1.4",
+    "pdfReference": "Guidelines/2025/GLMFull 102.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72B1.4?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Base offense level for \u00a72B1.4"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_gain_amount",
+        "text": "What was the gain resulting from the offense?",
+        "type": "select",
+        "reference": "\u00a72B1.4(b)(1)",
+        "options": [
+          {
+            "label": "$6,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "See \u00a72B1.1 table",
+            "description": "Increase by the number of levels from the table in \u00a72B1.1 corresponding to the gain amount"
+          }
+        ]
+      },
+      {
+        "id": "soc_organized_scheme",
+        "text": "Did the offense involve an organized scheme to engage in insider trading?",
+        "type": "yesno",
+        "reference": "\u00a72B1.4(b)(2)",
+        "yesEffect": {
+          "minimumLevel": 14,
+          "description": "If the offense level determined above is less than level 14, increase to level 14"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2B1.5": {
+    "title": "Theft of, Damage to, or Destruction of, Cultural Heritage Resources or",
+    "section": "2B1.5",
+    "pdfReference": "Guidelines/2025/GLMFull 103.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve arson, or property damage by the use of any explosive, explosive material, or destructive device?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_1a",
+        "text": "Would applying \u00a72K1.4 (Arson; Property Damage by Use of Explosives) result in a greater offense level than the level determined under this guideline?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Apply \u00a72K1.4",
+          "description": "Cross reference to \u00a72K1.4 for arson or explosive damage"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Does the offense involve theft of, damage to, or destruction of cultural heritage resources or paleontological resources, or unlawful sale, purchase, exchange, transportation, or receipt of such resources?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Base offense level for cultural heritage or paleontological resource offenses"
+        },
+        "noResult": {
+          "baseLevel": 8,
+          "description": "Default base offense level under \u00a72B1.5"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "value_of_resource",
+        "text": "What was the value of the cultural heritage resource or paleontological resource?",
+        "type": "select",
+        "reference": "\u00a72B1.5(b)(1)",
+        "options": [
+          {
+            "label": "$2,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $2,500 but not more than $6,500",
+            "adjustment": 1
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "variable",
+            "description": "Increase by the number of levels from the table in \u00a72B1.1 corresponding to that amount"
+          }
+        ]
+      },
+      {
+        "id": "protected_location",
+        "text": "Was the cultural heritage resource or paleontological resource from, or prior to the offense was on, in, or in the custody of a national park system, National Historic Landmark, national monument/memorial, national marine sanctuary, national cemetery/veterans' memorial, museum, or the World Heritage List?",
+        "type": "yesno",
+        "reference": "\u00a72B1.5(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Resource from protected location"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "special_cultural_resource",
+        "text": "Did the offense involve a cultural heritage resource constituting human remains, funerary object, cultural patrimony, sacred object, cultural property, designated archaeological/ethnological material, or pre-Columbian monumental/architectural sculpture or mural?",
+        "type": "yesno",
+        "reference": "\u00a72B1.5(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Special cultural heritage resource"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "pecuniary_gain",
+        "text": "Was the offense committed for pecuniary gain or otherwise involved a commercial purpose?",
+        "type": "yesno",
+        "reference": "\u00a72B1.5(b)(4)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Pecuniary gain or commercial purpose"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "pattern_misconduct",
+        "text": "Did the defendant engage in a pattern of misconduct involving cultural heritage resources or paleontological resources?",
+        "type": "yesno",
+        "reference": "\u00a72B1.5(b)(5)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Pattern of misconduct"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "dangerous_weapon",
+        "text": "Was a dangerous weapon brandished or its use threatened?",
+        "type": "yesno",
+        "reference": "\u00a72B1.5(b)(6)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 14,
+          "description": "Dangerous weapon brandished or threatened"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2B2.1": {
+    "title": "Burglary of a Residence or a Structure Other than a Residence",
+    "section": "2B2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 109.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the structure that was burglarized a residence?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 17,
+          "description": "Burglary of a residence"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "Burglary of a structure other than a residence"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "minimal_planning",
+        "text": "Did the offense involve more than minimal planning?",
+        "type": "yesno",
+        "reference": "\u00a72B2.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "More than minimal planning"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "loss_amount",
+        "text": "What was the amount of loss?",
+        "type": "select",
+        "reference": "\u00a72B2.1(b)(2)",
+        "options": [
+          {
+            "label": "$5,000 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $5,000",
+            "adjustment": 1
+          },
+          {
+            "label": "More than $20,000",
+            "adjustment": 2
+          },
+          {
+            "label": "More than $95,000",
+            "adjustment": 3
+          },
+          {
+            "label": "More than $500,000",
+            "adjustment": 4
+          },
+          {
+            "label": "More than $1,500,000",
+            "adjustment": 5
+          },
+          {
+            "label": "More than $3,000,000",
+            "adjustment": 6
+          },
+          {
+            "label": "More than $5,000,000",
+            "adjustment": 7
+          },
+          {
+            "label": "More than $9,500,000",
+            "adjustment": 8
+          }
+        ]
+      },
+      {
+        "id": "firearm_substance_taken",
+        "text": "Was a firearm, destructive device, or controlled substance taken, or was the taking of such item an object of the offense?",
+        "type": "yesno",
+        "reference": "\u00a72B2.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 1,
+          "description": "Firearm, destructive device, or controlled substance taken or targeted"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "dangerous_weapon_possessed",
+        "text": "Was a dangerous weapon (including a firearm) possessed?",
+        "type": "yesno",
+        "reference": "\u00a72B2.1(b)(4)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Dangerous weapon possessed"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2B3.2": {
+    "title": "Extortion by Force or Threat of Injury or Serious Damage",
+    "section": "2B3.2",
+    "pdfReference": "Guidelines/2025/GLMFull 115.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72B3.2?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Base offense level for \u00a72B3.2"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "threat_of_harm",
+        "text": "Did the offense involve an express or implied threat of death, bodily injury, or kidnapping?",
+        "type": "yesno",
+        "reference": "\u00a72B3.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Express or implied threat of death, bodily injury, or kidnapping"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "loss_amount",
+        "text": "What was the greater of the amount demanded or the loss to the victim?",
+        "type": "select",
+        "reference": "\u00a72B3.2(b)(2)",
+        "options": [
+          {
+            "label": "$20,000 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $20,000",
+            "adjustment": "See \u00a72B3.1(b)(7) table",
+            "description": "Increase by corresponding levels from \u00a72B3.1(b)(7) table"
+          }
+        ]
+      },
+      {
+        "id": "weapon_use",
+        "text": "What level of weapon involvement or threat preparation occurred?",
+        "type": "select",
+        "reference": "\u00a72B3.2(b)(3)",
+        "options": [
+          {
+            "label": "No weapon or threat preparation",
+            "adjustment": 0
+          },
+          {
+            "label": "Firearm discharged",
+            "adjustment": 7
+          },
+          {
+            "label": "Firearm used to convey specific threat or make physical contact",
+            "adjustment": 6
+          },
+          {
+            "label": "Firearm brandished or possessed",
+            "adjustment": 5
+          },
+          {
+            "label": "Dangerous weapon otherwise used",
+            "adjustment": 4
+          },
+          {
+            "label": "Dangerous weapon brandished or possessed",
+            "adjustment": 3
+          },
+          {
+            "label": "Preparation to carry out threat or demonstrated ability to carry out specified threats",
+            "adjustment": 3,
+            "description": "Threat of death, serious bodily injury, kidnapping, product tampering, or damage to critical infrastructure/government computer systems"
+          }
+        ]
+      },
+      {
+        "id": "bodily_injury",
+        "text": "What degree of bodily injury did any victim sustain?",
+        "type": "select",
+        "reference": "\u00a72B3.2(b)(4)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Between bodily injury and serious bodily injury",
+            "adjustment": 3
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 4
+          },
+          {
+            "label": "Between serious bodily injury and permanent/life-threatening",
+            "adjustment": 5
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 6
+          }
+        ],
+        "note": "Cumulative adjustments from weapon use (b)(3) and bodily injury (b)(4) shall not exceed 11 levels"
+      },
+      {
+        "id": "abduction_restraint",
+        "text": "Was any person abducted or physically restrained?",
+        "type": "select",
+        "reference": "\u00a72B3.2(b)(5)",
+        "options": [
+          {
+            "label": "No abduction or restraint",
+            "adjustment": 0
+          },
+          {
+            "label": "Person abducted to facilitate offense or escape",
+            "adjustment": 4
+          },
+          {
+            "label": "Person's movement restricted through physical contact or confinement",
+            "adjustment": 2,
+            "description": "Tied, bound, locked up, etc. to facilitate offense or escape"
+          }
+        ]
+      }
+    ]
+  },
+  "2B3.3": {
+    "title": "Blackmail and Similar Forms of Extortion",
+    "section": "2B3.3",
+    "pdfReference": "Guidelines/2025/GLMFull 117.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this case involve blackmail or similar forms of extortion as defined in \u00a72B3.3?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 9,
+          "description": "Blackmail and similar forms of extortion"
+        },
+        "noResult": {
+          "baseLevel": null,
+          "description": "This guideline does not apply - refer to appropriate guideline section"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_amount",
+        "text": "What is the greater of the amount obtained or demanded?",
+        "type": "select",
+        "reference": "\u00a72B3.3(b)(1)",
+        "options": [
+          {
+            "label": "$2,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $2,500 but not more than $6,500",
+            "adjustment": 1
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "see_table",
+            "description": "Increase by the number of levels from the table in \u00a72B1.1 corresponding to that amount"
+          }
+        ]
+      }
+    ]
+  },
+  "2B4.1": {
+    "title": "Bribery in Procurement of Bank Loan and Other Commercial Bribery",
+    "section": "2B4.1",
+    "pdfReference": "Guidelines/2025/GLMFull 118.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72B4.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Base offense level for \u00a72B4.1"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "bribe_value",
+        "text": "What was the greater of the value of the bribe or the improper benefit to be conferred?",
+        "type": "select",
+        "reference": "\u00a72B4.1(b)(1)",
+        "options": [
+          {
+            "label": "$2,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $2,500 but not more than $6,500",
+            "adjustment": 1
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "use table in \u00a72B1.1 corresponding to that amount"
+          }
+        ]
+      },
+      {
+        "id": "financial_institution_receipts",
+        "text": "Did the defendant derive more than $1,000,000 in gross receipts from one or more financial institutions as a result of the offense?",
+        "type": "yesno",
+        "reference": "\u00a72B4.1(b)(2)(A)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 24,
+          "description": "If resulting level is less than 24, increase to level 24"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "financial_institution_safety",
+        "text": "Did the offense substantially jeopardize the safety and soundness of a financial institution?",
+        "type": "yesno",
+        "reference": "\u00a72B4.1(b)(2)(B)",
+        "condition": "Apply only if greater than the adjustment from subsection (b)(2)(A)",
+        "yesEffect": {
+          "adjustment": 4,
+          "minimumLevel": 24,
+          "description": "If resulting level is less than 24, increase to level 24"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2B5.3": {
+    "title": "Criminal Infringement of Copyright or Trademark",
+    "section": "2B5.3",
+    "pdfReference": "Guidelines/2025/GLMFull 123.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72B5.3?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Base offense level for \u00a72B5.3 offenses"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "infringement_amount",
+        "text": "What was the infringement amount?",
+        "type": "select",
+        "reference": "\u00a72B5.3(b)(1)",
+        "options": [
+          {
+            "label": "$2,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $2,500 but not more than $6,500",
+            "adjustment": 1
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "per_table",
+            "description": "Increase by the number of levels from the table in \u00a72B1.1 corresponding to that amount"
+          }
+        ]
+      },
+      {
+        "id": "commercial_distribution_preparation",
+        "text": "Did the offense involve the display, performance, publication, reproduction, or distribution of a work being prepared for commercial distribution?",
+        "type": "yesno",
+        "reference": "\u00a72B5.3(b)(2)",
+        "yesEffect": {
+          "adjustment": 2
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "manufacture_import_upload_circumvention",
+        "text": "Did the offense involve manufacturing, importing, or uploading infringing items, OR was defendant convicted under 17 U.S.C. \u00a7\u00a7 1201 and 1204 for trafficking in circumvention devices?",
+        "type": "yesno",
+        "reference": "\u00a72B5.3(b)(3)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 12
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "non_commercial_motive",
+        "text": "Was the offense NOT committed for commercial advantage or private financial gain?",
+        "type": "yesno",
+        "reference": "\u00a72B5.3(b)(4)",
+        "yesEffect": {
+          "adjustment": -2,
+          "minimumLevel": 8
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "counterfeit_drug",
+        "text": "Did the offense involve a drug that uses a counterfeit mark on or in connection with the drug?",
+        "type": "yesno",
+        "reference": "\u00a72B5.3(b)(5)",
+        "yesEffect": {
+          "adjustment": 2
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "risk_of_harm_or_weapon",
+        "text": "Did the offense involve conscious or reckless risk of death or serious bodily injury, OR possession of a dangerous weapon (including a firearm) in connection with the offense?",
+        "type": "yesno",
+        "reference": "\u00a72B5.3(b)(6)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 14
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "counterfeit_military_good",
+        "text": "Did the offense involve a counterfeit military good or service whose use, malfunction, or failure is likely to cause disclosure of classified information, impairment of combat operations, or other significant harm to combat operations, Armed Forces members, or national security?",
+        "type": "yesno",
+        "reference": "\u00a72B5.3(b)(7)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 14
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2B6.1": {
+    "title": "Altering or Removing Motor Vehicle Identification Numbers, or Trafficking in",
+    "section": "2B6.1",
+    "pdfReference": "Guidelines/2025/GLMFull 127.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72B6.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Base offense level for \u00a72B6.1 violations"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "retail_value",
+        "text": "What was the retail value of the motor vehicles or parts?",
+        "type": "select",
+        "reference": "\u00a72B6.1(b)(1)",
+        "options": [
+          {
+            "label": "$2,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $2,500 but not more than $6,500",
+            "adjustment": 1
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "table",
+            "description": "Increase by the number of levels from the table in \u00a72B1.1 corresponding to that amount"
+          }
+        ]
+      },
+      {
+        "id": "business_receiving_stolen",
+        "text": "Was the defendant in the business of receiving and selling stolen property?",
+        "type": "yesno",
+        "reference": "\u00a72B6.1(b)(2)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Defendant was in the business of receiving and selling stolen property"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "organized_scheme",
+        "text": "Did the offense involve an organized scheme to steal vehicles or vehicle parts, or to receive stolen vehicles or vehicle parts?",
+        "type": "yesno",
+        "reference": "\u00a72B6.1(b)(3)",
+        "yesEffect": {
+          "minimumLevel": 14,
+          "description": "Organized scheme to steal or receive stolen vehicles or vehicle parts"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,651 @@
+{
+  "2L1.1": {
+    "title": "Smuggling, Transporting, or Harboring an Unlawful Alien",
+    "section": "2L1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 261.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the defendant convicted under 8 U.S.C. \u00a7 1327 of a violation involving an alien who was inadmissible under 8 U.S.C. \u00a7 1182(a)(3)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 25,
+          "description": "Conviction under 8 U.S.C. \u00a7 1327 involving inadmissible alien under \u00a7 1182(a)(3)"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Was the defendant convicted under 8 U.S.C. \u00a7 1327 of a violation involving an alien who previously was deported after a conviction for an aggravated felony?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 23,
+          "description": "Conviction under 8 U.S.C. \u00a7 1327 involving alien previously deported after aggravated felony conviction"
+        },
+        "noResult": {
+          "baseLevel": 12,
+          "description": "All other cases"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "not_for_profit_family",
+        "text": "Was the offense committed other than for profit, OR did it involve smuggling, transporting, or harboring only the defendant's spouse or child (or both)?",
+        "type": "yesno",
+        "reference": "\u00a72L1.1(b)(1)",
+        "condition": "Only applies if the base offense level is determined under subsection (a)(3)",
+        "yesEffect": {
+          "adjustment": -3,
+          "description": "Non-profit or family-only offense with base level from (a)(3)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "number_of_aliens",
+        "text": "How many unlawful aliens were smuggled, transported, or harbored?",
+        "type": "select",
+        "reference": "\u00a72L1.1(b)(2)",
+        "options": [
+          {
+            "label": "Fewer than 6",
+            "adjustment": 0
+          },
+          {
+            "label": "6\u201324",
+            "adjustment": 3
+          },
+          {
+            "label": "25\u201399",
+            "adjustment": 6
+          },
+          {
+            "label": "100 or more",
+            "adjustment": 9
+          }
+        ]
+      },
+      {
+        "id": "prior_immigration_convictions",
+        "text": "How many prior felony immigration and naturalization convictions does the defendant have?",
+        "type": "select",
+        "reference": "\u00a72L1.1(b)(3)",
+        "condition": "Must have been sustained before committing any part of the instant offense",
+        "options": [
+          {
+            "label": "None",
+            "adjustment": 0
+          },
+          {
+            "label": "One conviction",
+            "adjustment": 2
+          },
+          {
+            "label": "Two or more convictions from separate prosecutions",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "unaccompanied_minor",
+        "text": "Did the offense involve smuggling, transporting, or harboring an unaccompanied minor?",
+        "type": "yesno",
+        "reference": "\u00a72L1.1(b)(4)",
+        "condition": "Minor was unaccompanied by parent, adult relative, or legal guardian",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Involved unaccompanied minor"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "weapon_use",
+        "text": "What was the level of weapon involvement? (Apply the greatest)",
+        "type": "select",
+        "reference": "\u00a72L1.1(b)(5)",
+        "options": [
+          {
+            "label": "No weapon involved",
+            "adjustment": 0
+          },
+          {
+            "label": "Dangerous weapon possessed",
+            "adjustment": 2,
+            "minimumLevel": 18
+          },
+          {
+            "label": "Dangerous weapon brandished or otherwise used",
+            "adjustment": 4,
+            "minimumLevel": 20
+          },
+          {
+            "label": "Firearm discharged",
+            "adjustment": 6,
+            "minimumLevel": 22
+          }
+        ]
+      },
+      {
+        "id": "substantial_risk",
+        "text": "Did the offense involve intentionally or recklessly creating a substantial risk of death or serious bodily injury?",
+        "type": "yesno",
+        "reference": "\u00a72L1.1(b)(6)",
+        "yesEffect": {
+          "adjustment": 2,
+          "minimumLevel": 18,
+          "description": "Created substantial risk of death or serious bodily injury"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "death_or_injury",
+        "text": "What was the most serious death or injury that occurred?",
+        "type": "select",
+        "reference": "\u00a72L1.1(b)(7)",
+        "options": [
+          {
+            "label": "No death or bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Bodily Injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Serious Bodily Injury",
+            "adjustment": 4
+          },
+          {
+            "label": "Permanent or Life-Threatening Bodily Injury",
+            "adjustment": 6
+          },
+          {
+            "label": "Death",
+            "adjustment": 10
+          }
+        ]
+      },
+      {
+        "id": "detention_or_harboring",
+        "text": "Which of the following applies? (Apply the greater)",
+        "type": "select",
+        "reference": "\u00a72L1.1(b)(8)",
+        "options": [
+          {
+            "label": "Neither applies",
+            "adjustment": 0
+          },
+          {
+            "label": "Alien involuntarily detained through coercion/threat or for payment after smuggling or while transported/harbored",
+            "adjustment": 2,
+            "minimumLevel": 18
+          },
+          {
+            "label": "Harboring conviction for prostitution with aggravating role (adult)",
+            "adjustment": 2,
+            "condition": "Defendant convicted of alien harboring for prostitution and receives \u00a73B1.1 adjustment"
+          },
+          {
+            "label": "Harboring conviction for prostitution with aggravating role (minor under 18)",
+            "adjustment": 6,
+            "condition": "Defendant convicted of alien harboring for prostitution and receives \u00a73B1.1 adjustment, victim under 18"
+          }
+        ]
+      },
+      {
+        "id": "bringing_in_conviction",
+        "text": "Was the defendant convicted under 8 U.S.C. \u00a7 1324(a)(4)?",
+        "type": "yesno",
+        "reference": "\u00a72L1.1(b)(9)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Convicted under 8 U.S.C. \u00a7 1324(a)(4)"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      }
+    ]
+  },
+  "2L1.2": {
+    "title": "Unlawfully Entering or Remaining in the United States",
+    "section": "2L1.2",
+    "pdfReference": "Guidelines/2025/GLMFull 264.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Before the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for a felony offense (other than an illegal reentry offense) for which the sentence imposed was five years or more?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Base level 8 + 10 level increase for pre-deportation felony with 5+ year sentence"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "After the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for a felony offense (other than an illegal reentry offense) for which the sentence imposed was five years or more?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 18,
+          "description": "Base level 8 + 10 level increase for post-deportation felony with 5+ year sentence"
+        },
+        "noNext": "base_3"
+      },
+      {
+        "id": "base_3",
+        "text": "Before the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for a felony offense (other than an illegal reentry offense) for which the sentence imposed was two years or more?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "Base level 8 + 8 level increase for pre-deportation felony with 2+ year sentence"
+        },
+        "noNext": "base_4"
+      },
+      {
+        "id": "base_4",
+        "text": "After the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for a felony offense (other than an illegal reentry offense) for which the sentence imposed was two years or more?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 16,
+          "description": "Base level 8 + 8 level increase for post-deportation felony with 2+ year sentence"
+        },
+        "noNext": "base_5"
+      },
+      {
+        "id": "base_5",
+        "text": "Before the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for a felony offense (other than an illegal reentry offense) for which the sentence imposed exceeded one year and one month?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Base level 8 + 6 level increase for pre-deportation felony with 1+ year and 1 month sentence"
+        },
+        "noNext": "base_6"
+      },
+      {
+        "id": "base_6",
+        "text": "After the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for a felony offense (other than an illegal reentry offense) for which the sentence imposed exceeded one year and one month?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 14,
+          "description": "Base level 8 + 6 level increase for post-deportation felony with 1+ year and 1 month sentence"
+        },
+        "noNext": "base_7"
+      },
+      {
+        "id": "base_7",
+        "text": "Did the defendant commit the instant offense after sustaining a conviction for a felony that is an illegal reentry offense?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Base level 8 + 4 level increase for prior illegal reentry felony conviction"
+        },
+        "noNext": "base_8"
+      },
+      {
+        "id": "base_8",
+        "text": "Before the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for any other felony offense (other than an illegal reentry offense)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Base level 8 + 4 level increase for pre-deportation other felony conviction"
+        },
+        "noNext": "base_9"
+      },
+      {
+        "id": "base_9",
+        "text": "After the defendant was ordered deported or removed from the United States for the first time, did the defendant have a conviction for any other felony offense (other than an illegal reentry offense)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 12,
+          "description": "Base level 8 + 4 level increase for post-deportation other felony conviction"
+        },
+        "noNext": "base_10"
+      },
+      {
+        "id": "base_10",
+        "text": "Did the defendant commit the instant offense after sustaining two or more convictions for misdemeanors under 8 U.S.C. \u00a7 1325(a)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Base level 8 + 2 level increase for two or more prior \u00a7 1325(a) misdemeanor convictions"
+        },
+        "noNext": "base_11"
+      },
+      {
+        "id": "base_11",
+        "text": "Before the defendant was ordered deported or removed from the United States for the first time, did the defendant have three or more convictions for misdemeanors that are crimes of violence or drug trafficking offenses?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Base level 8 + 2 level increase for pre-deportation three or more misdemeanor crimes of violence or drug trafficking"
+        },
+        "noNext": "base_12"
+      },
+      {
+        "id": "base_12",
+        "text": "After the defendant was ordered deported or removed from the United States for the first time, did the defendant have three or more convictions for misdemeanors that are crimes of violence or drug trafficking offenses?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Base level 8 + 2 level increase for post-deportation three or more misdemeanor crimes of violence or drug trafficking"
+        },
+        "noResult": {
+          "baseLevel": 8,
+          "description": "Base offense level with no enhancements"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "prior_illegal_reentry",
+        "text": "Did the defendant commit the instant offense after sustaining prior convictions for illegal reentry or unlawful entry?",
+        "type": "select",
+        "reference": "\u00a72L1.2(b)(1)",
+        "note": "Apply the Greater",
+        "options": [
+          {
+            "label": "No prior relevant convictions",
+            "adjustment": 0
+          },
+          {
+            "label": "Two or more convictions for misdemeanors under 8 U.S.C. \u00a7 1325(a)",
+            "adjustment": 2
+          },
+          {
+            "label": "One or more convictions for felony illegal reentry offense",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "criminal_conduct_before_first_removal",
+        "text": "Before the defendant was ordered deported or removed for the first time, what was the most serious criminal conduct?",
+        "type": "select",
+        "reference": "\u00a72L1.2(b)(2)",
+        "note": "Apply the Greatest",
+        "condition": "Only applies to convictions for offenses committed at age 18 or older (unless classified as adult conviction)",
+        "options": [
+          {
+            "label": "No qualifying criminal conduct",
+            "adjustment": 0
+          },
+          {
+            "label": "Three or more convictions for misdemeanor crimes of violence or drug trafficking",
+            "adjustment": 2
+          },
+          {
+            "label": "Any other felony offense (other than illegal reentry)",
+            "adjustment": 4
+          },
+          {
+            "label": "Felony offense (other than illegal reentry) with sentence exceeding 1 year 1 month",
+            "adjustment": 6
+          },
+          {
+            "label": "Felony offense (other than illegal reentry) with sentence of 2 years or more",
+            "adjustment": 8
+          },
+          {
+            "label": "Felony offense (other than illegal reentry) with sentence of 5 years or more",
+            "adjustment": 10
+          }
+        ]
+      },
+      {
+        "id": "criminal_conduct_after_first_removal",
+        "text": "After the defendant was ordered deported or removed for the first time, what was the most serious criminal conduct?",
+        "type": "select",
+        "reference": "\u00a72L1.2(b)(3)",
+        "note": "Apply the Greatest",
+        "condition": "Only applies to convictions for offenses committed at age 18 or older (unless classified as adult conviction)",
+        "options": [
+          {
+            "label": "No qualifying criminal conduct",
+            "adjustment": 0
+          },
+          {
+            "label": "Three or more convictions for misdemeanor crimes of violence or drug trafficking",
+            "adjustment": 2
+          },
+          {
+            "label": "Any other felony offense (other than illegal reentry)",
+            "adjustment": 4
+          },
+          {
+            "label": "Felony offense (other than illegal reentry) with sentence exceeding 1 year 1 month",
+            "adjustment": 6
+          },
+          {
+            "label": "Felony offense (other than illegal reentry) with sentence of 2 years or more",
+            "adjustment": 8
+          },
+          {
+            "label": "Felony offense (other than illegal reentry) with sentence of 5 years or more",
+            "adjustment": 10
+          }
+        ]
+      }
+    ]
+  },
+  "2L2.1": {
+    "title": "Trafficking in a Document Relating to Naturalization, Citizenship, or Legal",
+    "section": "2L2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 268.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is this offense covered under \u00a72L2.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 11,
+          "description": "Base offense level for offenses under \u00a72L2.1"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "non_profit_or_family",
+        "text": "Was the offense committed other than for profit, or did it involve smuggling, transporting, or harboring only the defendant's spouse or child?",
+        "type": "yesno",
+        "reference": "\u00a72L2.1(b)(1)",
+        "yesEffect": {
+          "adjustment": -3,
+          "description": "Offense committed other than for profit or involved only defendant's spouse/child"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "document_quantity",
+        "text": "How many documents or passports were involved in the offense?",
+        "type": "select",
+        "reference": "\u00a72L2.1(b)(2)",
+        "options": [
+          {
+            "label": "Fewer than 6",
+            "adjustment": 0
+          },
+          {
+            "label": "6-24 documents/passports",
+            "adjustment": 3
+          },
+          {
+            "label": "25-99 documents/passports",
+            "adjustment": 6
+          },
+          {
+            "label": "100 or more documents/passports",
+            "adjustment": 9
+          }
+        ]
+      },
+      {
+        "id": "facilitation_of_felony",
+        "text": "Did the defendant know, believe, or have reason to believe that a passport or visa was to be used to facilitate the commission of a felony offense (other than immigration law violations)?",
+        "type": "yesno",
+        "reference": "\u00a72L2.1(b)(3)",
+        "yesEffect": {
+          "adjustment": 4,
+          "description": "Passport/visa to facilitate non-immigration felony"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "immigration_convictions",
+        "text": "How many prior convictions for felony immigration and naturalization offenses does the defendant have?",
+        "type": "select",
+        "reference": "\u00a72L2.1(b)(4)",
+        "condition": "Only applies if the defendant committed any part of the instant offense after sustaining the conviction(s)",
+        "options": [
+          {
+            "label": "No prior felony immigration convictions",
+            "adjustment": 0
+          },
+          {
+            "label": "One prior felony immigration conviction",
+            "adjustment": 2
+          },
+          {
+            "label": "Two or more prior felony immigration convictions (from separate prosecutions)",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "fraudulent_passport_use",
+        "text": "Did the defendant fraudulently obtain or use a passport?",
+        "type": "select",
+        "reference": "\u00a72L2.1(b)(5)",
+        "options": [
+          {
+            "label": "No fraudulent passport use",
+            "adjustment": 0
+          },
+          {
+            "label": "Fraudulently obtained or used a foreign passport",
+            "adjustment": 2
+          },
+          {
+            "label": "Fraudulently obtained or used a United States passport",
+            "adjustment": 4
+          }
+        ]
+      }
+    ]
+  },
+  "2L2.2": {
+    "title": "Fraudulently Acquiring Documents Relating to Naturalization, Citizenship, or",
+    "section": "2L2.2",
+    "pdfReference": "Guidelines/2025/GLMFull 269.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this case involve fraudulently acquiring documents relating to naturalization, citizenship, or legal resident status for own use; false personation or fraudulent marriage by alien to evade immigration law; or fraudulently acquiring or improperly using a United States passport?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 8,
+          "description": "Base offense level for fraudulent immigration document offenses"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "Guideline does not apply to this offense"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "soc_unlawful_alien_deported",
+        "text": "Is the defendant an unlawful alien who has been deported (voluntarily or involuntarily) on one or more occasions prior to the instant offense?",
+        "type": "yesno",
+        "reference": "\u00a72L2.2(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Unlawful alien previously deported"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "soc_prior_felony_immigration_convictions",
+        "text": "How many prior felony immigration and naturalization offense convictions does the defendant have after the instant offense was committed?",
+        "type": "select",
+        "reference": "\u00a72L2.2(b)(2)",
+        "options": [
+          {
+            "label": "None",
+            "adjustment": 0
+          },
+          {
+            "label": "One conviction",
+            "adjustment": 2
+          },
+          {
+            "label": "Two or more convictions (each from separate prosecution)",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "soc_fraudulent_passport_use",
+        "text": "Did the defendant fraudulently obtain or use a passport?",
+        "type": "select",
+        "reference": "\u00a72L2.2(b)(3)",
+        "options": [
+          {
+            "label": "No passport fraud",
+            "adjustment": 0
+          },
+          {
+            "label": "Fraudulently obtained or used a foreign passport",
+            "adjustment": 2
+          },
+          {
+            "label": "Fraudulently obtained or used a United States passport",
+            "adjustment": 4
+          }
+        ]
+      },
+      {
+        "id": "soc_human_rights_concealment",
+        "text": "Did the defendant commit any part of the instant offense to conceal involvement in human rights offenses?",
+        "type": "select",
+        "reference": "\u00a72L2.2(b)(4)",
+        "options": [
+          {
+            "label": "No concealment of human rights involvement",
+            "adjustment": 0
+          },
+          {
+            "label": "To conceal membership/authority in military/paramilitary/police organization involved in serious human rights offense",
+            "adjustment": 2,
+            "minimumLevel": 13
+          },
+          {
+            "label": "To conceal participation in incitement to genocide",
+            "adjustment": 6
+          },
+          {
+            "label": "To conceal participation in other serious human rights offense",
+            "adjustment": 10,
+            "minimumLevel": 25
+          }
+        ]
+      }
+    ]
+  }
+}

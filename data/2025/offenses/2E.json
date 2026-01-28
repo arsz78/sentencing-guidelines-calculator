@@ -1,0 +1,301 @@
+{
+  "2E1.1": {
+    "title": "Unlawful Conduct Relating to Racketeer Influenced and Corrupt",
+    "section": "2E1.1",
+    "pdfReference": "Guidelines/2025/GLMFull 189.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is there an underlying racketeering activity with a determinable offense level?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noResult": {
+          "baseLevel": 19,
+          "description": "Base level 19 (no underlying racketeering activity)"
+        }
+      },
+      {
+        "id": "base_1a",
+        "text": "After applying Chapter Three Parts A, B, C, and D to both the underlying racketeering activity offense level and base level 19, does the underlying racketeering activity result in a greater offense level than 19?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "underlying",
+          "description": "Offense level applicable to the underlying racketeering activity (greater than 19)"
+        },
+        "noResult": {
+          "baseLevel": 19,
+          "description": "Base level 19 (underlying racketeering activity does not exceed 19)"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2E1.3": {
+    "title": "Violent Crimes in Aid of Racketeering Activity",
+    "section": "2E1.3",
+    "pdfReference": "Guidelines/2025/GLMFull 190.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is there an underlying crime of violence or other unlawful activity in respect to which the travel or transportation was undertaken?",
+        "type": "yesno",
+        "yesNext": "base_2",
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base level 6 when no underlying offense"
+        }
+      },
+      {
+        "id": "base_2",
+        "text": "Is the offense level applicable to the underlying crime of violence or other unlawful activity (after applying Chapter Three adjustments) greater than 6?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "underlying",
+          "description": "Use the offense level applicable to the underlying crime of violence or other unlawful activity"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Base level 6 when underlying offense level is 6 or less"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2E2.1": {
+    "title": "Making or Financing an Extortionate Extension of Credit; Collecting an",
+    "section": "2E2.1",
+    "pdfReference": "Guidelines/2025/GLMFull 192.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does this offense fall under \u00a72E2.1?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 20,
+          "description": "Base offense level for \u00a72E2.1 violations"
+        },
+        "noResult": {
+          "baseLevel": 0,
+          "description": "This guideline does not apply"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "weapon_use",
+        "text": "What was the level of weapon involvement?",
+        "type": "select",
+        "reference": "\u00a72E2.1(b)(1)",
+        "options": [
+          {
+            "label": "No weapon involved",
+            "adjustment": 0
+          },
+          {
+            "label": "Dangerous weapon (including firearm) brandished or possessed",
+            "adjustment": 3
+          },
+          {
+            "label": "Dangerous weapon used to convey specific threat or make physical contact",
+            "adjustment": 4
+          },
+          {
+            "label": "Firearm discharged",
+            "adjustment": 5
+          }
+        ]
+      },
+      {
+        "id": "bodily_injury",
+        "text": "What was the degree of bodily injury to any victim?",
+        "type": "select",
+        "reference": "\u00a72E2.1(b)(2)",
+        "options": [
+          {
+            "label": "No bodily injury",
+            "adjustment": 0
+          },
+          {
+            "label": "Bodily injury",
+            "adjustment": 2
+          },
+          {
+            "label": "Injury between bodily injury and serious bodily injury",
+            "adjustment": 3
+          },
+          {
+            "label": "Serious bodily injury",
+            "adjustment": 4
+          },
+          {
+            "label": "Injury between serious bodily injury and permanent/life-threatening injury",
+            "adjustment": 5
+          },
+          {
+            "label": "Permanent or life-threatening bodily injury",
+            "adjustment": 6
+          }
+        ],
+        "specialRule": "Combined increase from weapon use and bodily injury shall not exceed 9 levels"
+      },
+      {
+        "id": "abduction_restraint",
+        "text": "Was there any abduction or restraint of persons?",
+        "type": "select",
+        "reference": "\u00a72E2.1(b)(3)",
+        "options": [
+          {
+            "label": "No abduction or restraint",
+            "adjustment": 0
+          },
+          {
+            "label": "Person's freedom restricted through physical contact/confinement",
+            "adjustment": 2
+          },
+          {
+            "label": "Person abducted to facilitate offense or escape",
+            "adjustment": 4
+          }
+        ]
+      }
+    ]
+  },
+  "2E4.1": {
+    "title": "Unlawful Conduct Relating to Contraband Cigarettes and Smokeless",
+    "section": "2E4.1",
+    "pdfReference": "Guidelines/2025/GLMFull 195.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Is there a specific amount of tax evaded that can be determined?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noResult": {
+          "baseLevel": 9,
+          "description": "Default base offense level when tax amount cannot be determined"
+        }
+      },
+      {
+        "id": "base_1a",
+        "text": "Using the Tax Table in \u00a72T4.1, does the amount of tax evaded correspond to an offense level greater than 9?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "Tax Table Level",
+          "description": "Offense level from \u00a72T4.1 Tax Table corresponding to the amount of tax evaded (apply the greater of this level or 9)"
+        },
+        "noResult": {
+          "baseLevel": 9,
+          "description": "Default base offense level of 9 applies when Tax Table level is 9 or lower"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  },
+  "2E5.1": {
+    "title": "Offering, Accepting, or Soliciting a Bribe or Gratuity Affecting the Operation",
+    "section": "2E5.1",
+    "pdfReference": "Guidelines/2025/GLMFull 196.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Does the offense involve a bribe (a payment made corruptly to influence an official act)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 10,
+          "description": "Bribe offense"
+        },
+        "noNext": "base_2"
+      },
+      {
+        "id": "base_2",
+        "text": "Does the offense involve a gratuity (a payment for or because of an official act)?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": 6,
+          "description": "Gratuity offense"
+        },
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default gratuity level"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": [
+      {
+        "id": "fiduciary_status",
+        "text": "Was the defendant a fiduciary of the benefit plan or labor organization?",
+        "type": "yesno",
+        "reference": "\u00a72E5.1(b)(1)",
+        "yesEffect": {
+          "adjustment": 2,
+          "description": "Defendant was a fiduciary"
+        },
+        "noEffect": {
+          "adjustment": 0
+        }
+      },
+      {
+        "id": "payment_value",
+        "text": "What was the value of the prohibited payment or improper benefit to the payer (whichever is greater)?",
+        "type": "select",
+        "reference": "\u00a72E5.1(b)(2)",
+        "options": [
+          {
+            "label": "$2,500 or less",
+            "adjustment": 0
+          },
+          {
+            "label": "More than $2,500 but not more than $6,500",
+            "adjustment": 1
+          },
+          {
+            "label": "More than $6,500",
+            "adjustment": "table_2b1_1",
+            "description": "Increase by the number of levels from the table in \u00a72B1.1 corresponding to that amount"
+          }
+        ]
+      }
+    ]
+  },
+  "2E5.3": {
+    "title": "False Statements and Concealment of Facts in Relation to Documents",
+    "section": "2E5.3",
+    "pdfReference": "Guidelines/2025/GLMFull 197.pdf",
+    "baseOffenseQuestions": [
+      {
+        "id": "base_1",
+        "text": "Was the offense committed to facilitate or conceal another offense involving theft, fraud, embezzlement, bribe, gratuity, or obstruction of justice?",
+        "type": "yesno",
+        "yesNext": "base_1a",
+        "noResult": {
+          "baseLevel": 6,
+          "description": "Default base offense level"
+        }
+      },
+      {
+        "id": "base_1a",
+        "text": "Was the underlying offense that was facilitated or concealed involving theft, fraud, or embezzlement?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72B1.1",
+          "description": "Apply \u00a72B1.1 (Theft, Property Destruction, and Fraud)"
+        },
+        "noNext": "base_1b"
+      },
+      {
+        "id": "base_1b",
+        "text": "Was the underlying offense that was facilitated or concealed involving a bribe or gratuity?",
+        "type": "yesno",
+        "yesResult": {
+          "baseLevel": "\u00a72E5.1",
+          "description": "Apply \u00a72E5.1 (Offering, Accepting, or Soliciting a Bribe or Gratuity)"
+        },
+        "noResult": {
+          "baseLevel": "Obstruction",
+          "description": "Apply applicable obstruction of justice offense guideline"
+        }
+      }
+    ],
+    "specificOffenseCharacteristics": []
+  }
+}

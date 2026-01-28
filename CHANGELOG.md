@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.0.3] - 2026-01-27
+
+### Added
+- **Comprehensive Chapter 2 Offense Coverage**: Expanded from 1 to 98 offense guidelines across all 18 chapters
+  - **2A** - Offenses Against the Person (15 guidelines)
+  - **2B** - Offenses Involving Property (10 guidelines)
+  - **2C** - Offenses Involving Public Officials (4 guidelines)
+  - **2D** - Drug Offenses (10 guidelines)
+  - **2E** - Offenses Involving Criminal Enterprises (6 guidelines)
+  - **2G** - Offenses Involving Commercial Sex Acts and Sexual Exploitation of Minors (6 guidelines)
+  - **2H** - Offenses Involving Individual Rights (5 guidelines)
+  - **2J** - Offenses Involving the Administration of Justice (5 guidelines)
+  - **2K** - Firearms Offenses (10 guidelines)
+  - **2L** - Immigration Offenses (4 guidelines)
+  - **2M** - Offenses Involving National Defense and Weapons of Mass Destruction (7 guidelines)
+  - **2N** - Offenses Involving Food, Drugs, Agricultural Products, Consumer Products (2 guidelines)
+  - **2P** - Offenses Involving Prisons and Correctional Facilities (3 guidelines)
+  - **2Q** - Offenses Involving the Environment (4 guidelines)
+  - **2R** - Antitrust Offenses (1 guideline)
+  - **2S** - Money Laundering and Monetary Transaction Reporting (2 guidelines)
+  - **2T** - Tax, Money Laundering, and Certain Other Offenses (7 guidelines)
+  - **2X** - Other Offenses (7 guidelines)
+
+### Changed
+- **Architecture Evolution**: Reorganized data structure for scalability
+  - Year-based directory structure (`data/{year}/`)
+  - Chapter-based offense files (`offenses/2A.json`, `offenses/2B.json`, etc.)
+  - Build system now merges all chapter files and supports multiple guideline years
+  - Single template file (`data/TEMPLATE.json`) documents all field types for contributors
+
+### Technical
+- Automated parsing from PDF source guidelines (71% success rate)
+- Build output now includes 98 offense guidelines (up from 1)
+- Calculator size: 338 KB (fully standalone)
+
 ## [0.0.2] - 2026-01-27
 
 ### Added
